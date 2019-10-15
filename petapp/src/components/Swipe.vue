@@ -2,7 +2,7 @@
     <div class="swipeStyle">
         <van-swipe :width="400" :autoplay="3000" indicator-color="white">
           <van-swipe-item v-for="(image, index) of images" :key="index" >
-            <img :src="require(`../assets/${image}`)" class="imgstyle"/>
+            <img :src="require(`../assets/${image}`)" class="imgstyle" fit="contain"/>
           </van-swipe-item>
         </van-swipe>
     </div>
