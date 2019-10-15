@@ -5,11 +5,17 @@ import Home from './views/Home.vue'
 import Login from './views/Login.vue'
 // 引入发布动态组件
 import Addstory from './views/Addstory.vue'
+//引入宠物信息列表组件
+import Petlist from './views/Petlist.vue'
+//引入宠物详细信息组件
+import Petmessage from './views/Petmessage.vue'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:'/Petmessage',component:Petmessage},
+    {path:'/Petlist',component:Petlist},
     {path:'/Addstory',component:Addstory},
     {path:'/login',component:Login},
     {
