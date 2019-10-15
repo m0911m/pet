@@ -6,9 +6,9 @@
 
         <!-- 输入文本 -->
         <van-cell-group>
-            <van-field v-model="value" placeholder="标题"/>
-            <van-field v-model="value" placeholder="副标题" style="font-size:12px"/>
-            <van-field v-model="value" placeholder="讲述我和它们的故事......"/>
+            <van-field v-model="title" placeholder="标题"/>
+            <van-field v-model="subtitle" placeholder="副标题" style="font-size:12px"/>
+            <van-field v-model="article" placeholder="讲述我和它们的故事......"/>
         </van-cell-group>
 
         <!-- 上传文件 -->
@@ -26,25 +26,32 @@
     </div>
 </template>
 <script>
-    export default {
-    methods: {
-        onClickLeft() {
-        console.log("返回");
+    export default {  
+        data(){
+            return {
+                title:"",
+                subtitle:"",
+                article:"",
+                fileList:[],
+            }
         },
-        onClickRight() {
-        console.log("发布");
+        methods: {
+            onClickLeft() {
+            console.log("返回");
+            },
+            onClickRight() {
+            console.log("发布");
+            // 点击发布，将动态存到数据库, 标题，副标题，文章，图片
+            // console.log(this.title);
+            // console.log(this.subtitle);
+            // console.log(this.article);
+            // console.log(this.fileList);
+            },
+            position(){
+                console.log("定位");
+            },            
         },
-        position(){
-            console.log("定位");
-        }
         
-    },
-    data(){
-        return {
-            value:"",
-            fileList:[],
-        }
-    }
 }
 </script>
 <style scoped>
