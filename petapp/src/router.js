@@ -10,7 +10,7 @@ import Petlist from './views/Petlist.vue'
 //引入宠物详细信息组件
 import Petmessage from './views/Petmessage.vue'
 // 引入轮播图组件
-import Swipe from './views/Swipe.vue'
+import Swipe from './components/Swipe.vue'
 
 Vue.use(Router)
 
