@@ -13,17 +13,20 @@ import Petmessage from './views/Petmessage.vue'
 import Swipe from './components/Swipe.vue'
 // 引入动态组件
 import Newstory from './views/Newstory.vue'
+// 引入注册组件
+import Register from './views/Register'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:'/Register',comment:Register},
     {path:'/Newstory',component:Newstory},
     {path:'/Swipe',component:Swipe},
     {path:'/Petmessage',component:Petmessage},
     {path:'/Petlist',component:Petlist},
     {path:'/Addstory',component:Addstory},
-    {path:'/login',component:Login},
+    {path:'/Login',component:Login},
     {
       path: '/',
       name: 'home',

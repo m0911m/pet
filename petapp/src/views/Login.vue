@@ -10,7 +10,7 @@
     </van-cell-group>
     <div class="textstyle">
     <span>您还没有账号?
-      <router-link to="">注册</router-link>
+      <router-link class="jumpstyle" to="{path:'/Register'}">注册</router-link>
       </span>
     </div>
   </div>
@@ -50,14 +50,14 @@ export default {
         return;
       }
       // 发送ajax请求
-      var url=""
-      var obj={unam:n,upwd:u}
-      this.axios.get(
-        url,
-        {params:obj}
-      ).then(res=>{
+      // var url=""
+      // var obj={unam:n,upwd:u}
+      // this.axios.get(
+      //   url,
+      //   {params:obj}
+      // ).then(res=>{
 
-      })
+      // })
     }
   }
 }
@@ -86,11 +86,11 @@ export default {
   
 }
 .textstyle{
-  color:#ff0;
+  color:#0ff;
   font-weight:bold;
 }
-{
-  color:white;
+.jumpstyle{
+  color:#ff0;
 }
 .van-cell-group{
   background-color:rgba(0,0,0,0);
