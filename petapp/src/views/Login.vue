@@ -8,6 +8,11 @@
       <van-button class="loginstyle" @click="login">登录</van-button>
       <van-popup v-model="show" position="top">{{msg}}</van-popup>
     </van-cell-group>
+    <div class="textstyle">
+    <span>您还没有账号?
+      <router-link to="">注册</router-link>
+      </span>
+    </div>
   </div>
 </template>
 <script>
@@ -73,12 +78,19 @@ export default {
   margin:1rem 0rem 0;
 }
 .loginstyle{
-  margin:1rem 0 11rem;
+  margin:1rem 0 10rem;
   width:40%;
   height:2rem;
   line-height: 2rem;
   background:rgba(0,0,0,0)
   
+}
+.textstyle{
+  color:#ff0;
+  font-weight:bold;
+}
+{
+  color:white;
 }
 .van-cell-group{
   background-color:rgba(0,0,0,0);
