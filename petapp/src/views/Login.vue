@@ -1,10 +1,11 @@
 <template>
-  <div>
-    <van-image width="100" height="100" :src="require('../../public/imgs/logo.jpg')"/>
+  <div class="login">
+    <!-- logo图片 -->
+    <van-image width="80" class="logostyle" :src="require('../../public/imgs/logo.jpg')"/>
     <van-cell-group>
-      <van-field v-model="uname" label="用户名:" clearable placeholder="请输入手机号"></van-field>
-      <van-field v-model="upwd" label="密码:" clearable type="password" :attr="{autofocus:true}" placeholder="请输入密码"></van-field>
-      <van-button @click="login">登录</van-button>
+      <van-field class="unamestyle" v-model="uname" label="用户名:" clearable placeholder="请输入手机号"></van-field>
+      <van-field class="upwdstyle" v-model="upwd" label="密码:" clearable type="password" :attr="{autofocus:true}" placeholder="请输入密码"></van-field>
+      <van-button class="loginstyle" @click="login">登录</van-button>
       <van-popup v-model="show" position="top">{{msg}}</van-popup>
     </van-cell-group>
   </div>
@@ -43,10 +44,43 @@ export default {
         this.show=true;
         return;
       }
+      // 发送ajax请求
+      var url=""
+      var obj={unam:n,upwd:u}
+      this.axios.get(
+        url,
+        {params:obj}
+      ).then(res=>{
+
+      })
     }
   }
 }
 </script>
 <style scoped>
+.login{
+  width:100%;
+  padding-top:5rem;
+  padding-bottom:6.25rem;
+  background: url('../../public/imgs/login_bg.jpg') no-repeat;
+  background-size:cover;
+}
 
+.unamestyle{
+  margin:4rem 0rem 0;
+}
+.upwdstyle{
+  margin:1rem 0rem 0;
+}
+.loginstyle{
+  margin:1rem 0 11rem;
+  width:40%;
+  height:2rem;
+  line-height: 2rem;
+  background:rgba(0,0,0,0)
+  
+}
+.van-cell-group{
+  background-color:rgba(0,0,0,0);
+}
 </style>
