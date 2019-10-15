@@ -9,11 +9,14 @@ import Addstory from './views/Addstory.vue'
 import Petlist from './views/Petlist.vue'
 //引入宠物详细信息组件
 import Petmessage from './views/Petmessage.vue'
+// 引入轮播图组件
+import Swipe from './views/Swipe.vue'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:'/Swipe',component:Swipe},
     {path:'/Petmessage',component:Petmessage},
     {path:'/Petlist',component:Petlist},
     {path:'/Addstory',component:Addstory},
