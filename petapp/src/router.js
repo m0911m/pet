@@ -11,11 +11,14 @@ import Petlist from './views/Petlist.vue'
 import Petmessage from './views/Petmessage.vue'
 // 引入轮播图组件
 import Swipe from './components/Swipe.vue'
+// 引入动态组件
+import Newstory from './views/Newstory.vue'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:'/Newstory',component:Newstory},
     {path:'/Swipe',component:Swipe},
     {path:'/Petmessage',component:Petmessage},
     {path:'/Petlist',component:Petlist},
