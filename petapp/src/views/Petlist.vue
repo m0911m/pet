@@ -10,7 +10,7 @@
       </div>
       <div>
         <router-link  to="/Petmessage">
-          <van-icon name="plus" />
+          <van-icon name="add-o" />
         </router-link>
       </div>
     </div>
