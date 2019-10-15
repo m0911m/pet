@@ -26,11 +26,13 @@ CREATE TABLE cw_animal(
   animal_img VARCHAR(128) #宠物头像
 );
 /**发布动态信息内容表**/
-#CREATE TABLE cw_text{
+CREATE TABLE cw_text(
 
-#}
+);
+
+
 /**###########################**/
 /**数据导入**/
 /**用户信息**/
 INSERT INTO cw_user VALUES
-(null,'tom','12345678','13370358620','-1','','工程师','西安');
+(null,'tom','12345678','13370358620','0'','','工程师','西安');

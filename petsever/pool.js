@@ -4,7 +4,7 @@ var pool=mysql.createPool({
 	user:"root",
 	password:"",
 	port:3306,
-	database:"xz",
+	database:"cw",
 	connectionLimit:15
 })
 //导出连接池对象
