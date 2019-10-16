@@ -2,15 +2,15 @@
   <div class="login">
     <!-- logo图片 -->
     <van-image width="80" class="logostyle" :src="require('../../public/imgs/logo.jpg')"/>
-    <van-cell-group>
-      <van-field class="unamestyle" v-model="uname" label="用户名:" clearable placeholder="请输入手机号"></van-field>
-      <van-field class="upwdstyle" v-model="upwd" label="密码:" clearable type="password" :attr="{autofocus:true}" placeholder="请输入密码"></van-field>
+    <van-cell-group class="inputstyle">
+    <van-field class="unamestyle" v-model="uname" label="用户名:" clearable placeholder="请输入用户名/手机号"></van-field>
+    <van-field class="upwdstyle" v-model="upwd" label="密码:" clearable type="password" :attr="{autofocus:true}" placeholder="请输入密码"></van-field>
       <van-button class="loginstyle" @click="login">登录</van-button>
       <van-popup v-model="show" position="top">{{msg}}</van-popup>
     </van-cell-group>
     <div class="textstyle">
     <span>您还没有账号?
-      <router-link class="jumpstyle" to="{path:'/Register'}">注册</router-link>
+      <router-link class="jumpstyle" :to="{path:'/Register'}">注册</router-link>
       </span>
     </div>
   </div>
@@ -50,14 +50,14 @@ export default {
         return;
       }
       // 发送ajax请求
-      // var url=""
-      // var obj={unam:n,upwd:u}
-      // this.axios.get(
-      //   url,
-      //   {params:obj}
-      // ).then(res=>{
+      var url=""
+      var obj={unam:n,upwd:u}
+      this.axios.post(
+        url,
+        {params:obj}
+      ).then(res=>{
 
-      // })
+      })
     }
   }
 }
@@ -65,17 +65,18 @@ export default {
 <style scoped>
 .login{
   width:100%;
-  padding-top:5rem;
+  text-align: center;
+  box-sizing: border-box;
+  padding-top:3.55rem;
   padding-bottom:6.25rem;
   background: url('../../public/imgs/login_bg.jpg') no-repeat;
   background-size:cover;
 }
-
 .unamestyle{
-  margin:4rem 0rem 0;
+  margin-top:4rem;
 }
 .upwdstyle{
-  margin:1rem 0rem 0;
+  margin-top:1rem;
 }
 .loginstyle{
   margin:1rem 0 10rem;
