@@ -7,10 +7,9 @@ var router=express.Router();
 // 一、用户登录模块
 router.post("/login",(req,res)=>{
 	var uname=req.body.uname;
-	var uphone=req.body.uphone;
 	var upwd=req.body.upwd;
 	var sql="SELECT uid FROM cw_user WHERE uname=? OR uphone=? AND upwd=?";
-	pool.query(sql,[uname,uphone,upwd],(err,result)=>{
+	pool.query(sql,[uname,uname,upwd],(err,result)=>{
 		if(err)throw err;
 		if(result.length==0){
 			res.send({code:-1,msg:"用户名或密码有误"})
@@ -22,6 +21,20 @@ router.post("/login",(req,res)=>{
 })
 
 //二、用户注册模块
+//2.1用户注册验证用户名手机号是否可用
+router.get("/isreg",(req,res)=>{
+	var uname=req.query.uname;
+	var sql="SELECT uid FROM cw_user WHERE uname=? OR uphone=?";
+	pool.query(sql,[uname,uname],(err,result)=>{
+		if(err)throw err;
+		if(result.length>0){
+			res.send({code:-1,msg:"用户名或手机号被注册过"})
+		}else{
+			res.send({code:1,msg:"可以注册"})
+		}
+	})
+})
+//2.2注册接口
 router.post("/reg",(req,res)=>{
 	var obj=req.body;
 	var sql="INSERT INTO cw_user SET ?";
