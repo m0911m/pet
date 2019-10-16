@@ -3,22 +3,26 @@
         <!-- 一条动态 -->
         <div class="story" v-for="(item,i) of lists" :key="i">
             <!-- 上面的图片 -->
-            <img :src="require(`../assets/${item.pic}`)" alt="" class="imgstory">
+            <van-image
+                width="10rem"
+                height="10rem"
+                fit="fill"
+                radius="20px"
+                :src="require(`../assets/${item.pic}`)"/>
             <div class="user">
                 <!--左侧 用户头像 -->
                 <img :src="require(`../assets/${item.u_pic}`)" alt="" class="imguser">
                 <!-- 右侧 用户名称 -->
-                <div>
+                <div class="usertxt">
                     <!-- 用户昵称 -->
                     <span class="uname">{{item.uname}}</span>
                     <div class="down">
                         <!-- 地址 -->
                         <span class="local">{{item.local}}</span>
-                        <!-- 点赞 -->
-                        <div>
-                            <button><van-icon name="like-o" /></button>
-                            <span>{{item.count}}</span>
-                        </div>
+                        <!-- 点赞 -->    
+                        <img src="../assets/heart.png" alt="" class="heart">
+                        <img src="../assets/heart_red.png" alt="" class="heart_red">
+                        <span>{{item.count}}</span> 
                     </div>   
                 </div> 
             </div>   
@@ -43,47 +47,43 @@ export default {
 }
 </script>
 <style scoped>
-    .newstory{
+   .newstory{
         display: flex;
-        flex-wrap: wrap;
-        
-    }
+        flex-wrap: wrap;       
+    } 
     .story{
         width: 50%;
-        height:250px;
+        margin:5px 0;
+    }
+    
+    .user{
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
-    }
-    .imgstory{
-        width:90%;
-        height:auto;
-    }
-    .user{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         margin-left:0;
     }
-    .uname{text-align: left;}
     .imguser{
-        width:50px;
-        height:50px;
+        width:40px;
+        height:40px;
         border-radius: 50%;
         margin-left:0;
     }
+    .uname{font-size: 12px;color:#000}
+
     .down{
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
+        margin-bottom:5px;
     }
     .local{
-        font-size:12px;
+        font-size:10px;
+        color:#aaa;
     }
     button{
         background:#fff;
         border:0;
     }
-    
+    .heart{width:20px;height:20px}
+    .heart_red{display:none}
 </style>
