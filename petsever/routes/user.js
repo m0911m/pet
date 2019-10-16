@@ -5,11 +5,12 @@ const pool=require('../pool.js');
 //创建路由器对象
 var router=express.Router();
 // 一、用户登录模块
-router.get("/login",(req,res)=>{
-	var uname=req.query.uname;
-	var upwd=req.query.upwd;
-	var sql="SELECT uid FROM cw_user WHERE uname=? AND upwd=?";
-	pool.query(sql,[uname,upwd],(err,result)=>{
+router.post("/login",(req,res)=>{
+	var uname=req.body.uname;
+	var uphone=req.body.uphone;
+	var upwd=req.body.upwd;
+	var sql="SELECT uid FROM cw_user WHERE uname=? OR uphone=? AND upwd=?";
+	pool.query(sql,[uname,uphone,upwd],(err,result)=>{
 		if(err)throw err;
 		if(result.length==0){
 			res.send({code:-1,msg:"用户名或密码有误"})
