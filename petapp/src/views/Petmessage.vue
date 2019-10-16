@@ -24,13 +24,19 @@
       </div>
       <hr>
       <!-- 2.2昵称 -->
-      <div class="divflex msgpadding">
+      <div class="divflex msgpadding" @click="showPop">
         <div>昵称</div>
         <div class="divright">
           <span>未填写</span>
           <span>&gt;</span>
         </div>
       </div>
+      <!-- 弹出层输入昵称 -->
+      <van-popup v-model="show" position="top">
+        <van-cell-group>
+          <van-field placeholder="请输入昵称" />
+        </van-cell-group>
+      </van-popup>
       <hr>
       <!-- 2.3宠物类型 -->
       <div class="divflex msgpadding">
@@ -121,14 +127,25 @@
       </div>
     </div>
     <!-- 宠物简介 -->
-    <div>
-
+    <div>宠物简介</div>
+    <div class="msgdetail">
+      <div class="textleft">宠物简介</div>
+      <div>
+        <textarea cols="36" rows="8" placeholder="这是我的宠物"></textarea>
+      </div>
     </div>
   </div>
 </template>
 <script>
 export default {
-
+  data(){
+    return{show:false}
+  },
+  methods: {
+    showPop(){
+      this.show=true;
+    }
+  },
 }
 </script>
 <style scoped>
