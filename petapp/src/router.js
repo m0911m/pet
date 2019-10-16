@@ -14,6 +14,8 @@ import Swipe from './components/Swipe.vue'
 import Newstory from './views/Newstory.vue'
 // 引入注册组件
 import Register from './views/Register.vue'
+// 引入动态详情组件
+import Detailstory from './views/Detailstory.vue'
 
 
 
@@ -23,7 +25,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-
+    {path:'/Detailstory',component:Detailstory},
     {path:'/Register',component:Register},
     {path:'/Newstory',component:Newstory},
     {path:'/Swipe',component:Swipe},
