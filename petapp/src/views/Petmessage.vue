@@ -2,12 +2,15 @@
   <div>
     <!-- 1.列表头部 -->
     <div class="divflex msgpadding">
+      <!-- 1.1左边 返回 -->
       <div>
         <van-icon name="arrow-left" />
       </div>
+      <!-- 1.2标题 -->
       <div>
         添加宠物
       </div>
+      <!-- 1.3右边 保存 -->
       <div>
         <router-link  to="/Petlist" class="headerright">
           保存
@@ -34,12 +37,12 @@
       <!-- 弹出层输入昵称 -->
       <van-popup v-model="show" position="top">
         <van-cell-group>
-          <van-field placeholder="请输入昵称" />
+          <van-field v-model="value" placeholder="请输入昵称" />
         </van-cell-group>
       </van-popup>
       <hr>
       <!-- 2.3宠物类型 -->
-      <div class="divflex msgpadding">
+      <div class="divflex msgpadding" @click="jumpkind">
         <div>宠物类型</div>
         <div class="divright">
           <span>未填写</span>
@@ -126,10 +129,11 @@
         </div>
       </div>
     </div>
-    <!-- 宠物简介 -->
+    <!--4. 宠物简介 -->
     <div>宠物简介</div>
     <div class="msgdetail">
       <div class="textleft">宠物简介</div>
+      <!-- 简介输入框 -->
       <div>
         <textarea cols="36" rows="8" placeholder="这是我的宠物"></textarea>
       </div>
@@ -139,9 +143,15 @@
 <script>
 export default {
   data(){
-    return{show:false}
+    return{
+      show:false,
+      value:""
+      }
   },
   methods: {
+    jumpkind(){
+      this.$router.push("/Kind");
+    },
     showPop(){
       this.show=true;
     }

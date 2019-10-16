@@ -14,6 +14,8 @@ import Swipe from './components/Swipe.vue'
 import Newstory from './views/Newstory.vue'
 // 引入注册组件
 import Register from './views/Register.vue'
+//引入宠物品种组件
+import Kind from './views/Kind.vue'
 
 
 
@@ -23,7 +25,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-
+    {path:'/Kind',component:Kind},
     {path:'/Register',component:Register},
     {path:'/Newstory',component:Newstory},
     {path:'/Swipe',component:Swipe},
