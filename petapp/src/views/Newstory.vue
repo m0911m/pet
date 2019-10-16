@@ -8,10 +8,10 @@
                 height="10rem"
                 fit="fill"
                 radius="20px"
-                :src="require(`../assets/${item.pic}`)"/>
+                :src="require(`../../public/imgs/${item.pic}`)"/>
             <div class="user">
                 <!--左侧 用户头像 -->
-                <img :src="require(`../assets/${item.u_pic}`)" alt="" class="imguser">
+                <img :src="require(`../../public/imgs/${item.u_pic}`)" alt="" class="imguser">
                 <!-- 右侧 用户名称 -->
                 <div class="usertxt">
                     <!-- 用户昵称 -->
@@ -20,8 +20,8 @@
                         <!-- 地址 -->
                         <span class="local">{{item.local}}</span>
                         <!-- 点赞 -->    
-                        <img src="../assets/heart.png" alt="" class="heart">
-                        <img src="../assets/heart_red.png" alt="" class="heart_red">
+                        <img src="../../public/imgs/heart.png" alt="" class="heart">
+                        <img src="../../public/imgs/heart_red.png" alt="" class="heart_red">
                         <span>{{item.count}}</span> 
                     </div>   
                 </div> 
