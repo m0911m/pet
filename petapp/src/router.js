@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
 // 引入登录组件
 import Login from './views/Login.vue'
 // 引入发布动态组件
@@ -14,31 +13,23 @@ import Swipe from './components/Swipe.vue'
 // 引入动态组件
 import Newstory from './views/Newstory.vue'
 // 引入注册组件
-import Register from './views/Register'
+import Register from './views/Register.vue'
+
+
+
+
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    {path:'/Register',comment:Register},
+
+    {path:'/Register',component:Register},
     {path:'/Newstory',component:Newstory},
     {path:'/Swipe',component:Swipe},
     {path:'/Petmessage',component:Petmessage},
     {path:'/Petlist',component:Petlist},
     {path:'/Addstory',component:Addstory},
-    {path:'/Login',component:Login},
-    {
-      path: '/',
-      name: 'home',
-      component: Home
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    }
+    {path:'/Login',component:Login}
   ]
 })
