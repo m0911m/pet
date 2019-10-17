@@ -19,6 +19,8 @@ import Kind from './views/Kind.vue'
 // 引入动态详情组件
 import Detailstory from './views/Detailstory.vue'
 
+import Tabber from './components/Tabber.vue'
+
 
 
 
@@ -27,6 +29,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:'/Tabber',component:Tabber},
     {path:'/Kind',component:Kind},
     {path:'/Detailstory',component:Detailstory},
     {path:'/Register',component:Register},
