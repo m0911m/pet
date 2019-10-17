@@ -9,6 +9,7 @@ const session=require("express-session");
 //引入cors模块
 const cors=require("cors");
 
+
 //使用express模块
 var app=express();
 //监听端口
@@ -43,5 +44,3 @@ app.use(express.static("public"));
 // /user/reg
 app.use( '/user',userRouter );
 
-// 检测
-// http://127.0.0.1:4000/login?uname=yaya&upwd=123456

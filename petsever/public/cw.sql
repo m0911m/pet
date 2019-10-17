@@ -54,4 +54,4 @@ INSERT INTO cw_user VALUES
 
 /**宠物寄养信息导入**/
 INSERT INTO cw_foster VALUES
-(null,45,)
+(null,'快乐之家',45,'随时接单','西安市雁塔区',null,null);
