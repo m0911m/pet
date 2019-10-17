@@ -6,11 +6,11 @@
         <div v-for="(item,i) of list" :key="i">
             <!-- 用户名 -->
             <div class="usermsg">
-                <!-- <van-image round
+                <van-image round
                     width="3rem"
                     height="3rem"
                     :src="require('../../public/imgs/bg.jpg')"
-                    /> -->
+                    /> 
                 <div class="namemsg">
                     <p class="uname">{{item.uname}}</p>
                     <p class="ulocal">{{item.local}}</p>
@@ -21,7 +21,7 @@
             <!-- 文章图片 -->
             <div class="imgs">
                 <div class="imgbox">
-                <!-- <img :src="require('../../public/imgs/cat08.jpg')" alt="" class="img"> -->
+                <img :src="require('../../public/imgs/cat08.jpg')" alt="" class="img">
                 </div>
             </div>
             <div class="about">
@@ -32,8 +32,10 @@
         <!-- 评论 -->
         <div>
             <div>
-                <span>评论</span>
+                <span>#评论</span>
                 <van-icon name="chat-o" />
+                <input type="text" class="content" placeholder="说点什么...">
+                <button class="send">发送</button>
             </div>
             <div class="usermsg down" v-for="(c,i) of comment" :key="i">
                 <van-image round
@@ -117,5 +119,15 @@
     }
     .usermsg.down{
         border-bottom:1px solid #ccc;
-        }
+    }
+    .content{
+        border-radius: 5px;
+        margin-left:20px;
+    }
+    .send{
+        border-radius: 0;
+        padding:3px;
+        background:pink;
+        margin-left:5px;
+    }
 </style>

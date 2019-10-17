@@ -11,8 +11,8 @@
             <van-field v-model="article" placeholder="讲述我和它们的故事......"/>
         </van-cell-group>
 
-        <!-- 上传文件 -->
-        <van-uploader  v-model="fileList" multiple :max-count="6"/>
+        <!-- 上传图片 -->
+        <van-uploader :after-read="afterRead" v-model="fileList" multiple :max-count="6"/>
         <!-- :max-count="6"  最多可上传6张图片 -->
 
         <!-- 所在位置 -->
@@ -36,22 +36,25 @@
             }
         },
         methods: {
+            afterRead(file) {
+                // 此时可以自行将文件上传至服务器
+                console.log(file);
+            } ,
             onClickLeft() {
             console.log("返回");
             },
             onClickRight() {
-            console.log("发布");
+            // console.log("发布");
             // 点击发布，将动态存到数据库, 标题，副标题，文章，图片
             // console.log(this.title);
             // console.log(this.subtitle);
             // console.log(this.article);
-            // console.log(this.fileList);
+            // afterRead(file);
             },
             position(){
                 console.log("定位");
-            },            
-        },
-        
+            },                   
+        },        
 }
 </script>
 <style scoped>
