@@ -17,7 +17,7 @@ import Register from './views/Register.vue'
 //引入宠物品种组件
 import Kind from './views/Kind.vue'
 // 引入动态详情组件
-import Detailstory from './views/Detailstory.vue'
+// import Detailstory from './views/Detailstory.vue'
 
 import Tabber from './components/Tabber.vue'
 
@@ -31,7 +31,7 @@ export default new Router({
   routes: [
     {path:'/Tabber',component:Tabber},
     {path:'/Kind',component:Kind},
-    {path:'/Detailstory',component:Detailstory},
+    // {path:'/Detailstory',component:Detailstory},
     {path:'/Register',component:Register},
     {path:'/Newstory',component:Newstory},
     {path:'/Swipe',component:Swipe},
