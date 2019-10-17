@@ -28,5 +28,6 @@
   }
   .imgstyle{
     width:100%;
+    height:175px;
   }
 </style>
