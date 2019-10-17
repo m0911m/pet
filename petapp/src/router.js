@@ -18,7 +18,7 @@ import Register from './views/Register.vue'
 import Kind from './views/Kind.vue'
 // 引入动态详情组件
 // import Detailstory from './views/Detailstory.vue'
-
+// 引入面板组件
 import Tabber from './components/Tabber.vue'
 
 
