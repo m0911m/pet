@@ -9,6 +9,7 @@ const session=require("express-session");
 //引入cors模块
 const cors=require("cors");
 
+
 //使用express模块
 var app=express();
 //监听端口
@@ -42,3 +43,7 @@ app.use(express.static("public"));
 //使用路由器,
 // /user/reg
 app.use( '/user',userRouter );
+<<<<<<< HEAD
+=======
+
+>>>>>>> 993d7c359c802f52a09776dfbd3906948e7c050c

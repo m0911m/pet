@@ -43,9 +43,13 @@ CREATE TABLE cw_foster(
   faddress VARCHAR(30),#寄养地址
   f_img VARCHAR(30),#背景图片
   uid INT #用户uid
+<<<<<<< HEAD
 );
 /**寄养信息详情页**/
 CREATE
+=======
+)
+>>>>>>> 993d7c359c802f52a09776dfbd3906948e7c050c
 
 /**###########################**/
 /**数据导入**/
@@ -56,4 +60,8 @@ INSERT INTO cw_user VALUES
 
 /**宠物寄养信息导入**/
 INSERT INTO cw_foster VALUES
+<<<<<<< HEAD
 (null,'快乐之家',45,'随时接单','西安市雁塔区',null,null);
+=======
+(null,'快乐之家',45,'随时接单','西安市雁塔区',null,null);
+>>>>>>> 993d7c359c802f52a09776dfbd3906948e7c050c

@@ -51,13 +51,17 @@
       </div>
       <hr>
       <!-- 2.4年纪 -->
-      <div class="divflex msgpadding">
+      <div class="divflex msgpadding" @click="showPop">
         <div>年纪</div>
         <div class="divright">
           <span>未填写</span>
           <span>&gt;</span>
         </div>
       </div>
+      <!-- 弹出层输入昵称 -->
+      <van-popup v-model="show" position="top">
+        <van-datetime-picker v-model="currentDate" type="date"/>
+      </van-popup>
       <hr>
       <!-- 2.5性别 -->
       <div class="divflex msgpadding">
@@ -145,7 +149,8 @@ export default {
   data(){
     return{
       show:false,
-      value:""
+      value:"",
+      currentDate: new Date()
       }
   },
   methods: {

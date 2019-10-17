@@ -18,8 +18,10 @@ import Register from './views/Register.vue'
 import Kind from './views/Kind.vue'
 // 引入动态详情组件
 // import Detailstory from './views/Detailstory.vue'
-
+// 引入导航组件
 import Tabber from './components/Tabber.vue'
+// 引入面板组件
+import Nav from './views/Nav.vue' 
 
 
 
@@ -29,6 +31,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:'/Nav',component:Nav},
     {path:'/Tabber',component:Tabber},
     {path:'/Kind',component:Kind},
     // {path:'/Detailstory',component:Detailstory},
