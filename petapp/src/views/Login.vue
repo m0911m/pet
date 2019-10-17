@@ -51,7 +51,7 @@ export default {
       // 发送ajax请求
       var url="/user";
       var obj={unam:n,upwd:u}
-      this.axios.post(
+      this.axios.get(
         url,
         {params:obj}
       ).then(res=>{
