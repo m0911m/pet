@@ -42,6 +42,3 @@ app.use(express.static("public"));
 //使用路由器,
 // /user/reg
 app.use( '/user',userRouter );
-
-// 检测
-// http://127.0.0.1:4000/login?uname=yaya&upwd=123456

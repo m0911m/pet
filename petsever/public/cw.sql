@@ -45,6 +45,7 @@ CREATE TABLE cw_foster(
   uid INT #用户uid
 );
 /**寄养信息详情页**/
+CREATE
 
 /**###########################**/
 /**数据导入**/
@@ -55,4 +56,4 @@ INSERT INTO cw_user VALUES
 
 /**宠物寄养信息导入**/
 INSERT INTO cw_foster VALUES
-(null,'快乐之家',45,'随时接单','西安市雁塔区',',null);
+(null,'快乐之家',45,'随时接单','西安市雁塔区',null,null);
