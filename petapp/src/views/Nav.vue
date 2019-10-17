@@ -1,22 +1,26 @@
 <template>
+<div>
   <div>
     <ul class="jumpstyle">
       <li class="listyle">Hi 想让他住哪里</li>
       <li><input class="inputstyle" disabled placeholder="找附近的寄样家庭" type="text"></li>
     </ul>
-    <ul>
+  </div>
+  <div>
+    <ul class="actstyle">
       <li>
-        <a href="">申请家庭</a>
-        <img src="" alt="">
-      </li>
+        申请家庭
+        
+      </li>|
       <li>
-        <a href="">宠物指南</a>
-      </li>
+        宠物指南
+      </li>|
       <li>
-        <a href="">保障服务</a>
+        保障服务
       </li>
     </ul>
   </div>
+</div>
 </template>
 <script>
 export default {
@@ -33,6 +37,7 @@ export default {
 <style scoped>
 .jumpstyle{
   display:flex;
+  width:100%;
   justify-content: center;
   align-items: center;
   padding:1rem 0 1rem 1rem;
@@ -53,5 +58,10 @@ export default {
   border-radius: 16px;
   font-size:12px;
   padding:0.25rem;
+}
+.actstyle{
+  display:flex;
+  padding:1rem;
+  justify-content: space-around;
 }
 </style>

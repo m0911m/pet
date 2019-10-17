@@ -34,7 +34,7 @@ export default new Router({
     {path:'/Nav',component:Nav},
     {path:'/Tabber',component:Tabber},
     {path:'/Kind',component:Kind},
-    {path:'/Detailstory',component:Detailstory},
+    // {path:'/Detailstory',component:Detailstory},
     {path:'/Register',component:Register},
     {path:'/Newstory',component:Newstory},
     {path:'/Swipe',component:Swipe},
