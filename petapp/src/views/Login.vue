@@ -84,10 +84,12 @@ export default {
 .unamestyle{
   margin-top:4rem;
   border-radius: 1rem;
+  background-color: rgba(0,0,0,0.1);
 }
 .upwdstyle{
   margin-top:1rem;
   border-radius: 1rem;
+  background-color: rgba(0,0,0,0.1);
 }
 .loginstyle{
   margin:1rem 0 10rem;
@@ -95,7 +97,7 @@ export default {
   height:2rem;
   line-height: 2rem;
   color:#ff0;
-  background:rgba(0,0,0,0.5) 
+  background:rgba(0,0,0,0.2) 
 }
 .textstyle{
   color:#0ff;
