@@ -43,7 +43,3 @@ app.use(express.static("public"));
 //使用路由器,
 // /user/reg
 app.use( '/user',userRouter );
-<<<<<<< HEAD
-=======
-
->>>>>>> 993d7c359c802f52a09776dfbd3906948e7c050c
