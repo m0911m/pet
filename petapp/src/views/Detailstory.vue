@@ -9,13 +9,8 @@
                 <van-image round
                     width="3rem"
                     height="3rem"
-<<<<<<< HEAD
-                    :src="require('../../public/imgs/bg.jpg')"
+                    src="../../public/imgs/bg.jpg"
                     /> 
-=======
-                    src="https://img.yzcdn.cn/vant/cat.jpeg"
-                    />
->>>>>>> 1294fed008b48581b5a754cf99c09457b2ccec61
                 <div class="namemsg">
                     <p class="uname">{{item.uname}}</p>
                     <p class="ulocal">{{item.local}}</p>
@@ -30,33 +25,21 @@
                 </div>
             </div>
             <div class="about">
-                <button>点赞</button>
+                <button>点赞  12</button>
                 <button>评论</button>
             </div>    
         </div>
         <!-- 评论 -->
         <div>
-            <div>
-                <span>#评论</span>
-                <van-icon name="chat-o" />
-                <input type="text" class="content" placeholder="说点什么...">
-                <button class="send">发送</button>
-            </div>
-            <div class="usermsg down" v-for="(c,i) of comment" :key="i">
-                <van-image round
-                    width="3rem"
-                    height="3rem"
-                    src="https://img.yzcdn.cn/vant/cat.jpeg"
-                    />
-                <div class="namemsg">
-                    <p class="uname">{{c.cname}}</p>
-                    <p class="ulocal">{{c.ctext}}</p>
-                </div>
-            </div>
+            <!-- 输入框 -->
+            <!-- 评论列表 -->
+            <comment></comment>
+            
         </div>
     </div>
 </template>
 <script>
+import Comment from '../components/Comment.vue'
     export default {
         methods: {
             onClickLeft() {
@@ -75,13 +58,12 @@
                         "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2038406380,317017081&fm=5"
                         ]},                        
                 ],
-                comment:[
-                    {cname:"麒麟",ctext:"爱心满满"},
-                    {cname:"郁闷的火柴",ctext:"可爱"},
-
-                ]
             }
         },
+        // 注册子组件
+        components:{
+            "comment":Comment
+        }
 }
 </script>
 <style scoped>
@@ -118,7 +100,7 @@
         width:100%;
     }
     button{
-        background:pink;
+        background:#f7bf25;
         border: 0;
         margin-right: 10px;
         border-radius: 20px;
@@ -126,13 +108,10 @@
     }
     .about{
         display: flex;
-        justify-content: end;
         padding: 10px;
         box-sizing: border-box;
     }
-    .usermsg.down{
-        border-bottom:1px solid #ccc;
-    }
+    
     .content{
         border-radius: 5px;
         margin-left:20px;
@@ -140,7 +119,7 @@
     .send{
         border-radius: 0;
         padding:3px;
-        background:pink;
+        background:#f7bf25;
         margin-left:5px;
     }
 </style>
