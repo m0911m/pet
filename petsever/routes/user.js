@@ -55,19 +55,19 @@ router.post("/reg",(req,res)=>{
 router.post("/updatamessagelist",(req,res)=>{
 	//获取发布动态用户的uid
 	var uid=req.session.uid;
-if(!uid){
-	res.send({code:-2,msg:"请登录"});
-	return;
-}
+ if(!uid){
+ res.send({code:-2,msg:"请登录"});
+ 	return;
+ }
 //获取用户发布的信息
 var ttitle=req.body.ttitle;
 var tsmtitle=req.body.tsmtitle;
 var ttxt=req.body.ttxt;
 var t_img=req.body.t_img;
-var sql=`ISNET INTO cw_text VALUES(NULL,${ttitle},${tsmtitle},${ttxt},${t_img},${uid})`;
+var sql=`INSERT INTO cw_text VALUES(NULL,'${ttitle}','${tsmtitle}','${ttxt}','${t_img}',${uid})`;
 pool.query(sql,(err,result)=>{
 	if(err)throw err;
-	if(affectedRows>0){
+	if(result.affectedRows>0){
 	res.send({code:1,msg:"添加成功"})
 }else{
 	res.send({code:-1,msg:"添加失败"})
@@ -76,8 +76,41 @@ pool.query(sql,(err,result)=>{
 });
 //四、动态页浏览模块
 router.get("/messagelist",(req,res)=>{
-var sql=SELECT  
+var sql="SELECT tid,ttitle,tsmtitle,ttxt,t_img,uid FROM cw_text";
+pool.query(sql,(err,result)=>{
+	if(err)throw err;
+		if(result.length>0){
+			res.send({code:1,msg:"查询成功",data:result})
+		}else{
+			res.send({code:-1,msg:"查询失败"})
+		}
+})
 });
+//五、宠物信息添加
+router.post("/updatapetmessage",(req,res)=>{
+	//获取发布动态用户的uid
+	var uid=req.session.uid;
+ if(!uid){
+ res.send({code:-2,msg:"请登录"});
+ 	return;
+ }
+ //获取宠物物信息
+	var animal_type=req.body.animal_type;
+	var animal_age=req.body.animal_age;
+	var animal_sex=req.body.animal_sex;
+	var animal_weight=req.body.animal_weight;
+	var animal_img=req.body.animal_img;
+	var sql=`INSERT INTO cw_animal VALUES(NULL,'${uid}','${animal_type}','${animal_age}',${true},'${animal_weight}','${animal_img}')`;
+	pool.query(sql,(err,result)=>{
+		if(err)throw err;
+		if(result.affectedRows>0){
+			res.send({code:1,msg:"宠物信息添加成功"})
+		}else{
+			res.send({code:-1,msg:"宠物信息添加查询失败"})
+		}
+	})
+})
+//六、修改宠物信息
 
 //导出路由器
 module.exports=router;
