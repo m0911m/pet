@@ -34,8 +34,9 @@ export default {
       var n=this.uname;
       var u=this.upwd;
       // 创建手机号正则和密码(6-16位字母数字)正则
-      var nreg=/^1[3-9]\d{9}$/
-      var ureg=/^\d{6,16}$/
+      var nreg=/^1[3-9]\d{9}$/ //手机
+      var mreg=/^\d{3,10}$/   //用户名
+      var ureg=/^\d{6,16}$/   //密码
       // 验证用户名 
       if(nreg.test(n)==false){
         //验证不成功 弹出层弹出提示信息
@@ -43,7 +44,6 @@ export default {
         this.show=true;
         return;
       }
-      // 验证密码
       if(ureg.test(u)==false){
         // 验证密码不成功,弹出提示信息
         this.msg="密码格式有误,请重新输入";
