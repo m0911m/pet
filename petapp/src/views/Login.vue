@@ -58,6 +58,10 @@ export default {
       console.log(response);
       if(response.data.code>0){
         this.$router.push({path:'/Nav'});
+      }else{
+        this.msg="用户名或密码错误"
+        this.show=true;
+        return;
       }
       })
       .catch(function (error) {
