@@ -63,7 +63,6 @@ export default {
       .catch(function (error) {
       console.log(error);
       });
-
     }
   }
 }
@@ -78,19 +77,25 @@ export default {
   background: url('../../public/imgs/login_bg.jpg') no-repeat;
   background-size:cover;
 }
+.inputstyle{
+  width:80%;
+  margin-left:2.25rem; 
+}
 .unamestyle{
   margin-top:4rem;
+  border-radius: 1rem;
 }
 .upwdstyle{
   margin-top:1rem;
+  border-radius: 1rem;
 }
 .loginstyle{
   margin:1rem 0 10rem;
   width:40%;
   height:2rem;
   line-height: 2rem;
-  background:rgba(0,0,0,0)
-  
+  color:#ff0;
+  background:rgba(0,0,0,0.5) 
 }
 .textstyle{
   color:#0ff;

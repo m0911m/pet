@@ -3,19 +3,19 @@
     <!-- tabbar组件 -->
     <mt-tabbar v-model="active" fixed>
       <mt-tab-item id="homepage">
-        <img slot="icon" src="../assets/logo.png">
+        <img slot="icon" :src="require('../assets/logo.png')">
         {{msg[0]}}
       </mt-tab-item>
       <mt-tab-item id="pet">
-        <img slot="icon" src="../assets/logo.png">
+        <img slot="icon" :src="require('../assets/logo.png')">
         {{msg[1]}}
       </mt-tab-item>
       <mt-tab-item id="message">
-        <img slot="icon" src="../assets/logo.png">
+        <img slot="icon" :src="require('../assets/logo.png')">
         {{msg[2]}}
       </mt-tab-item>
       <mt-tab-item id="mine">
-        <img slot="icon" src="../assets/logo.png">
+        <img slot="icon" :src="require('../assets/logo.png')">
         {{msg[3]}}
       </mt-tab-item>
     </mt-tabbar>
