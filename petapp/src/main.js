@@ -12,6 +12,7 @@ Vue.use(MintUI)
 import Vant from 'vant'
 // 引入vant库中的样式文件
 import 'vant/lib/index.css'
+
 // 注册vant
 Vue.use(Vant);
 // 引入axios模块

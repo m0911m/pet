@@ -5,9 +5,12 @@ const pool=require('../pool.js');
 //创建路由器对象
 var router=express.Router();
 // 一、用户登录模块
-router.get("/login",(req,res)=>{
+router.post("/login",(req,res)=>{
 	var uname=req.body.uname;
 	var upwd=req.body.upwd;
+	console.log(uname);
+	console.log(upwd);
+	
 	var sql="SELECT uid FROM cw_user WHERE uname=? OR uphone=? AND upwd=?";
 	pool.query(sql,[uname,uname,upwd],(err,result)=>{
 		if(err)throw err;

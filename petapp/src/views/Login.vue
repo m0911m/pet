@@ -16,6 +16,7 @@
   </div>
 </template>
 <script>
+      import qs from 'qs'
 export default {
   data(){
     return{
@@ -49,15 +50,23 @@ export default {
         this.show=true;
         return;
       }
-      // 发送ajax请求
-      var url="user/login"
-      var obj={unam:n,upwd:u}
-      this.axios.get(
-        url,
-        {params:obj}
-      ).then(res=>{
-        console.log(res);
-      })
+      // 发送axios请求
+       var url="user/login"
+       var obj={uname:n,upwd:u}
+      // this.axios.post(
+      //   url,
+      //   qs.stringify(obj)
+      // ).then(res=>{
+      //   console.log(res);
+      //})
+       this.axios.post(url,qs.stringify(obj))
+        .then(function (response) {
+        console.log(response);
+        })
+        .catch(function (error) {
+        console.log(error);
+        });
+
     }
   }
 }
