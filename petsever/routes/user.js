@@ -71,6 +71,10 @@ pool.query(sql,(err,result)=>{
 }
 })
 });
+//四、动态页浏览模块
+router.get("/messagelist",(req,res)=>{
+var sql=SELECT  
+});
 
 //导出路由器
 module.exports=router;
