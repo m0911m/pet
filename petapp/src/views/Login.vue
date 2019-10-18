@@ -16,6 +16,7 @@
   </div>
 </template>
 <script>
+      import qs from 'qs'
 export default {
   data(){
     return{
@@ -49,15 +50,23 @@ export default {
         this.show=true;
         return;
       }
-      // 发送ajax请求
-      var url=""
-      var obj={unam:n,upwd:u}
-      this.axios.post(
-        url,
-        {params:obj}
-      ).then(res=>{
-
+      // 发送axios请求
+       var url="user/login"
+       var obj={uname:n,upwd:u}
+      this.axios.post(url,qs.stringify(obj))
+      .then(response=>{
+      console.log(response);
+      if(response.data.code>0){
+        this.$router.push({path:'/Nav'});
+      }else{
+        this.msg="用户名或密码错误"
+        this.show=true;
+        return;
+      }
       })
+      .catch(function (error) {
+      console.log(error);
+      });
     }
   }
 }
@@ -72,19 +81,28 @@ export default {
   background: url('../../public/imgs/login_bg.jpg') no-repeat;
   background-size:cover;
 }
+.inputstyle{
+  width:80%;
+  margin-left:2.25rem; 
+}
 .unamestyle{
   margin-top:4rem;
+  border-radius: 1rem;
+  background-color: rgba(0,0,0,0.1);
 }
 .upwdstyle{
   margin-top:1rem;
+  border-radius: 1rem;
+  background-color: rgba(0,0,0,0.1);
 }
 .loginstyle{
   margin:1rem 0 10rem;
   width:40%;
   height:2rem;
+  border-radius: 1rem;
   line-height: 2rem;
-  background:rgba(0,0,0,0)
-  
+  color:#ff0;
+  background:rgba(0,0,0,0.2) 
 }
 .textstyle{
   color:#0ff;

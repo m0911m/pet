@@ -8,6 +8,9 @@ var router=express.Router();
 router.post("/login",(req,res)=>{
 	var uname=req.body.uname;
 	var upwd=req.body.upwd;
+	console.log(uname);
+	console.log(upwd);
+	
 	var sql="SELECT uid FROM cw_user WHERE uname=? OR uphone=? AND upwd=?";
 	pool.query(sql,[uname,uname,upwd],(err,result)=>{
 		if(err)throw err;
@@ -70,6 +73,10 @@ pool.query(sql,(err,result)=>{
 	res.send({code:-1,msg:"添加失败"})
 }
 })
+});
+//四、动态页浏览模块
+router.get("/messagelist",(req,res)=>{
+var sql=SELECT  
 });
 
 //导出路由器

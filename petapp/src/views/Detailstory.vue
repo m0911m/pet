@@ -9,8 +9,13 @@
                 <van-image round
                     width="3rem"
                     height="3rem"
+<<<<<<< HEAD
                     src="../../public/imgs/bg.jpg"
                     /> 
+=======
+                    src="https://img.yzcdn.cn/vant/cat.jpeg"
+                    />
+>>>>>>> 0d20ada1de820549be58db4c0a3f08e461d203c1
                 <div class="namemsg">
                     <p class="uname">{{item.uname}}</p>
                     <p class="ulocal">{{item.local}}</p>
