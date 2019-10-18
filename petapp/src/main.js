@@ -16,7 +16,10 @@ import 'vant/lib/index.css'
 Vue.use(Vant);
 // 引入axios模块
 import axios from "axios"
-
+// 配置服务器的基础路径
+axios.defaults.baseURL="http://127.0.0.1:5050/"
+// 配置保存session信息
+axios.defaults.withCreadentials=true
 // 注册axios模块
 Vue.prototype.axios=axios
 
