@@ -43,7 +43,9 @@ CREATE TABLE cw_foster(
   faddress VARCHAR(30),#寄养地址
   f_img VARCHAR(30),#背景图片
   uid INT #用户uid
-)
+);
+/**寄养信息详情页**/
+CREATE
 
 /**###########################**/
 /**数据导入**/
