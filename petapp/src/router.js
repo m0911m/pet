@@ -19,7 +19,7 @@ import Kind from './views/Kind.vue'
 // 引入动态详情组件
 // import Detailstory from './views/Detailstory.vue'
 // 引入导航组件
-import Tabber from './components/Tabber.vue'
+import Tabber from './views/Tabber.vue'
 // 引入面板组件
 import Nav from './views/Nav.vue' 
 

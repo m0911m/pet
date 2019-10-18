@@ -16,7 +16,7 @@
   </div>
 </template>
 <script>
-      import qs from 'qs'
+import qs from 'qs'
 export default {
   data(){
     return{
@@ -77,7 +77,7 @@ export default {
   text-align: center;
   box-sizing: border-box;
   padding-top:3.55rem;
-  padding-bottom:6.25rem;
+  padding-bottom:8rem;
   background: url('../../public/imgs/login_bg.jpg') no-repeat;
   background-size:cover;
 }
