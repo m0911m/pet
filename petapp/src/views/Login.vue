@@ -53,19 +53,16 @@ export default {
       // 发送axios请求
        var url="user/login"
        var obj={uname:n,upwd:u}
-      // this.axios.post(
-      //   url,
-      //   qs.stringify(obj)
-      // ).then(res=>{
-      //   console.log(res);
-      //})
-       this.axios.post(url,qs.stringify(obj))
-        .then(function (response) {
-        console.log(response);
-        })
-        .catch(function (error) {
-        console.log(error);
-        });
+      this.axios.post(url,qs.stringify(obj))
+      .then(response=>{
+      console.log(response);
+      if(response.data.code>0){
+        this.$router.push({path:'/Nav'});
+      }
+      })
+      .catch(function (error) {
+      console.log(error);
+      });
 
     }
   }

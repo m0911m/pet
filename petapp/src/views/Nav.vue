@@ -22,22 +22,30 @@
     </ul>
   </div>
   <!-- 轮播 -->
-  <div>
+  <div class="swipestyle">
     <span>精选</span>
     <swipe></swipe>
   </div>
   <!-- 图片 -->
-  <img src="../../public/imgs/cat01.png" alt="">
+  <img src="" alt="">
   <div>
 
   </div>
   <!-- 中部导航 发布寄养+合作医院 -->
   <div>
     <span>你可能想要</span>
-    <ul>
-      <li>
-        <img src="" alt="">
+    <ul class="middlestyle">
+      <li class="listyle">
+        <img src="../../public/imgs/park.png" alt="">
         <span>发布寄养</span>
+      </li> 
+      <li class="listyle">
+        <img src="../../public/imgs/park.png" alt="">
+        <span>积分商城</span>
+      </li>      
+      <li class="listyle">
+        <img src="../../public/imgs/park.png" alt="">
+        <span>合作意愿</span>
       </li>
     </ul>
   </div>
@@ -71,9 +79,6 @@ export default {
   align-items: center;
   box-sizing:border-box;
 }
-.listyle{
-  font:18px  "隶书";
-}
 .inputstyle{
   display:flex;
   text-align:center;
@@ -89,5 +94,17 @@ export default {
   display:flex;
   padding:1rem;
   justify-content: space-around;
+}
+
+
+.middlestyle{
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.listyle{
+  display:flex;
+  flex-direction: column;
+  font-size:0.875rem;
 }
 </style>
