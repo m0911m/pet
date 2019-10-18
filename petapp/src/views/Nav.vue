@@ -10,14 +10,17 @@
   <!-- 导航条 -->
   <div>
     <ul class="actstyle">
-      <li>
-        申请家庭    
+      <li class="cwstyle">
+        申请家庭
+        <img src="../../public/imgs/heart_red.png" alt="">   
       </li>|
-      <li>
+      <li class="cwstyle">
         宠物指南
+        <img src="../../public/imgs/heart_red.png" alt="">   
       </li>|
-      <li>
+      <li class="cwstyle">
         保障服务
+        <img src="../../public/imgs/heart_red.png" alt="">   
       </li>
     </ul>
   </div>
@@ -32,7 +35,7 @@
 
   </div>
   <!-- 中部导航 发布寄养+合作医院 -->
-  <div>
+  <div class="textstyle">
     <span>你可能想要</span>
     <ul class="middlestyle">
       <li class="listyle">
@@ -92,10 +95,14 @@ export default {
 }
 .actstyle{
   display:flex;
-  padding:1rem;
   justify-content: space-around;
+  align-items: center;
+  padding:1rem;
 }
-
+.cwstyle{
+  display:flex;
+  align-content: center;
+}
 
 .middlestyle{
   display:flex;
@@ -106,5 +113,15 @@ export default {
   display:flex;
   flex-direction: column;
   font-size:0.875rem;
+}
+.swipestyle{
+  display:flex;
+  flex-direction: column;
+  text-align: center;
+}
+.textstyle{
+  display:flex;
+  flex-direction: column;
+  text-align: center;
 }
 </style>
