@@ -6,6 +6,9 @@ import store from './store'
 import MintUI from 'mint-ui'
 // 引入mint-ui库中样式文件
 import 'mint-ui/lib/style.css'
+
+
+
 // 注册mint-ui
 Vue.use(MintUI)
 // 引入vant组件库
