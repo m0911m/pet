@@ -9,13 +9,8 @@
                 <van-image round
                     width="3rem"
                     height="3rem"
-<<<<<<< HEAD
-                    :src="require('../../public/imgs/bg.jpg')"
-                    /> 
-=======
                     src="https://img.yzcdn.cn/vant/cat.jpeg"
                     />
->>>>>>> 1294fed008b48581b5a754cf99c09457b2ccec61
                 <div class="namemsg">
                     <p class="uname">{{item.uname}}</p>
                     <p class="ulocal">{{item.local}}</p>
