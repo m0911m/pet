@@ -95,6 +95,7 @@ export default {
   margin:1rem 0 10rem;
   width:40%;
   height:2rem;
+  border-radius: 1rem;
   line-height: 2rem;
   color:#ff0;
   background:rgba(0,0,0,0.2) 
