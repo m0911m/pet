@@ -50,13 +50,13 @@ export default {
         return;
       }
       // 发送ajax请求
-      var url=""
+      var url="user/login"
       var obj={unam:n,upwd:u}
-      this.axios.post(
+      this.axios.get(
         url,
         {params:obj}
       ).then(res=>{
-
+        console.log(res);
       })
     }
   }
