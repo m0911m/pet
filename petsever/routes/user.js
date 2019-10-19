@@ -100,7 +100,7 @@ router.post("/updatapetmessage",(req,res)=>{
 	var animal_sex=req.body.animal_sex;
 	var animal_weight=req.body.animal_weight;
 	var animal_img=req.body.animal_img;
-	var sql=`INSERT INTO cw_animal VALUES(NULL,'${uid}','${animal_type}','${animal_age}',${true},'${animal_weight}','${animal_img}')`;
+	var sql=`INSERT INTO cw_animal VALUES(NULL,'${uid}','${animal_type}','${animal_age}',${animal_sex},'${animal_weight}','${animal_img}')`;
 	pool.query(sql,(err,result)=>{
 		if(err)throw err;
 		if(result.affectedRows>0){
@@ -112,5 +112,19 @@ router.post("/updatapetmessage",(req,res)=>{
 })
 //六、修改宠物信息
 
+
+
+//七、首页故事模块
+router.get("/indexstory",(req,res)=>{
+	var sql="SELECT iid,uid,ititle,iuname,ismtitle,itxt,itime,i_img,i_icon FROM cw_sindex";
+	pool.query(sql,(err,result)=>{
+		if(err)throw err;
+			if(result.length>0){
+				res.send({code:1,msg:"查询成功",data:result})
+			}else{
+				res.send({code:-1,msg:"查询失败"})
+			}
+	})
+})
 //导出路由器
 module.exports=router;
