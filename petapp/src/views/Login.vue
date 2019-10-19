@@ -1,6 +1,7 @@
 <template>
   <div class="login">
     <!-- logo图片 -->
+    <img style="width:100%; height:100%" src="../../public/imgs/login_bg.jpg" alt="">
     <van-image class="logostyle" :src="require('../../public/imgs/logo.jpg')"/>
     <van-cell-group class="inputstyle">
     <van-field class="unamestyle" v-model="uname" label="用户名:" clearable placeholder="请输入用户名/手机号"></van-field>
@@ -73,20 +74,23 @@ export default {
 </script>
 <style scoped>
 .login{
+  display:flex;
+  position:relative;
   width:100%;
   text-align: center;
   box-sizing: border-box;
   padding-top:4.875rem;
   padding-bottom:8rem;
-  background: url('../../public/imgs/login_bg.jpg') no-repeat;
-  background-size:cover;
+  /* background: url('../../public/imgs/login_bg.jpg') no-repeat; */
+  /* background-size:cover; */
 }
 .logostyle{
   width:3.75rem;
 }
 .inputstyle{
+  position: absolute;
   width:80%;
-  margin-left:2.25rem; 
+  left:2.25rem; 
 }
 .unamestyle{
   margin-top:4rem;
