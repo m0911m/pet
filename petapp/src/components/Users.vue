@@ -1,25 +1,27 @@
 <template>
-  <div class="dynstyle">
-    <!-- 上面的背景图和图片上的内容 -->
-    <div class="bgstyle">
-      <p class="markstyle">养宠记录册</p>
-      <!-- 标题 -->
-      <p class="titlestyle">没有猫的旅行都是徒劳</p> 
-      <img class="imgstyle" src="../../public/imgs/user_0.jpg" alt="">     
-    </div>
-    <!-- 下方的字段 -->
-    <div class="textstyle">
-      <!-- 小标题 -->
-      <span class="subtitle">#带着猫咪去旅行#</span>
-      <!-- 用户的昵称 -->
-      <span class="userstyle">猫窝猫咪幼儿园</span>
-      <!-- 段落 -->
-      <p class="paragstyle">哪有什么适带猫去的旅行的地方,只要你带他去了，所有的地方都适合，只要你肯踏上这旅程。</p>
-    </div>
-    <!-- 点赞评论 -->
-    <div class="numstyle">
-      <span class="diststyle">评论 25</span>
-      <span>点赞 84</span>
+  <div>
+    <div class="dynstyle" v-for="(item,i) of userlist" :key ="i">
+      <!-- 上面的背景图和图片上的内容 -->
+      <div class="bgstyle">
+        <p class="markstyle">养宠记录册</p>
+        <!-- 标题 -->
+        <p class="titlestyle">{{userlist[i].title}}</p> 
+        <img class="imgstyle" :src="require('../../public/imgs/'+userlist[i].img)" alt="">     
+      </div>
+      <!-- 下方的字段 -->
+      <div class="textstyle">
+        <!-- 小标题 -->
+        <span class="subtitle">{{userlist[i].subtitle}}</span>
+        <!-- 用户的昵称 -->
+        <span class="userstyle">{{userlist[i].user}}</span>
+        <!-- 段落 -->
+        <p class="paragstyle">{{userlist[i].parag}}</p>
+      </div>
+      <!-- 点赞评论 -->
+      <div class="numstyle">
+        <span class="diststyle">{{userlist[i].num1}}</span>
+        <span>{{userlist[i].num2}}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -27,8 +29,10 @@
 export default {
   data(){
     return{
-
-    }
+      }
+  },
+  props:{
+    userlist:{default:[]}
   }
 }
 </script>
@@ -60,7 +64,7 @@ export default {
   position: absolute;
   bottom:0rem;
   width:100%;
-  padding:0.875rem 0 0.875rem 1rem;
+  padding:0.875rem 0;
   margin: 0;
   background-color:rgba(217,221,225,0.8);
   font:bold 1.1rem "楷体";
