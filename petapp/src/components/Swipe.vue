@@ -1,5 +1,5 @@
 <template>
-    <div class="swipeStyle">
+    <div class="swipestyle">
         <van-swipe :width="400" :autoplay="3000" indicator-color="white">
           <van-swipe-item v-for="(image, index) of images" :key="index" >
             <img :src="require(`../../public/imgs/${image}`)" class="imgstyle" fit="contain"/>
@@ -22,11 +22,12 @@
 }
 </script>
 <style scoped>
-  .swipeStyle{
+  .swipestyle{
     width:100%;
     height:100px;
   }
   .imgstyle{
     width:100%;
+    height:175px;
   }
 </style>

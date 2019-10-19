@@ -31,7 +31,7 @@
       <div data-id="tab3" @click="handle">小宠</div>
     </div>
     <!-- 4.宠物种类子面板 -->
-    <mt-tab-container v-model="active">
+    <mt-tab-container v-model="active" class="textleft">
       <!-- 狗种类子面板 -->
       <mt-tab-container-item id="tab1">
         <van-index-bar>
@@ -86,9 +86,47 @@
         </van-index-bar>
       </mt-tab-container-item>
       <!-- 猫种类子面板 -->
-      <mt-tab-container-item id="tab2">购物内容</mt-tab-container-item>
+      <mt-tab-container-item id="tab2">
+        <van-index-bar>
+          <van-index-anchor index="A" />
+          <van-cell title="埃及猫" />
+          <van-cell title="奥西猫" />
+          <van-cell title="阿比西尼亚猫" />
+          <van-index-anchor index="B" />
+          <van-cell title="布偶猫" />
+          <van-cell title="波斯猫" />
+          <van-cell title="伯曼猫" />
+          <van-cell title="巴厘猫" />
+          <van-cell title="波米拉猫" />
+          <van-cell title="彼得秃猫" />
+          <van-index-anchor index="C" />
+          <van-cell title="东奇尼猫" />
+          <van-cell title="德文卷毛猫" />
+        </van-index-bar>
+      </mt-tab-container-item>
       <!-- 小宠种类子面板 -->
-      <mt-tab-container-item id="tab3">购物内容</mt-tab-container-item>
+      <mt-tab-container-item id="tab3">
+          <van-index-anchor index="C" />
+          <van-cell title="仓鼠" />
+          <van-cell title="刺猬" />
+          <van-index-anchor index="D" />
+          <van-cell title="貂" />
+          <van-index-anchor index="G" />
+          <van-cell title="龟" />
+          <van-index-anchor index="L" />
+          <van-cell title="龙猫" />
+          <van-index-anchor index="N" />
+          <van-cell title="鸟" />
+          <van-index-anchor index="S" />
+          <van-cell title="松鼠" />
+          <van-cell title="蛇" />
+          <van-index-anchor index="T" />
+          <van-cell title="兔子" />
+          <van-cell title="豚鼠" />
+          <van-index-anchor index="X" />
+          <van-cell title="蜥蜴" />
+          <van-cell title="小香猪" />
+      </mt-tab-container-item>
     </mt-tab-container>
   </div>
 </template>
@@ -117,5 +155,8 @@ export default {
   .container{
     display: flex;
     justify-content: space-around;
+  }
+  .textleft{
+    text-align: left;
   }
 </style>
