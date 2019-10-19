@@ -28,7 +28,6 @@
   <div class="swipestyle">
     <swipe></swipe>
   </div>
-
   <div>
 
   </div>
@@ -49,17 +48,17 @@
         <span>合作医院</span>
       </li>
     </ul>
-    <!-- 为你推荐 -->
-    <div>
-      <span>为你推荐</span>
-
-
-    </div>
   </div>
+    <!-- 为你推荐 -->
+    <div class="recstyle">
+      <span>为你推荐</span>
+    </div>
+    <users></users>
 </div>
 </template>
 <script>
 import Swipe from "../components/Swipe"
+import Users from "../components/Users"
 export default {
   data(){
     return{
@@ -67,7 +66,8 @@ export default {
     }
   },
   components: {
-    "swipe":Swipe
+    "swipe":Swipe,
+    "users":Users
   },
   methods:{
 
@@ -128,5 +128,10 @@ export default {
   display:flex;
   flex-direction: column;
   text-align: center;
+}
+.recstyle{
+  margin-top:1rem; 
+  text-align: center;
+  font:bolder 1.25rem 楷体;
 }
 </style>

@@ -1,11 +1,8 @@
 <template>
-  <div>
+  <div class="dynstyle">
     <!-- 上面的背景图和图片上的内容 -->
     <div class="bgstyle">
-      <ul class="markstyle">
-        <li></li>
-        <li>养宠记录册</li>
-      </ul>
+      <p class="markstyle">养宠记录册</p>
       <!-- 标题 -->
       <p class="titlestyle">没有猫的旅行都是徒劳</p> 
       <img class="imgstyle" src="../../public/imgs/user_0.jpg" alt="">     
@@ -28,10 +25,17 @@
 </template>
 <script>
 export default {
-  
+  data(){
+    return{
+
+    }
+  }
 }
 </script>
 <style scoped>
+.dynstyle{
+  margin:1rem 0; 
+}
 /* 背景 */
 .bgstyle{
   position: relative;
@@ -46,6 +50,7 @@ export default {
   left: 1rem;
   top: 1rem;
   display:flex;
+  margin:0;
   padding:0.25rem 1rem;
   background-color: rgba(234,236,233,0.8);
   font:bold 0.9rem "华文楷体";
@@ -55,10 +60,10 @@ export default {
   position: absolute;
   bottom:0rem;
   width:100%;
-  padding:0.875rem;
+  padding:0.875rem 0 0.875rem 1rem;
   margin: 0;
   background-color:rgba(217,221,225,0.8);
-  font:bold 1.05rem "楷体";
+  font:bold 1.1rem "楷体";
 }
 /* 用户头像 */
 .imgstyle{
