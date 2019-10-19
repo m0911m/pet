@@ -2,6 +2,7 @@
   <div class="login">
     <img class="imgstyle" :src="require('../../public/imgs/login_bg.jpg')" alt="">
     <!-- logo图片 -->
+    <img style="width:100%; height:100%" src="../../public/imgs/login_bg.jpg" alt="">
     <van-image class="logostyle" :src="require('../../public/imgs/logo.jpg')"/>
     <van-cell-group class="inputstyle">
     <van-field class="unamestyle" v-model="uname" label="用户名:" clearable placeholder="请输入用户名/手机号"></van-field>
@@ -75,15 +76,16 @@ export default {
 <style scoped>
 /* 最外层父级 */
 .login{
+  display:flex;
+  position:relative;
   width:100%;
   position:relative;
   text-align: center;
   box-sizing: border-box;
-}
-.imgstyle{
-  /* position:absolute; */
-  width:100%;
-  height:100%;
+  padding-top:4.875rem;
+  padding-bottom:8rem;
+  /* background: url('../../public/imgs/login_bg.jpg') no-repeat; */
+  /* background-size:cover; */
 }
 .logostyle{
   position:absolute;
@@ -93,9 +95,9 @@ export default {
   border-radius: 50%;
 }
 .inputstyle{
-  position:absolute;
-  top: 0;
+  position: absolute;
   width:80%;
+  left:2.25rem; 
 }
 .unamestyle{
   margin-top:4rem;

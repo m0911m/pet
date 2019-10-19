@@ -30,6 +30,8 @@ CREATE TABLE cw_text(
 tid INT PRIMARY KEY AUTO_INCREMENT,#id
 ttitle VARCHAR(30),#动态主标题 
 tsmtitle VARCHAR(30),#副标题
+tuname VARCHAR(30),#用户昵称
+taddress VARCHAR(128),#用户地址
 ttxt TEXT,#正文
 t_img VARCHAR(30),#图片路径
 uid INT #用户id
@@ -56,9 +58,19 @@ itime BIGINT,  #发布时间
 i_img VARCHAR(128),#图片
 i_icon VARCHAR(128) #头像
 );
-/**寄养信息详情页**/
-#CREATE
-
+/**首页轮播图数据表**/
+CREATE TABLE cw_indexlunbo(
+id INT PRIMARY KEY AUTO_INCREMENT,
+luobo_url VARCHAR(30)#轮播图地址
+);
+/**购物车信息数据表**/
+CREATE TABLE cw_cart(
+ cid INT PRIMARY KEY AUTO_INCREMENT,
+ uid INT,   #用户id
+ ftitle VARCHAR(30),#宠物家的名字
+ fprice DECIMAL(10,2) #价格
+);
+ALTER TABLE xz_cart ADD uid INT;
 /**###########################**/
 /**数据导入**/
 /**用户信息**/
