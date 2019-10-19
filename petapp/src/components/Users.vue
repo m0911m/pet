@@ -1,8 +1,10 @@
 <template>
   <div>
+    <!-- 用户发布故事组件 -->
     <div class="dynstyle" v-for="(item,i) of userlist" :key ="i">
-      <!-- 上面的背景图和图片上的内容 -->
+      <!-- 上面的图片和图片上的内容 -->
       <div class="bgstyle">
+         <img class="bgstyle" :src="require('../../public/imgs/'+userlist[i].bg_img)" alt="">
         <p class="markstyle">养宠记录册</p>
         <!-- 标题 -->
         <p class="titlestyle">{{userlist[i].title}}</p> 
@@ -29,7 +31,8 @@
 export default {
   data(){
     return{
-      }
+    
+    }
   },
   props:{
     userlist:{default:[]}
@@ -45,7 +48,6 @@ export default {
   position: relative;
   width:100%;
   height:200px;
-  background:url('../../public/imgs/0.jpg') no-repeat;
   background-size:cover;
 }
 /* 养宠记录册 */
@@ -65,6 +67,7 @@ export default {
   bottom:0rem;
   width:100%;
   padding:0.875rem 0;
+  padding-left:1rem;
   margin: 0;
   background-color:rgba(217,221,225,0.8);
   font:bold 1.1rem "楷体";
