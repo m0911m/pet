@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <!-- logo图片 -->
-    <van-image width="80" class="logostyle" :src="require('../../public/imgs/logo.jpg')"/>
+    <van-image class="logostyle" :src="require('../../public/imgs/logo.jpg')"/>
     <van-cell-group class="inputstyle">
     <van-field class="unamestyle" v-model="uname" label="用户名:" clearable placeholder="请输入用户名/手机号"></van-field>
     <van-field class="upwdstyle" v-model="upwd" label="密码:" clearable type="password" :attr="{autofocus:true}" placeholder="请输入密码"></van-field>
@@ -76,10 +76,13 @@ export default {
   width:100%;
   text-align: center;
   box-sizing: border-box;
-  padding-top:3.55rem;
+  padding-top:4.875rem;
   padding-bottom:8rem;
   background: url('../../public/imgs/login_bg.jpg') no-repeat;
   background-size:cover;
+}
+.logostyle{
+  width:3.75rem;
 }
 .inputstyle{
   width:80%;

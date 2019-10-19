@@ -10,7 +10,7 @@
          </tabbaricon>
         {{msg[0]}}
       </mt-tab-item>
-      <mt-tab-item id="contact" @click.native="changeState(1)">
+      <!-- <mt-tab-item id="contact" @click.native="changeState(1)">
         <tabbaricon
           :selectedImage="require('../../public/imgs/heart.png')"
           :normalImage="require('../../public/imgs/heart_red.png')"
@@ -32,8 +32,8 @@
           :normalImage="require('../../public/imgs/heart_red.png')"
           :focused="currentIndex[3].isSelect">
          </tabbaricon>
-        {{msg[3]}}
-      </mt-tab-item>
+        {{msg[3]}} 
+      </mt-tab-item>-->
     </mt-tabbar>
   </div>
 </template>
@@ -60,16 +60,15 @@ methods: {
       //将当前参数下标对应数组值修改true其它修改false
       //创建循环,循环数组中内容
       for(var i=0;i<this.currentIndex.length;i++){
-       //判断如果循环下标与n相等 20
+       //判断如果循环下标与n相等 
        if(n==i){
-        //当前下标元素true
+        //当前下标元素
         this.currentIndex[i].isSelect=true;
        }else{
-        //其它元素修改false
+        //其它元素修改
         this.currentIndex[i].isSelect=false;
        }      
       }
-
     }
   },
   components:{

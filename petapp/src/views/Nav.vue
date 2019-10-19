@@ -26,11 +26,9 @@
   </div>
   <!-- 轮播 -->
   <div class="swipestyle">
-    <span>精选</span>
     <swipe></swipe>
   </div>
-  <!-- 图片 -->
-  <img src="" alt="">
+
   <div>
 
   </div>
@@ -48,9 +46,15 @@
       </li>      
       <li class="listyle">
         <img src="../../public/imgs/park.png" alt="">
-        <span>合作意愿</span>
+        <span>合作医院</span>
       </li>
     </ul>
+    <!-- 为你推荐 -->
+    <div>
+      <span>为你推荐</span>
+
+
+    </div>
   </div>
 </div>
 </template>
@@ -115,6 +119,7 @@ export default {
   font-size:0.875rem;
 }
 .swipestyle{
+  height:200px;
   display:flex;
   flex-direction: column;
   text-align: center;

@@ -24,6 +24,8 @@ import Tabber from './views/Tabber.vue'
 import Nav from './views/Nav.vue' 
 // 引入宠圈
 import Petcircle from './views/Petcircle'
+// 引入用户发布模块
+import Users from './components/Users.vue'
 
 
 
@@ -33,6 +35,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:'/Users',component:Users},
     {path:'/Petcircle',component:Petcircle},
     {path:'/Nav',component:Nav},
     {path:'/Tabber',component:Tabber},
