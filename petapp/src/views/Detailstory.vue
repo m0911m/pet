@@ -9,7 +9,7 @@
                 <van-image round
                     width="3rem"
                     height="3rem"
-                    src="https://img.yzcdn.cn/vant/cat.jpeg"
+                    src='../../public/imgs/dog12.jpg'
                     />
                 <div class="namemsg">
                     <p class="uname">{{item.uname}}</p>
@@ -21,7 +21,7 @@
             <!-- 文章图片 -->
             <div class="imgs">
                 <div v-for="(pic,i) of item.pics" :key="i" class="imgbox">
-                <img :src=pic alt="" class="img">
+                <img :src="require(`${pic}`)" alt="" class="img">
                 </div>
             </div>
             <div class="about">
@@ -39,7 +39,7 @@
                 <van-image round
                     width="3rem"
                     height="3rem"
-                    src="https://img.yzcdn.cn/vant/cat.jpeg"
+                    src='../../public/imgs/dog12.jpg'
                     />
                 <div class="namemsg">
                     <p class="uname">{{c.cname}}</p>
@@ -59,14 +59,15 @@
         data(){
             return{
                 list:[
-                    {u_pic:"https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=9aa7a22b1a950a7b753549c232ea05e4/b2de9c82d158ccbfba2e4c271ed8bc3eb1354119.jpg",uname:"蜡笔小新",local:"北京北京市",text:"冬天来了，可以当枕头呀,小心今天取游乐园了，很开心很开心",pics:[
-                        "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2300875363,445064071&fm=5",
-                        "https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=416160078,4249346239&fm=5",
-                        "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2038406380,317017081&fm=5",
-                        "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2300875363,445064071&fm=5",
-                        "https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=416160078,4249346239&fm=5",
-                        "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2038406380,317017081&fm=5"
-                        ]},                        
+                    {u_pic:'../../public/imgs/dog12.jpg',uname:"蜡笔小新",local:"北京北京市",text:"冬天来了，可以当枕头呀,小心今天取游乐园了，很开心很开心",pics:[
+                        '../../public/imgs/cat01.png',
+                        '../../public/imgs/cat08.jpg',
+                        '../../public/imgs/dog03.jpg',
+                        '../../public/imgs/dog04.jpg',
+                        '../../public/imgs/dog05.jpg',
+                        '../../public/imgs/dog09.jpg'
+                        ]
+                    },                        
                 ],
                 comment:[
                     {cname:"麒麟",ctext:"爱心满满"},
