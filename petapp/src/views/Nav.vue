@@ -1,12 +1,10 @@
 <template>
 <div>
-  <div>
   <!-- 顶部导航，进入寄养家庭 -->
     <ul class="jumpstyle">
       <li class="listyle">Hi 想让他住哪里</li>
       <li><input class="inputstyle" disabled placeholder="找附近的寄样家庭" type="text"></li>
     </ul>
-  </div>
   <!-- 宠物服务 -->
   <div>
     <ul class="actstyle">
@@ -115,6 +113,9 @@ export default {
 <style scoped>
 /* 顶部导航 */
 .jumpstyle{
+  position:fixed;
+  top:0;
+  z-index: 5;
   display:flex;
   width:100%;
   justify-content: center;

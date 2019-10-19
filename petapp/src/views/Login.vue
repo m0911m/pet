@@ -1,5 +1,6 @@
 <template>
   <div class="login">
+    <img class="imgstyle" :src="require('../../public/imgs/login_bg.jpg')" alt="">
     <!-- logo图片 -->
     <van-image class="logostyle" :src="require('../../public/imgs/logo.jpg')"/>
     <van-cell-group class="inputstyle">
@@ -72,21 +73,29 @@ export default {
 }
 </script>
 <style scoped>
+/* 最外层父级 */
 .login{
   width:100%;
+  position:relative;
   text-align: center;
   box-sizing: border-box;
-  padding-top:4.875rem;
-  padding-bottom:8rem;
-  background: url('../../public/imgs/login_bg.jpg') no-repeat;
-  background-size:cover;
+}
+.imgstyle{
+  /* position:absolute; */
+  width:100%;
+  height:100%;
 }
 .logostyle{
+  position:absolute;
+  top:0;
+  left:0;
   width:3.75rem;
+  border-radius: 50%;
 }
 .inputstyle{
+  position:absolute;
+  top: 0;
   width:80%;
-  margin-left:2.25rem; 
 }
 .unamestyle{
   margin-top:4rem;
@@ -108,6 +117,8 @@ export default {
   background:rgba(0,0,0,0.2) 
 }
 .textstyle{
+  position:absolute;
+  top: 0;
   color:#0ff;
   font-weight:bold;
 }

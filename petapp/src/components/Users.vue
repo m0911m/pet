@@ -42,6 +42,7 @@ export default {
 <style scoped>
 .dynstyle{
   margin:1rem 0; 
+  box-sizing: border-box;
 }
 /* 背景 */
 .bgstyle{
@@ -64,10 +65,10 @@ export default {
 /* 标题 */
 .titlestyle{
   position: absolute;
+  box-sizing: border-box;
   bottom:0rem;
   width:100%;
-  padding:0.875rem 0;
-  padding-left:1rem;
+  padding:0.875rem 1rem;
   margin: 0;
   background-color:rgba(217,221,225,0.8);
   font:bold 1.1rem "楷体";
