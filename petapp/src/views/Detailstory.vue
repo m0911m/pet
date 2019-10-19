@@ -9,17 +9,8 @@
                 <van-image round
                     width="3rem"
                     height="3rem"
-<<<<<<< HEAD
-                    src='../../public/imgs/dog12.jpg'
-=======
-<<<<<<< HEAD
                     src="../../public/imgs/bg.jpg"
                     /> 
-=======
-                    src="https://img.yzcdn.cn/vant/cat.jpeg"
->>>>>>> bb761be1a948925771b044243329600a9a86a3c8
-                    />
->>>>>>> 0d20ada1de820549be58db4c0a3f08e461d203c1
                 <div class="namemsg">
                     <p class="uname">{{item.uname}}</p>
                     <p class="ulocal">{{item.local}}</p>
@@ -29,54 +20,48 @@
             <p class="text">{{item.text}}</p>
             <!-- 文章图片 -->
             <div class="imgs">
-<<<<<<< HEAD
-                <div v-for="(pic,i) of item.pics" :key="i" class="imgbox">
-                <img :src="require(`${pic}`)" alt="" class="img">
-=======
                 <div class="imgbox">
                 <img :src="require('../../public/imgs/cat08.jpg')" alt="" class="img">
->>>>>>> bb761be1a948925771b044243329600a9a86a3c8
                 </div>
             </div>
-            <div class="about">
-                <button>点赞  12</button>
-                <button>评论</button>
-            </div>    
+            <div class="make">
+                <!-- 点赞 -->
+                <div id="zan" @click="heart">
+                    <img src="../../public/imgs/heart.png" alt="" class="heart" >
+                    <img src="../../public/imgs/heart_red.png" alt="" class="heart_red">
+                    <span class="like">{{item.heart}}</span> 
+                </div>
+                <!-- 评论 -->
+                <inputmsg></inputmsg>
+            </div>
+            
+
         </div>
         <!-- 评论 -->
         <div>
-<<<<<<< HEAD
-            <div>
-                <span>评论</span>
-                <van-icon name="chat-o" />
-            </div>
-            <div class="usermsg down" v-for="(c,i) of comment" :key="i">
-                <van-image round
-                    width="3rem"
-                    height="3rem"
-                    src='../../public/imgs/dog12.jpg'
-                    />
-                <div class="namemsg">
-                    <p class="uname">{{c.cname}}</p>
-                    <p class="ulocal">{{c.ctext}}</p>
-                </div>
-            </div>
-=======
             <!-- 输入框 -->
             <!-- 评论列表 -->
             <comment></comment>
             
->>>>>>> bb761be1a948925771b044243329600a9a86a3c8
         </div>
     </div>
 </template>
 <script>
 import Comment from '../components/Comment.vue'
+import Inputmsg from '../views/Inputmsg.vue'
     export default {
         methods: {
             onClickLeft() {
-            console.log('返回');
-            }
+            this.$router.push("/Newstory");
+            },
+            heart(){
+                var heart = document.querySelector(".heart");
+                var heart2 = document.querySelector(".heart_red");
+                var like = document.querySelector(".like");
+                heart.style.display="none";
+                heart2.style.display="inline-block";
+                like.innerHTML++;
+            },
         },
         data(){
             return{
@@ -88,14 +73,15 @@ import Comment from '../components/Comment.vue'
                         '../../public/imgs/dog04.jpg',
                         '../../public/imgs/dog05.jpg',
                         '../../public/imgs/dog09.jpg'
-                        ]
+                        ],heart:1
                     },                        
                 ],
             }
         },
         // 注册子组件
         components:{
-            "comment":Comment
+            "comment":Comment,
+            "inputmsg":Inputmsg
         }
 }
 </script>
@@ -154,5 +140,20 @@ import Comment from '../components/Comment.vue'
         padding:3px;
         background:#f7bf25;
         margin-left:5px;
+    }
+    #zan{
+        width:15%;
+        display: inline;
+        
+    }
+    .heart{width:20px;height:20px;display: inline-block;}
+    .heart_red{
+        width:20px;
+        height:20px;
+        display:none;
+    }
+    .like{margin-left:5px;}
+    .make{
+        display: flex;
     }
 </style>
