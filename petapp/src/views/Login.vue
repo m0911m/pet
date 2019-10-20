@@ -76,7 +76,7 @@ export default {
 <style scoped>
 /* 最外层父级 */
 .login{
-  display:flex;
+  /* display:flex; */
   position:relative;
   width:100%;
   /* position:relative; */
@@ -89,6 +89,7 @@ export default {
 }
 /* 背景 */
 .imgstyle{
+  position:relative;
   width:100%;
   height:100%;
 }
