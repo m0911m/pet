@@ -22,7 +22,7 @@ import Tabber from './views/Tabber.vue'
 import Nav from './views/Nav.vue' 
 // 引入宠圈
 import Petcircle from './views/Petcircle.vue'
-// 
+// 输入框
 import Inputmsg from './views/Inputmsg.vue'
 
 // 引入轮播图组件
@@ -32,6 +32,9 @@ import Foster from './components/Foster.vue'
 
 //注册测试
 import Test from './views/regtest'
+
+// 引入发现页面
+import Find from './views/Find.vue'
 
 
 
@@ -43,6 +46,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:'/Find',component:Find},
     {path:'/regtest',component:Test},
     {path:'/Inputmsg',component:Inputmsg},
     {path:'/Petcircle',component:Petcircle},

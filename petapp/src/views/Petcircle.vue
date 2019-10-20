@@ -1,7 +1,9 @@
 <template>
   <div>
     <van-tabs v-model="active" color="#f7bf25">
-      <van-tab title="发现">内容 1</van-tab>
+      <van-tab title="发现">
+        <find></find>
+      </van-tab>
       <van-tab title="最新">
         <newstory></newstory>
       </van-tab>
@@ -10,6 +12,7 @@
 </template>
 <script>
 import Newstory from "./Newstory"
+import Find from './Find.vue'
   export default{
     data(){
       return{
@@ -17,7 +20,8 @@ import Newstory from "./Newstory"
       }
     },
     components:{
-      "newstory":Newstory
+      "newstory":Newstory,
+      "find":Find
     }
   }
 </script>
