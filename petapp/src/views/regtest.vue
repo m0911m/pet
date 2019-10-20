@@ -1,0 +1,33 @@
+<template>
+  <div>
+    <van-cell-group>
+  <van-field
+    v-model="username"
+    label="用户名"
+    placeholder="请输入用户名"
+    error-massage="错误"
+  />
+
+  <van-field
+    v-model="password"
+    type="password"
+    label="密码"
+    placeholder="请输入密码"
+  />
+  <van-cell-group>
+  <van-field
+    v-model="username"
+    label="用户名"
+    placeholder="请输入用户名"
+    error
+  />
+  <van-field
+    v-model="phone"
+    label="手机号"
+    placeholder="请输入手机号"
+    error-message=""
+  />
+</van-cell-group>
+</van-cell-group>
+  </div>
+</template>

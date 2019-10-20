@@ -76,7 +76,7 @@ export default {
 <style scoped>
 /* 最外层父级 */
 .login{
-  /* display:flex; */
+  display:flex;
   position:relative;
   width:100%;
   text-align: center;

@@ -27,6 +27,9 @@ import Petcircle from './views/Petcircle'
 // 
 import Inputmsg from './views/Inputmsg'
 
+//注册测试
+import Test from './views/regtest'
+
 
 
 
@@ -36,6 +39,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:'/regtest',component:Test},
     {path:'/Inputmsg',component:Inputmsg},
     {path:'/Petcircle',component:Petcircle},
     {path:'/Nav',component:Nav},
