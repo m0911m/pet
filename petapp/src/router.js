@@ -8,8 +8,6 @@ import Addstory from './views/Addstory.vue'
 import Petlist from './views/Petlist.vue'
 //引入宠物详细信息组件
 import Petmessage from './views/Petmessage.vue'
-// 引入轮播图组件
-import Swipe from './components/Swipe.vue'
 // 引入动态组件
 import Newstory from './views/Newstory.vue'
 // 引入注册组件
@@ -23,9 +21,14 @@ import Tabber from './views/Tabber.vue'
 // 引入面板组件
 import Nav from './views/Nav.vue' 
 // 引入宠圈
-import Petcircle from './views/Petcircle'
+import Petcircle from './views/Petcircle.vue'
 // 
-import Inputmsg from './views/Inputmsg'
+import Inputmsg from './views/Inputmsg.vue'
+
+// 引入轮播图组件
+import Swipe from './components/Swipe.vue'
+// 引入寄养家庭组件
+import Foster from './components/Foster.vue'
 
 
 
@@ -34,8 +37,10 @@ import Inputmsg from './views/Inputmsg'
 
 Vue.use(Router)
 
+
 export default new Router({
   routes: [
+    {path:'/Foster',component:Foster},
     {path:'/Inputmsg',component:Inputmsg},
     {path:'/Petcircle',component:Petcircle},
     {path:'/Nav',component:Nav},
