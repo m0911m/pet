@@ -43,6 +43,7 @@ export default {
 .dynstyle{
   margin:1rem 0; 
   box-sizing: border-box;
+  padding:1rem 0;
 }
 /* 背景 */
 .bgstyle{

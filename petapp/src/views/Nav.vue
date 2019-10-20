@@ -75,13 +75,13 @@ export default {
         },        
         {
           title:"没有猫的旅行都是徒劳",
-          img:"user_0.jpg",
+          img:"user_1.jpg",
           subtitle:"#带着猫咪去旅行#",
           user:"猫窝猫咪幼儿园",
           parag:"哪有什么适带猫去的旅行的地方,只要你带他去了，所有的地方都适合，只要你肯踏上这旅程。",
           num1:"评论 25",
           num2:"点赞 84",
-          bg_img:"0.jpg"
+          bg_img:"1.jpg"
         }
        
        ],
