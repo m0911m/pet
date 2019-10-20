@@ -1,19 +1,19 @@
 <template>
   <div class="login">
+    <!-- 背景的图片 -->
     <img class="imgstyle" :src="require('../../public/imgs/login_bg.jpg')" alt="">
     <!-- logo图片 -->
-    <img style="width:100%; height:100%" src="../../public/imgs/login_bg.jpg" alt="">
     <van-image class="logostyle" :src="require('../../public/imgs/logo.jpg')"/>
-    <van-cell-group class="inputstyle">
+   <!-- 输入框 -->
+   <van-cell-group class="inputstyle">
     <van-field class="unamestyle" v-model="uname" label="用户名:" clearable placeholder="请输入用户名/手机号"></van-field>
-    <van-field class="upwdstyle" v-model="upwd" label="密码:" clearable type="password" :attr="{autofocus:true}" placeholder="请输入密码"></van-field>
-      <van-button class="loginstyle" @click="login">登录</van-button>
+    <van-field class="upwdstyle" v-model="upwd" label="密码:" clearable type="password" placeholder="请输入密码"></van-field>
+     <!-- 登录按钮 -->
+     <van-button class="loginstyle" @click="login">登录</van-button>
       <van-popup v-model="show" position="top">{{msg}}</van-popup>
     </van-cell-group>
-    <div class="textstyle">
-    <span>您还没有账号?
+    <div class="textstyle">您还没有账号?
       <router-link class="jumpstyle" :to="{path:'/Register'}">注册</router-link>
-      </span>
     </div>
   </div>
 </template>
@@ -79,55 +79,74 @@ export default {
   display:flex;
   position:relative;
   width:100%;
-  position:relative;
+  /* position:relative; */
   text-align: center;
   box-sizing: border-box;
-  padding-top:4.875rem;
-  padding-bottom:8rem;
+  /* padding-top:4.875rem;
+  padding-bottom:8rem; */
   /* background: url('../../public/imgs/login_bg.jpg') no-repeat; */
   /* background-size:cover; */
 }
+/* 背景 */
+.imgstyle{
+  width:100%;
+  height:100%;
+}
+/* logo */
 .logostyle{
   position:absolute;
   top:0;
   left:0;
   width:3.75rem;
-  border-radius: 50%;
+  top:20%;
+  left: 50%;
+  margin-left:-1.33rem;
 }
+
+/* 输入框 */
 .inputstyle{
   position: absolute;
   width:80%;
-  left:2.25rem; 
+  top:35%;
+  left:10%;
 }
+
 .unamestyle{
-  margin-top:4rem;
+  position: absolute;
   border-radius: 1rem;
   background-color: rgba(0,0,0,0.1);
 }
+
 .upwdstyle{
-  margin-top:1rem;
+  position: absolute;
+  top:4rem;
   border-radius: 1rem;
   background-color: rgba(0,0,0,0.1);
 }
+/* 登录按钮 */
+
 .loginstyle{
-  margin:1rem 0 10rem;
-  width:40%;
+  position:absolute;
+  top:8rem;
+  left:0;
+  width:100%;
   height:2rem;
   border-radius: 1rem;
   line-height: 2rem;
   color:#ff0;
   background:rgba(0,0,0,0.2) 
 }
+ /* 下部的链接 */
 .textstyle{
   position:absolute;
-  top: 0;
-  color:#0ff;
+  bottom:10%;
+  left:30%;
+  color:#FF0;
   font-weight:bold;
+  background-color:rgba(0,0,0,0.5)
 }
 .jumpstyle{
-  color:#ff0;
+  color:#0FF;
 }
-.van-cell-group{
-  background-color:rgba(0,0,0,0);
-}
+
 </style>
