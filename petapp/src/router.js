@@ -43,6 +43,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:'/Foster',component:Foster},
     {path:'/regtest',component:Test},
     {path:'/Inputmsg',component:Inputmsg},
     {path:'/Petcircle',component:Petcircle},
