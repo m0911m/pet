@@ -79,16 +79,12 @@ export default {
   display:flex;
   position:relative;
   width:100%;
-  /* position:relative; */
   text-align: center;
   box-sizing: border-box;
-  /* padding-top:4.875rem;
-  padding-bottom:8rem; */
-  /* background: url('../../public/imgs/login_bg.jpg') no-repeat; */
-  /* background-size:cover; */
 }
 /* 背景 */
 .imgstyle{
+  position:relative;
   width:100%;
   height:100%;
 }
