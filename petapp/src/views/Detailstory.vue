@@ -52,7 +52,7 @@ import Inputmsg from '../views/Inputmsg.vue'
     export default {
         methods: {
             onClickLeft() {
-            this.$router.push("/Newstory");
+            this.$router.push("/Petcircle");
             },
             heart(){
                 var heart = document.querySelector(".heart");

@@ -63,7 +63,7 @@ export default {
    .newstory{
         display: flex;
         flex-wrap: wrap; 
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;      
     } 
     .story{
@@ -91,11 +91,12 @@ export default {
     .usertxt{
         display: inline-block;
         width:80%;
+        padding-left:5px;
+        box-sizing: border-box;
     }
     .uname{
         font-size: 12px;
         color:#000;
-        margin-left:5px;
     }
     .down{
         display: flex;

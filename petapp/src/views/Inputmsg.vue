@@ -1,7 +1,7 @@
 <template>
   <div>
     <van-icon name="chat-o" @click="showPopup"/>
-    <span>评论</span>
+    <span>3</span>
     <van-popup v-model="show" position="bottom" :style="{height:'10%'}">
       <input type="text" class="txt" placeholder="说点什么...">
       <button class="send">发送</button>
