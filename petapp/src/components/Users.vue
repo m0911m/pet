@@ -3,7 +3,7 @@
     <!-- 用户发布故事组件 -->
     <div class="dynstyle" v-for="(item,i) of userlist" :key ="i">
       <!-- 上面的图片和图片上的内容 -->
-      <div class="bgstyle">
+      <div class="upstyle">
          <img class="bgstyle" :src="require('../../public/imgs/'+userlist[i].bg_img)" alt="">
         <p class="markstyle">养宠记录册</p>
         <!-- 标题 -->
@@ -41,15 +41,20 @@ export default {
 </script>
 <style scoped>
 .dynstyle{
-  margin:1rem 0; 
   box-sizing: border-box;
-  padding:1rem 0;
+  padding:1rem 1rem;
+}
+/* 上方div */
+.upstyle{
+  position: relative;
+  width:100%;
 }
 /* 背景 */
 .bgstyle{
   position: relative;
   width:100%;
-  height:200px;
+  height:12.5rem;
+  border-radius: 1rem;
   background-size:cover;
 }
 /* 养宠记录册 */
