@@ -36,6 +36,9 @@ import Test from './views/regtest'
 // 引入发现页面
 import Find from './views/Find.vue'
 
+// 主页
+import Index from './views/Index.vue'
+
 
 
 
@@ -46,6 +49,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:'/Index',component:Index},
     {path:'/Foster',component:Foster},
     {path:'/Find',component:Find},
     {path:'/regtest',component:Test},

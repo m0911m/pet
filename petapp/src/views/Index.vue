@@ -47,31 +47,35 @@
     <!-- 页面 -->
     <mt-tab-container v-model="active">
       <mt-tab-container-item id="tab1">
-        <nav></nav>
+        <Nav></Nav>
       </mt-tab-container-item>
       <mt-tab-container-item id="tab2">
-        <petcircle></petcircle>
+        <Petcircle></Petcircle>
       </mt-tab-container-item>
       <mt-tab-container-item id="tab3">
-        <addstory></addstory>
+        <Addstory></Addstory>
       </mt-tab-container-item>
       <mt-tab-container-item id="tab4">
-        <addstory></addstory>
+        <Addstory></Addstory>
       </mt-tab-container-item>
       <mt-tab-container-item id="tab5">
-        <addstory></addstory>
+        <Addstory></Addstory>
       </mt-tab-container-item>
     </mt-tab-container>
+
+    
+   
   </div>
 </template>
 <script>
-import Tabbaricon from '../components/Tabbaricon.vue'
-export default {
-  data(){
-    return{
-      // 面板中显示子组件的id
-      active:"message",
-      
+  import Nav from './Nav.vue'
+  import Petcircle from './Petcircle.vue'
+  import Addstory from './Addstory.vue'
+  import Tabbaricon from '../components/Tabbaricon.vue'
+  export default {
+  data() {
+    return {
+      active: "tab1",
       //创建数组保存图片焦点状态
       currentIndex:[
         {isSelect:true},
@@ -82,7 +86,14 @@ export default {
       ]
     }
   },
-methods: {
+  // 注册子组件
+  components:{
+    "Nav":Nav,
+    "Petcircle":Petcircle,
+    "Addstory":Addstory,
+    "tabbaricon":Tabbaricon
+  },
+  methods: {
     //  点击每个按钮触发函数
     changeState(n){
       //将当前参数下标对应数组值修改true其它修改false
@@ -99,11 +110,6 @@ methods: {
       }
     }
   },
-  components:{
-    "tabbaricon":Tabbaricon
-  }
+  
 }
 </script>
-<style scoped>
-  
-</style>
