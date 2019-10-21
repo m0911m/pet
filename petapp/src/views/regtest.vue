@@ -18,7 +18,7 @@
 </van-cell-group>
 <van-cell-group>
   <van-field
-    v-model="sms"
+    v-model="uname"
     center
     clearable
     label="短信验证码"

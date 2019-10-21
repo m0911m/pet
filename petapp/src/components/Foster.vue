@@ -1,47 +1,68 @@
 <template>
-  <div>
-    <div class="fosstyle">
-      <!-- 寄养家庭的组件 -->
-      <!-- 上方的信息 -->
-      <div class="userstyle">
-        <img class="famstyle" :src="require('../../public/imgs/family0.jpg')" alt="">
-        <!-- 用户头像 -->
-        <img class="imgstyle" :src="require('../../public/imgs/family_user0.jpg')" alt="">
-        <!-- 左边的价格 -->
-        <div class="bgstyle">
-          <span class="typestyle">寄养价格
-            <a class="numstyle">¥35</a>
-            起
-          </span> 
-          <span class="ordstyle">随时可以接单</span>
-        </div>
-      </div>
-      <!-- 下方的信息 -->
-      <!-- 用户名称 评分 -->
-      <div class="understyle">
-        <span class="namestyle">小福的家</span>
-        <span class="gradestyle">评分<a href="" class="scorestyle">5.0</a></span>
-      </div>
-      <div class="addstyle">
-        <span class="icon"><img :src="require('../../public/imgs/heart_red.png')" alt=""></span>
-        <ul class="locstyle">
-          <li class="sitstyle">新科大厦</li>|
-          <li class="gapstyle">距我0.3km</li>
-        </ul>
+<div>
+  <div class="fosstyle" v-for="(item,i) of homelist" :key="i">
+    <!-- 寄养家庭的组件 -->
+    <!-- 上方的信息 -->
+    <div class="userstyle">
+      <!-- 家庭照片 -->
+      <img class="famstyle" :src="require('../../public/imgs/'+homelist[i].h_img)" alt="">
+      <!-- 用户头像 -->
+      <img class="imgstyle" :src="require('../../public/imgs/'+homelist[i].u_img)" alt="">
+      <!-- 左边的价格 -->
+      <div class="bgstyle">
+        <span class="typestyle">寄养价格
+        <a class="numstyle">¥{{homelist[i].num}}</a>
+          起
+        </span> 
+        <span class="ordstyle">随时可以接单</span>
       </div>
     </div>
+    <!-- 下方的信息 -->
+    <!-- 用户昵称 评分 -->
+    <div class="understyle">
+      <!-- 昵称 -->
+      <span class="namestyle">{{homelist[i].u}}</span>
+      <span class="gradestyle">评分<a href="" class="scorestyle">{{homelist[i].score}}</a></span>
+    </div>
+    <div class="addstyle">
+      <span class="icon"><img :src="require('../../public/imgs/heart_red.png')" alt=""></span>
+      <ul class="locstyle">
+        <li class="sitstyle">{{homelist[i].sit}}</li>|
+        <li class="gapstyle">距我 {{homelist[i].gaps}}</li>
+      </ul>
+    </div>
   </div>
+</div>
+<!-- </div>   -->
 </template>
 <script>
 export default {
-  
+  data(){
+    return{
+      homelist:[{
+        h_img:"family0.jpg",
+        u_img:"family_user0.jpg",
+        num:35,
+        u:"小福的家",
+        score:"5.0",
+        sit:"新科大厦",
+        gaps:"0.3km"
+      }]
+    }
+  },
+  methods:{
+
+  },
+  props:{}
 }
 </script>
 <style scoped>
 /* 寄养家庭组件 */
 .fosstyle{
+  background-color:#FAF5F9;
   margin:1rem 0;
   box-sizing: border-box;
+  padding-bottom:1rem;
 }
 .userstyle{
   position: relative;
@@ -50,10 +71,10 @@ export default {
 }
 /* 用户家庭图片 */
 .famstyle{
-  position:flxed;
   width:100%;
   height:13rem;
   border-radius: 1rem;
+  padding-bottom:1rem;
 }
 /* 用户头像 */
 .imgstyle{
