@@ -1,46 +1,79 @@
 <template>
-  <div>
+<div>
+  <div class="fosstyle" v-for="(item,i) of homelist" :key="i">
     <!-- 寄养家庭的组件 -->
     <!-- 上方的信息 -->
     <div class="userstyle">
-      <img class="famstyle" :src="require('../../public/imgs/family0.jpg')" alt="">
+      <!-- 家庭照片 -->
+      <img class="famstyle" :src="require('../../public/imgs/'+homelist[i].h_img)" alt="">
       <!-- 用户头像 -->
-      <img class="imgstyle" :src="require('../../public/imgs/family_user0.jpg')" alt="">
+      <img class="imgstyle" :src="require('../../public/imgs/'+homelist[i].u_img)" alt="">
       <!-- 左边的价格 -->
       <div class="bgstyle">
         <span class="typestyle">寄养价格
-          <a class="numstyle">¥35</a>
-           起
+        <a class="numstyle">¥{{homelist[i].num}}</a>
+          起
         </span> 
         <span class="ordstyle">随时可以接单</span>
       </div>
     </div>
     <!-- 下方的信息 -->
+    <!-- 用户昵称 评分 -->
     <div class="understyle">
-      <span class="namestyle">小福的家</span>
-      <span class="gradestyle">评分<a href="">5.0</a></span>
+      <!-- 昵称 -->
+      <span class="namestyle">{{homelist[i].u}}</span>
+      <span class="gradestyle">评分<a href="" class="scorestyle">{{homelist[i].score}}</a></span>
+    </div>
+    <div class="addstyle">
+      <span class="icon"><img :src="require('../../public/imgs/heart_red.png')" alt=""></span>
+      <ul class="locstyle">
+        <li class="sitstyle">{{homelist[i].sit}}</li>|
+        <li class="gapstyle">距我 {{homelist[i].gaps}}</li>
+      </ul>
     </div>
   </div>
+</div>
 </template>
 <script>
 export default {
-  
+  data(){
+    return{
+      homelist:[{
+        h_img:"family0.jpg",
+        u_img:"family_user0.jpg",
+        num:35,
+        u:"小福的家",
+        score:"5.0",
+        sit:"新科大厦",
+        gaps:"0.3km"
+      }]
+    }
+  },
+  methods:{
+
+  },
+  props:{}
 }
 </script>
 <style scoped>
 /* 寄养家庭组件 */
+.fosstyle{
+  background-color:#FAF5F9;
+  margin:1rem 0;
+  box-sizing: border-box;
+  padding-bottom:1rem;
+}
 .userstyle{
   position: relative;
   display:flex;
-  box-sizing: border-box;
-  padding:1rem 1rem;
+  padding:0 1rem;
 }
 /* 用户家庭图片 */
 .famstyle{
-  position:flxed;
   width:100%;
   height:13rem;
   border-radius: 1rem;
+  padding-bottom:1rem;
 }
 /* 用户头像 */
 .imgstyle{
@@ -87,6 +120,7 @@ export default {
 /* 下方用户信息 */
 .understyle{
   display:flex;
+  align-items:center;
   padding:0 1rem;
 }
 /* 用户昵称 */
@@ -96,8 +130,29 @@ export default {
   font:bolder 1.5rem 楷体;
 }
 /* 评分 */
-.gradestyle{
+.gradestyle,.scorestyle{
+  display:flex;
   color:#FFD531;
   font:bold 0.8rem 楷体;
+  margin-left: 0.25rem;
+}
+/* 下方的小图标 地址 距离*/
+.addstyle{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left:2rem;
+}
+.locstyle{
+  display:flex;
+  font:bold 0.9rem 楷体;
+  color:#6D6D6D;
+}
+.sitstyle{
+  padding-right:2rem;
+}
+.gapstyle{
+  padding-left:2rem;
 }
 </style>

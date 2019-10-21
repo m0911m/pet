@@ -4,25 +4,25 @@
     <div class="dynstyle" v-for="(item,i) of userlist" :key ="i">
       <!-- 上面的图片和图片上的内容 -->
       <div class="upstyle">
-         <img class="bgstyle" :src="require('../../public/imgs/'+userlist[i].bg_img)" alt="">
+         <img class="bgstyle" :src="require('../../public/imgs/'+userlist[i].i_img)" alt="">
         <p class="markstyle">养宠记录册</p>
         <!-- 标题 -->
-        <p class="titlestyle">{{userlist[i].title}}</p> 
-        <img class="imgstyle" :src="require('../../public/imgs/'+userlist[i].img)" alt="">     
+        <p class="titlestyle">{{userlist[i].ititle}}</p> 
+        <img class="imgstyle" :src="require('../../public/imgs/'+userlist[i].i_icon)" alt="">     
       </div>
       <!-- 下方的字段 -->
       <div class="textstyle">
         <!-- 小标题 -->
-        <span class="subtitle">{{userlist[i].subtitle}}</span>
+        <span class="subtitle">{{userlist[i].ismtitle}}</span>
         <!-- 用户的昵称 -->
-        <span class="userstyle">{{userlist[i].user}}</span>
+        <span class="userstyle">{{userlist[i].iuname}}</span>
         <!-- 段落 -->
-        <p class="paragstyle">{{userlist[i].parag}}</p>
+        <p class="paragstyle">{{userlist[i].itxt}}</p>
       </div>
       <!-- 点赞评论 -->
       <div class="numstyle">
-        <span class="diststyle">{{userlist[i].num1}}</span>
-        <span>{{userlist[i].num2}}</span>
+        <span class="diststyle">评论 {{userlist[i].iid}}</span>
+        <span>点赞 {{userlist[i].uid}}</span>
       </div>
     </div>
   </div>
@@ -42,7 +42,8 @@ export default {
 <style scoped>
 .dynstyle{
   box-sizing: border-box;
-  padding:1rem 1rem;
+  margin:1rem 0;
+  padding:0 1rem 1rem;
 }
 /* 上方div */
 .upstyle{
@@ -91,21 +92,26 @@ export default {
 .textstyle{
   position:relative;
   margin-top:0.25rem;
-  padding:0 1rem;
 }
 /* 小标题 */
 .subtitle{
-  font:1rem 楷体;
+  font:bold 0.05rem 楷体;
+  color:#d6d6d6;
 }
 /* 用户昵称 */
 .userstyle{
   position:absolute;
-  right:4rem;
+  right:3.5rem;
   font:bolder 1rem 楷体;
 }
 /* 段落 */
 .paragstyle{
   font:0.8rem 楷体;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient: vertical;
 }
 /* 点赞,评论 */
 .numstyle{
