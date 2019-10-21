@@ -8,7 +8,9 @@
     <!-- 评论列表 -->
     <div  v-for="(c,i) of clist" :key="i" class="comment"> 
       <!-- 评论者头像 -->
-      <van-image round width="65" height="65" src="https://img.yzcdn.cn/vant/cat.jpeg"/>
+      <div class="cimg">
+        <van-image round width="60" height="60" src="https://img.yzcdn.cn/vant/cat.jpeg"/>
+      </div>
       <div class="ctxt">
           <!-- 用户名 -->
           <p class="cname">{{c.cname}}</p>
@@ -65,5 +67,10 @@
   }
   .col{
     color:#f7bf25;
-    }
+  }
+  .cimg{
+    display: inline-block;
+    padding:5px;
+    box-sizing: border-box;
+  }
 </style>
