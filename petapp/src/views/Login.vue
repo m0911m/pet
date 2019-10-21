@@ -111,14 +111,14 @@ export default {
 .unamestyle{
   position: absolute;
   border-radius: 1rem;
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,0.2);
 }
 
 .upwdstyle{
   position: absolute;
   top:4rem;
   border-radius: 1rem;
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,0.2);
 }
 /* 登录按钮 */
 

@@ -9,7 +9,7 @@
         <!-- 标题 -->
         <p class="titlestyle">{{userlist[i].ititle}}</p> 
         <img class="imgstyle" :src="require('../../public/imgs/'+userlist[i].i_icon)" alt="">     
-      </div>
+      </div> 
       <!-- 下方的字段 -->
       <div class="textstyle">
         <!-- 小标题 -->

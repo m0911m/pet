@@ -39,7 +39,8 @@ import Find from './views/Find.vue'
 // 主页
 import Index from './views/Index.vue'
 
-
+// 导航栏组件
+import Navbar from './components/Navbar.vue'
 
 
 
@@ -49,6 +50,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:"/Navbar",component:Navbar},
     {path:'/Index',component:Index},
     {path:'/Foster',component:Foster},
     {path:'/Find',component:Find},

@@ -59,9 +59,8 @@ export default {
 /* 寄养家庭组件 */
 .fosstyle{
   background-color:#FAF5F9;
-  margin:1rem 0;
   box-sizing: border-box;
-  padding-bottom:1rem;
+  padding:1rem;
 }
 .userstyle{
   position: relative;
