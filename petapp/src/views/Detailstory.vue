@@ -142,7 +142,7 @@ import Inputmsg from '../views/Inputmsg.vue'
         margin-left:5px;
     }
     #zan{
-        width:15%;
+        /* width:15%; */
         display: inline;
         
     }

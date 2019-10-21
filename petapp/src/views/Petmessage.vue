@@ -60,7 +60,7 @@
       </div>
       <!-- 弹出层输入昵称 -->
       <van-popup v-model="show" position="top">
-        <van-datetime-picker v-model="currentDate" type="date"/>
+        <van-datetime-picker v-model="currentDate" type="date" :min-date="minDate"/>
       </van-popup>
       <hr>
       <!-- 2.5性别 -->
