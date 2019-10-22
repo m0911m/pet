@@ -41,16 +41,20 @@
                 console.log(file);
             } ,
             onClickLeft() {
-            console.log("返回");
+                this.$router.go(-1);
             },
             onClickRight() {
                 var url="user/updatamessagelist"
-                this.axios.post(url).then(res=>{
-                console.log(res);  
-                // if(res.data.code<=0){
-                //     this.$toast("请登录");
-                //     this.$router.push("/Login")
-                // }
+                this.axios.post(url,{},{
+                headers:{
+                    "Content-Type":"applolication/json;charset=utf-8"},
+                    withCredentials:true
+                } ).then(function(res){
+                    console.log(res)
+                    let result=res.data.code;
+                    if(result==-2){
+                        this.$router.push("/Login")
+                    }
                 })
             },
             position(){
