@@ -58,9 +58,9 @@
           <span>&gt;</span>
         </div>
       </div>
-      <!-- 弹出层输入昵称 -->
+      <!-- 弹出层输入时间 -->
       <van-popup v-model="show" position="top">
-        <van-datetime-picker v-model="currentDate" type="date"/>
+        <van-datetime-picker v-model="currentDate" type="date" :min-date="minDate" :max-date="maxDate"/>
       </van-popup>
       <hr>
       <!-- 2.5性别 -->
@@ -150,6 +150,8 @@ export default {
     return{
       show:false,
       value:"",
+      minDate:new Date(2005,1,1),
+      maxDate:new Date(),
       currentDate: new Date()
       }
   },
