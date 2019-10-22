@@ -20,6 +20,8 @@
     <!-- 下方的信息 -->
     <!-- 用户昵称 评分 -->
     <div class="understyle">
+      <!-- 小badge -->
+      <mt-badge size="small" color="#353535">家庭</mt-badge>
       <!-- 昵称 -->
       <span class="namestyle">{{homelist[i].u}}</span>
       <span class="gradestyle">评分<a href="" class="scorestyle">{{homelist[i].score}}</a></span>
@@ -125,7 +127,7 @@ export default {
 /* 用户昵称 */
 .namestyle{
   display:flex;
-  margin-left:1rem;
+  margin-left:0.5rem;
   font:bolder 1.5rem 楷体;
 }
 /* 评分 */
@@ -141,7 +143,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin-left:2rem;
+  margin-left:1rem;
 }
 .locstyle{
   display:flex;
