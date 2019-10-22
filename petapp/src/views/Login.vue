@@ -59,7 +59,7 @@ export default {
       .then(response=>{
       console.log(response);
       if(response.data.code>0){
-        this.$router.push({path:'/Nav'});
+        this.$router.push({path:'/Index'});
       }else{
         this.msg="用户名或密码错误"
         this.show=true;

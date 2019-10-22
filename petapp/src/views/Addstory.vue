@@ -47,10 +47,10 @@
                 var url="user/updatamessagelist"
                 this.axios.post(url).then(res=>{
                 console.log(res);  
-                if(res.data.code<=0){
-                    this.$toast("请登录");
-                    this.$router.push("/Login")
-                }
+                // if(res.data.code<=0){
+                //     this.$toast("请登录");
+                //     this.$router.push("/Login")
+                // }
                 })
             },
             position(){

@@ -4,40 +4,40 @@
     <mt-tabbar v-model="active" fixed>
       <mt-tab-item id="tab1" @click.native="changeState(0)">
         <tabbaricon
-          :selectedImage="require('../../public/imgs/heart.png')"
-          :normalImage="require('../../public/imgs/heart_red.png')"
+          :selectedImage="require('../../public/imgs/index2.png')"
+          :normalImage="require('../../public/imgs/index.png')"
           :focused="currentIndex[0].isSelect">
          </tabbaricon>
         首页
       </mt-tab-item>
       <mt-tab-item id="tab2" @click.native="changeState(1)">
         <tabbaricon
-          :selectedImage="require('../../public/imgs/heart.png')"
-          :normalImage="require('../../public/imgs/heart_red.png')"
+          :selectedImage="require('../../public/imgs/share2.png')"
+          :normalImage="require('../../public/imgs/share.png')"
           :focused="currentIndex[1].isSelect">
          </tabbaricon>
         宠圈
       </mt-tab-item>
       <mt-tab-item id="tab3" @click.native="changeState(2)">
         <tabbaricon
-          :selectedImage="require('../../public/imgs/heart.png')"
-          :normalImage="require('../../public/imgs/heart_red.png')"
+          :selectedImage="require('../../public/imgs/add2.png')"
+          :normalImage="require('../../public/imgs/add.png')"
           :focused="currentIndex[2].isSelect">
          </tabbaricon>
         发布
       </mt-tab-item>
       <mt-tab-item id="tab4" @click.native="changeState(3)">
         <tabbaricon
-          :selectedImage="require('../../public/imgs/heart.png')"
-          :normalImage="require('../../public/imgs/heart_red.png')"
+          :selectedImage="require('../../public/imgs/msg2.png')"
+          :normalImage="require('../../public/imgs/msg.png')"
           :focused="currentIndex[3].isSelect">
          </tabbaricon>
         消息 
       </mt-tab-item>
       <mt-tab-item id="tab5" @click.native="changeState(4)">
         <tabbaricon
-          :selectedImage="require('../../public/imgs/heart.png')"
-          :normalImage="require('../../public/imgs/heart_red.png')"
+          :selectedImage="require('../../public/imgs/me2.png')"
+          :normalImage="require('../../public/imgs/me.png')"
           :focused="currentIndex[4].isSelect">
          </tabbaricon>
         我的 
@@ -56,10 +56,10 @@
         <Addstory></Addstory>
       </mt-tab-container-item>
       <mt-tab-container-item id="tab4">
-        <Addstory></Addstory>
+        
       </mt-tab-container-item>
       <mt-tab-container-item id="tab5">
-        <Addstory></Addstory>
+        
       </mt-tab-container-item>
     </mt-tab-container>
 
