@@ -44,12 +44,14 @@
             console.log("返回");
             },
             onClickRight() {
-            // console.log("发布");
-            // 点击发布，将动态存到数据库, 标题，副标题，文章，图片
-            // console.log(this.title);
-            // console.log(this.subtitle);
-            // console.log(this.article);
-            // afterRead(file);
+                var url="user/updatamessagelist"
+                this.axios.post(url).then(res=>{
+                console.log(res);  
+                // if(res.data.code<=0){
+                //     this.$toast("请登录");
+                //     this.$router.push("/Login")
+                // }
+                })
             },
             position(){
                 console.log("定位");

@@ -142,8 +142,13 @@ import Inputmsg from '../views/Inputmsg.vue'
         margin-left:5px;
     }
     #zan{
+<<<<<<< HEAD
         /* width:15%; */
         display: inline;
+=======
+        width:15%;
+        display: inline-block;
+>>>>>>> f34d9b4c6ba89546e42e5a0d4f0b0c77ac1f2ac5
         
     }
     .heart{width:20px;height:20px;display: inline-block;}
