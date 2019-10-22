@@ -70,10 +70,6 @@ CREATE TABLE cw_cart(
  ftitle VARCHAR(30),#宠物家的名字
  fprice DECIMAL(10,2) #价格
 );
-<<<<<<< HEAD
-ALTER TABLE cw_cart ADD uid INT;
-=======
->>>>>>> e41687220eb80792d3d84c8e5bec178be1da9f10
 /**###########################**/
 /**数据导入**/
 /**用户信息**/
