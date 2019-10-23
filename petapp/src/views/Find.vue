@@ -1,6 +1,8 @@
 <template>
   <div class="contain">
+   
     <swipe></swipe>
+    
     <div class="box">
       <!-- 推荐阅读 -->
       <div class="top">
@@ -9,7 +11,7 @@
       <div class="read" v-for="(item,i) of list" :key="i" @click="details">
         <!-- 左侧图片 -->
         <div class="rpic">
-          <img src="../../public/imgs/cat01.png" alt="" class="pic">
+          <img :src="require('../../public/imgs/'+item.pic)" alt="" class="pic">
         </div>
         <!-- 右侧内容 -->
         <div>
@@ -27,12 +29,12 @@ export default {
   data(){
     return{
       list:[
-        {pic:"../../public/imgs/cat01.png",title:"铛铛铛~迟来的毛孩子福利",subtitle:"汪星人人最爱的小黄球",time:"2019-10-12"},
-        {pic:"../../public/imgs/cat08.jpg",title:"营养不均衡让狗狗有皮肤病",subtitle:"狗狗皮肤病的科学",time:"2019-10-19"},
-        {pic:"../../public/imgs/dog03.jpg",title:"上班也不忘准备毛孩子的口粮",subtitle:"再忙也别委屈了毛孩子",time:"2019-1-13"},
-        {pic:"../../public/imgs/dog04.jpg",title:"周末新秀~三文鱼蛋糕",subtitle:"快来尝尝鲜",time:"2019-10-05"},
-        {pic:"../../public/imgs/dog05.jpg",title:"狗狗美毛零食~肌肉奶酪曲奇",subtitle:"自制狗狗零食",time:"2019-10-11"},
-        {pic:"../../public/imgs/dog09.jpg",title:"铛铛铛~迟来的毛孩子福利",subtitle:"汪星人人最爱的小黄球",time:"2019-10-12"},
+        {pic:"cat01.png",title:"铛铛铛~迟来的毛孩子福利",subtitle:"汪星人人最爱的小黄球",time:"2019-10-12"},
+        {pic:"cat08.jpg",title:"营养不均衡让狗狗有皮肤病",subtitle:"狗狗皮肤病的科学",time:"2019-10-19"},
+        {pic:"dog03.jpg",title:"上班也不忘准备毛孩子的口粮",subtitle:"再忙也别委屈了毛孩子",time:"2019-1-13"},
+        {pic:"dog04.jpg",title:"周末新秀~三文鱼蛋糕",subtitle:"快来尝尝鲜",time:"2019-10-05"},
+        {pic:"dog05.jpg",title:"狗狗美毛零食~肌肉奶酪曲奇",subtitle:"自制狗狗零食",time:"2019-10-11"},
+        {pic:"dog09.jpg",title:"铛铛铛~迟来的毛孩子福利",subtitle:"汪星人人最爱的小黄球",time:"2019-10-12"},
 
       ]
     }
@@ -48,12 +50,12 @@ export default {
 }
 </script>
 <style scoped>
+
 .contain{
   position: relative;
 }
 .box{
-  position: absolute;
-  top:180px;
+  margin-top:100px;
 }
   .top{
     padding:10px;

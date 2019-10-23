@@ -143,7 +143,7 @@ import Inputmsg from '../views/Inputmsg.vue'
     }
     #zan{
         width:15%;
-        display: inline;
+        display: inline-block;
         
     }
     .heart{width:20px;height:20px;display: inline-block;}
