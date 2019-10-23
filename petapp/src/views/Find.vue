@@ -8,7 +8,6 @@
       <div class="top">
         <h4>推荐阅读</h4>
       </div>
-      <!-- 内容 -->
       <div class="read" v-for="(item,i) of list" :key="i" @click="details">
         <!-- 左侧图片 -->
         <div class="rpic">
@@ -52,9 +51,11 @@ export default {
 </script>
 <style scoped>
 
-
+.contain{
+  position: relative;
+}
 .box{
-  margin-top:80px;
+  margin-top:100px;
 }
   .top{
     padding:10px;
@@ -66,7 +67,6 @@ export default {
     display:flex;
     border-bottom: 1px solid #ccc;
     padding:10px;
-    height:143px;
   }
   .rpic{
     width:35%;

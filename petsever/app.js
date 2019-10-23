@@ -2,10 +2,14 @@
 const express=require("express");
 //引入body-parser中间件
 const bodyParser=require('body-parser');
+//引入用户模块路由器
+const userRouter=require('./routes/user');
+//引入动态消息模块路由器
+//const userRouter=require('./routes/user');
+//引入寄养模块路由器
+//const userRouter=require('./routes/user');
 //引入session模块
 const session=require("express-session");
-//引入用户路由器
-const userRouter=require('./routes/user');
 //引入cors模块
 const cors=require("cors");
 
@@ -13,16 +17,14 @@ const cors=require("cors");
 //使用express模块
 var app=express();
 //监听端口
-var server = app.listen(5050);
+ app.listen(5050);
 
 //配置session
 app.use(session({
 	secret:"128位字符",
 	resave:true,
-	saveUninitialized:true,
-	
+	saveUninitialized:true
 }));
-
 //配置跨域
 app.use(cors({
 	origin:["http://127.0.0.1:5050","http://localhost:8080"],

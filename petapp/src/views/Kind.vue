@@ -20,7 +20,7 @@
     <hr>
     <!-- 2宠物种类输入框 -->
     <div>
-      <van-search placeholder="请输入宠物种类" id="kind" />
+      <van-search placeholder="请输入宠物种类" v-model="value" />
     </div>
     <!-- 3.宠物种类切换面板按钮 -->
     <div class="container">
@@ -34,7 +34,7 @@
     <mt-tab-container v-model="active" class="textleft">
       <!-- 狗种类子面板 -->
       <mt-tab-container-item id="tab1">
-        <van-index-bar @click="select">
+        <van-index-bar>
           <van-index-anchor index="A" />
           <van-cell title="爱尔兰猎狼犬" />
           <van-cell title="爱尔兰雪达犬" />
@@ -134,11 +134,11 @@
 export default {
   data(){
     return{
+      value:"",
       active:"tab1"
       }
   },
    methods:{
-
     handle(e){
       var id=e.target.dataset.id;
       this.active=id;
