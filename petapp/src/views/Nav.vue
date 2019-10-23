@@ -1,5 +1,6 @@
 <template>
 <div>
+  <navbar></navbar>
   <!-- 顶部导航，进入寄养家庭 -->
     <ul class="jumpstyle">
       <li class="listyle">Hi 想让他住哪里</li>
@@ -52,6 +53,7 @@
       <span>为你推荐</span>
     </div>
     <users :userlist="userlist"></users>
+
 </div>
 </template>
 <script>
@@ -59,6 +61,7 @@
 import Swipe from "../components/Swipe"
 // // 引入用户发布故事组件
 import Users from "../components/Users"
+import Navbar from "../components/Navbar"
 export default {
   data(){
     return{
@@ -68,7 +71,8 @@ export default {
   },
   components: {
     "swipe":Swipe,
-    "users":Users
+    "users":Users,
+    "navbar":Navbar
   },
   created(){
     this.user()
