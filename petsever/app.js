@@ -19,7 +19,7 @@ var server = app.listen(5050);
 app.use(session({
 	secret:"128位字符",
 	resave:true,
-	saveUninitialized:true,
+	saveUninitialized:true
 	
 }));
 
