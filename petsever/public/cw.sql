@@ -36,7 +36,7 @@ ttxt TEXT,#正文
 t_img VARCHAR(30),#图片路径
 uid INT #用户id
 );
-/**寄养信息数据表**/
+/**寄养家庭信息数据表**/
 CREATE TABLE cw_foster(
   fid INT PRIMARY KEY AUTO_INCREMENT,#id
   ftitle VARCHAR(30),#宠物家的名字
