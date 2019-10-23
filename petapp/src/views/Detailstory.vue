@@ -26,7 +26,7 @@
             </div>
             <div class="make">
                 <!-- 点赞 -->
-                <div id="zan" v-on:click="heart">
+                <div id="zan" @click="heart">
                     <img src="../../public/imgs/heart.png" alt="" class="heart" >
                     <img src="../../public/imgs/heart_red.png" alt="" class="heart_red">
                     <span class="like">{{item.heart}}</span> 
@@ -52,7 +52,7 @@ import Inputmsg from '../views/Inputmsg.vue'
     export default {
         methods: {
             onClickLeft() {
-            this.$router.go(-1);
+            this.$router.push("/Petcircle");
             },
             heart(){
                 var heart = document.querySelector(".heart");
@@ -142,9 +142,9 @@ import Inputmsg from '../views/Inputmsg.vue'
         margin-left:5px;
     }
     #zan{
-        /* width:15%; */
-        display: inline;
+        width:15%;
         display: inline-block;
+        
     }
     .heart{width:20px;height:20px;display: inline-block;}
     .heart_red{

@@ -8,6 +8,8 @@ var router=express.Router();
 router.post("/login",(req,res)=>{
 	var uname=req.body.uname;
 	var upwd=req.body.upwd;
+	console.log(uname);
+	console.log(upwd);
 	
 	var sql="SELECT uid FROM cw_user WHERE uname=? OR uphone=? AND upwd=?";
 	pool.query(sql,[uname,uname,upwd],(err,result)=>{
@@ -16,7 +18,6 @@ router.post("/login",(req,res)=>{
 			res.send({code:-1,msg:"用户名或密码有误"})
 		}else{
 			req.session.uid=result[0].uid;
-			console.log(req.session.uid)
 			res.send({code:1,msg:"登录成功"})
 		}
 	})
@@ -53,9 +54,7 @@ router.post("/reg",(req,res)=>{
 //三、动态发布模块   验证过
 router.post("/updatamessagelist",(req,res)=>{
 	//获取发布动态用户的uid
-	console.log(req.session.uid)
 	var uid=req.session.uid;
-	console.log(uid);
  if(!uid){
  res.send({code:-2,msg:"请登录"});
  	return;
@@ -77,7 +76,7 @@ pool.query(sql,(err,result)=>{
 });
 //四、动态页浏览模块     验证过
 router.get("/messagelist",(req,res)=>{
-var sql="SELECT tid,ttitle,tsmtitle,ttxt,tuname,taddress,t_img,uid FROM cw_text";
+var sql="SELECT tid,ttitle,tsmtitle,ttxt,t_img,uid FROM cw_text";
 pool.query(sql,(err,result)=>{
 	if(err)throw err;
 		if(result.length>0){
@@ -149,8 +148,5 @@ router.get("/indexstory",(req,res)=>{
 			}
 	})
 })
-
-
-
 //导出路由器
 module.exports=router;

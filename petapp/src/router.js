@@ -22,6 +22,8 @@ import Tabber from './views/Tabber.vue'
 import Nav from './views/Nav.vue' 
 // 引入宠圈
 import Petcircle from './views/Petcircle.vue'
+// 输入框
+// import Inputmsg from './views/Inputmsg.vue'
 
 // 引入轮播图组件
 import Swipe from './components/Swipe.vue'
@@ -40,8 +42,6 @@ import Index from './views/Index.vue'
 // 导航栏组件
 import Navbar from './components/Navbar.vue'
 
-// 引入消息组件
-import Message from './views/Message.vue'
 
 
 
@@ -50,12 +50,12 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    {path:"/Message",component:Message},
     {path:"/Navbar",component:Navbar},
     {path:'/Index',component:Index},
     {path:'/Foster',component:Foster},
     {path:'/Find',component:Find},
     {path:'/regtest',component:Test},
+    // {path:'/Inputmsg',component:Inputmsg},
     {path:'/Petcircle',component:Petcircle},
     {path:'/Nav',component:Nav},
     {path:'/Tabber',component:Tabber},

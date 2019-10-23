@@ -2,10 +2,10 @@
 const express=require("express");
 //引入body-parser中间件
 const bodyParser=require('body-parser');
-//引入session模块
-const session=require("express-session");
 //引入用户路由器
 const userRouter=require('./routes/user');
+//引入session模块
+const session=require("express-session");
 //引入cors模块
 const cors=require("cors");
 
@@ -20,9 +20,7 @@ app.use(session({
 	secret:"128位字符",
 	resave:true,
 	saveUninitialized:true
-	
 }));
-
 //配置跨域
 app.use(cors({
 	origin:["http://127.0.0.1:5050","http://localhost:8080"],

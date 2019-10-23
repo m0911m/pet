@@ -6,7 +6,7 @@
     <van-image class="logostyle" :src="require('../../public/imgs/logo.jpg')"/>
    <!-- 输入框 -->
    <van-cell-group class="inputstyle">
-    <van-field class="unamestyle" v-model="uname" label="用户名:" clearable placeholder="请输入用户名/手机号"></van-field>
+    <van-field class="unamestyle" autofocus="autofocus" v-model="uname" label="用户名:" clearable placeholder="请输入用户名/手机号"></van-field>
     <van-field class="upwdstyle" v-model="upwd" label="密码:" clearable type="password" placeholder="请输入密码"></van-field>
      <!-- 登录按钮 -->
      <van-button class="loginstyle" @click="login">登录</van-button>
@@ -37,7 +37,6 @@ export default {
       var u=this.upwd;
       // 创建手机号正则和密码(6-16位字母数字)正则
       var nreg=/^1[3-9]\d{9}$/ //手机
-      var mreg=/^\d{3,10}$/   //用户名
       var ureg=/^\d{6,16}$/   //密码
       // 验证用户名 
       if(nreg.test(n)==false){
@@ -59,7 +58,7 @@ export default {
       .then(response=>{
       console.log(response);
       if(response.data.code>0){
-        this.$router.push({path:'/Index'});
+        this.$router.push({path:'/Nav'});
       }else{
         this.msg="用户名或密码错误"
         this.show=true;
