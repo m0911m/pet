@@ -18,7 +18,7 @@
                         <!-- 地址 -->
                         <span class="local">{{item.taddress}}</span>
                         <!-- 点赞 -->
-                        <div id="zan" @click="heart">
+                        <div id="zan" v-on:click="heart">
                             <img src="../../public/imgs/heart.png" alt="" class="heart" >
                             <img src="../../public/imgs/heart_red.png" alt="" class="heart_red">
                             <span class="like">1</span> 
