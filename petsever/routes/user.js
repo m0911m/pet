@@ -76,7 +76,7 @@ pool.query(sql,(err,result)=>{
 });
 //四、动态页浏览模块     验证过
 router.get("/messagelist",(req,res)=>{
-var sql="SELECT tid,ttitle,tsmtitle,ttxt,t_img,uid FROM cw_text";
+var sql="SELECT tid,ttitle,tsmtitle,ttxt,t_img,taddress,tuname,uid FROM cw_text";
 pool.query(sql,(err,result)=>{
 	if(err)throw err;
 		if(result.length>0){

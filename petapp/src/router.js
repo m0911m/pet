@@ -16,14 +16,12 @@ import Register from './views/Register.vue'
 import Kind from './views/Kind.vue'
 // 引入动态详情组件
 import Detailstory from './views/Detailstory.vue'
-// 引入导航组件
-import Tabber from './views/Tabber.vue'
+
 // 引入面板组件
 import Nav from './views/Nav.vue' 
 // 引入宠圈
 import Petcircle from './views/Petcircle.vue'
-// 输入框
-// import Inputmsg from './views/Inputmsg.vue'
+
 
 // 引入轮播图组件
 import Swipe from './components/Swipe.vue'
@@ -36,14 +34,14 @@ import Test from './views/regtest'
 // 引入发现页面
 import Find from './views/Find.vue'
 
-// 主页
-import Index from './views/Index.vue'
 
 // 导航栏组件
-// import Navbar from './components/Navbar.vue'
+import Navbar from './components/Navbar.vue'
 
 // 详情页组件
 import Details from './views/Details.vue'
+// 引入消息组件
+import Message from './views/Message.vue'
 
 
 Vue.use(Router)
@@ -51,16 +49,14 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:"/Message",component:Message},
     {path:"/Details",component:Details},
-    // {path:"/Navbar",component:Navbar},
-    {path:'/Index',component:Index},
+    {path:"/Navbar",component:Navbar},
     {path:'/Foster',component:Foster},
     {path:'/Find',component:Find},
     {path:'/regtest',component:Test},
-    // {path:'/Inputmsg',component:Inputmsg},
     {path:'/Petcircle',component:Petcircle},
     {path:'/Nav',component:Nav},
-    {path:'/Tabber',component:Tabber},
     {path:'/Kind',component:Kind},
     {path:'/Detailstory',component:Detailstory},
     {path:'/Register',component:Register},

@@ -48,8 +48,8 @@ export default {
       var n=this.uname;
       var u=this.upwd;
       // 创建手机号正则和密码(6-16位字母数字)正则
-      var nreg=/^1[3-9]\d{9}$/ //手机
-      var ureg=/^\d{6,16}$/   //密码
+      var nreg=/^1[3-9]\d{9}$/; //手机
+      var ureg=/^\d{6,16}$/ ;  //密码
       // 验证用户名 
       if(nreg.test(n)==false){
         this.$dialog.alert({
@@ -71,7 +71,6 @@ export default {
         })
       }
     },
-<<<<<<< HEAD
      pwdonblur(){
        var u=this.upwd;
        var ureg=/^\d{6,16}$/
@@ -115,11 +114,9 @@ export default {
        })
        
      }
-=======
       
     
    
->>>>>>> 73862972a124f13e0db14a7b495e0de23c0de65a
   }
   
 }

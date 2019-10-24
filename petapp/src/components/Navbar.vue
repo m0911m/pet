@@ -1,0 +1,41 @@
+<template>
+  <div>
+    <van-tabbar route active-color="#f7bf25">
+      <van-tabbar-item
+        replace
+        to="/Nav"
+        icon="home-o"
+      >
+        首页
+      </van-tabbar-item>
+      <van-tabbar-item
+        replace
+        to="/Petcircle"
+        icon="search"
+      >
+        宠圈
+      </van-tabbar-item>
+      <van-tabbar-item
+        replace
+        to="/Addstory"
+        icon="add-o"
+      >
+        发布
+      </van-tabbar-item>
+      <van-tabbar-item
+        replace
+        to="/Message"
+        icon="chat-o"
+      >
+        消息
+      </van-tabbar-item>
+      <van-tabbar-item
+        replace
+        to="/Addstory"
+        icon="contact"
+      >
+        我的
+      </van-tabbar-item>
+    </van-tabbar>
+  </div>
+</template>
