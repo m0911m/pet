@@ -79,7 +79,9 @@ INSERT INTO cw_user VALUES
 
 /**宠物寄养信息导入**/
 INSERT INTO cw_foster VALUES
-(null,'快乐之家',45,'随时接单','西安市雁塔区',null,null);
+(null,'快乐之家',45,'随时接单','狮城堡仔屋',null,null),
+(null,'小福的家',36,'休息日接单','明德景园大厦',null,null),
+(null,'毛蛋的家',50,'随时接单','南郊铁路新村南二环',null,null);
 
 /**宠物信息导入**/
 INSERT INTO cw_animal VALUES
