@@ -1,9 +1,13 @@
 <template>
-  <div>
+  <div class="contain">
+   
     <swipe></swipe>
+    
     <div class="box">
       <!-- 推荐阅读 -->
-      <h4 class="top">推荐阅读</h4>
+      <div class="top">
+        <h4>推荐阅读</h4>
+      </div>
       <div class="read" v-for="(item,i) of list" :key="i" @click="details">
         <!-- 左侧图片 -->
         <div class="rpic">
@@ -46,13 +50,15 @@ export default {
 }
 </script>
 <style scoped>
-  .box{
-    margin-top:90px;
-    margin-bottom:60px;
-  }
+
+.contain{
+  position: relative;
+}
+.box{
+  margin-top:100px;
+}
   .top{
-    margin:0;
-    padding-left:10px;
+    padding:10px;
   }
   .top>h4{
     margin:0;padding:0;
@@ -61,7 +67,6 @@ export default {
     display:flex;
     border-bottom: 1px solid #ccc;
     padding:10px;
-    height:130px;
   }
   .rpic{
     width:35%;

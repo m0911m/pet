@@ -18,7 +18,6 @@ router.post("/login",(req,res)=>{
 			res.send({code:-1,msg:"用户名或密码有误"})
 		}else{
 			req.session.uid=result[0].uid;
-			console.log(req.session.uid)
 			res.send({code:1,msg:"登录成功"})
 		}
 	})
@@ -90,8 +89,7 @@ pool.query(sql,(err,result)=>{
 //五、宠物信息添加   验证过
 router.post("/updatapetmessage",(req,res)=>{
 	//获取发布动态用户的uid
-	 var uid=req.session.uid;
-	 console.log("验证："+uid)
+ 	var uid=req.session.uid;
   if(!uid){
   res.send({code:-2,msg:"请登录"});
   	return;
@@ -150,18 +148,5 @@ router.get("/indexstory",(req,res)=>{
 			}
 	})
 })
-//八、寄养家庭列表
-router.get("/fosterlist",(req,res)=>{
-	var sql="SELECT fid,ftitle,fprice,fisonbuy,faddress,f_img FROM cw_foster";
-	pool.query(sql,(err,result)=>{
-		if(err)throw err;
-			if(result.length>0){
-				res.send({code:1,msg:"查询成功",data:result})
-			}else{
-				res.send({code:-1,msg:"查询失败"})
-			}
-	})
-})
-//九、申请寄养家庭
 //导出路由器
 module.exports=router;

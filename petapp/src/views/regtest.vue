@@ -3,30 +3,22 @@
     <van-cell-group>
   <van-field
     v-model="uname" 
-    v-on:blur="uponblur"
+    v-on:blur="onblur"
     label="用户名"
     placeholder="请输入用户名"
     error-massage="错误"
   />
   <van-field
     v-model="upwd"
-    v-on:blur="pwdonblur"
     type="password"
     label="密码"
     placeholder="请输入密码"
-  />
-  <van-field
-    v-model="aupwd"
-    v-on:blur="apwdonblur"
-    type="password"
-    label="确认密码"
-    placeholder="请再次输入密码"
   />
  
 </van-cell-group>
 <van-cell-group>
   <van-field
-    v-model="umessage"
+    v-model="uname"
     center
     clearable
     label="短信验证码"
@@ -46,12 +38,13 @@ export default {
       // 保存用户输入的手机号和密码
       uname:"",  
       upwd:"" ,
-      aupwd:"",
-      umessage:""
+      // 保存弹出层的属性
+      show:false,
+      msg:""
     }
   },
   methods:{
-    uponblur(){
+    onblur(){
       var n=this.uname;
       var u=this.upwd;
       // 创建手机号正则和密码(6-16位字母数字)正则
@@ -66,17 +59,11 @@ export default {
       return;
       })
       }else{
-        this.axios.get('/user/isreg',{
-          params:{
-            uname:n
-          }
-         }
-        )
+        this.axios.get('/user/isreg',uname)
         .then(response=>{
-        console.log(response)
-            if(response.data.code==-1){
+            if(!response.data.code>0){
           this.$dialog.alert({
-         message: "该手机号码已被注册",
+         message: "输入的手机号码格式不正确",
           }).then(()=>{
             return;
           })
@@ -84,6 +71,7 @@ export default {
         })
       }
     },
+<<<<<<< HEAD
      pwdonblur(){
        var u=this.upwd;
        var ureg=/^\d{6,16}$/
@@ -127,7 +115,12 @@ export default {
        })
        
      }
+=======
+      
+    
+   
+>>>>>>> 73862972a124f13e0db14a7b495e0de23c0de65a
   }
- }
-
+  
+}
 </script>
