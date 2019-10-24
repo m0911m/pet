@@ -42,13 +42,18 @@ import Navbar from './components/Navbar.vue'
 import Details from './views/Details.vue'
 // 引入消息组件
 import Message from './views/Message.vue'
-
+// 公告详情页
+import Announcement from './views/Announcement.vue'
+// 客服消息页
+import Service from './views/Service.vue'
 
 Vue.use(Router)
 
 
 export default new Router({
   routes: [
+    {path:"/Service",component:Service},
+    {path:"/Announcement",component:Announcement},
     {path:"/Message",component:Message},
     {path:"/Details",component:Details},
     {path:"/Navbar",component:Navbar},
