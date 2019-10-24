@@ -53,8 +53,8 @@ export default {
     onblur(){
       var n=this.uname;
       // 创建手机号正则和密码(6-16位字母数字)正则
-      var nreg=/^1[3-9]\d{9}$/ //手机
-      var ureg=/^\d{6,16}$/   //密码
+      var nreg=/^1[3-9]\d{9}$/; //手机
+      var ureg=/^\d{6,16}$/ ;  //密码
       // 验证用户名 
       if(nreg.test(n)==false){
         this.$dialog.alert({
@@ -130,6 +130,15 @@ export default {
        
       }//else end
      }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+      
+    
+   
+=======
+>>>>>>> a64e6c93abe4c8d2be3699d2203268817b6c5ffd
+>>>>>>> 71b9f9dd02e867155705b2506b665d9db709ac14
   }
   
 }

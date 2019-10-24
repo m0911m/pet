@@ -1,13 +1,9 @@
 <template>
   <div class="contain">
-   
     <swipe></swipe>
-    
     <div class="box">
       <!-- 推荐阅读 -->
-      <div class="top">
-        <h4>推荐阅读</h4>
-      </div>
+      <h4 class="top">推荐阅读</h4>
       <div class="read" v-for="(item,i) of list" :key="i" @click="details">
         <!-- 左侧图片 -->
         <div class="rpic">
@@ -20,6 +16,7 @@
           <p class="time">{{item.time}}</p>
         </div>
       </div>
+      <p class="more">没有更多数据啦...</p>
     </div>
   </div>
 </template>
@@ -51,22 +48,19 @@ export default {
 </script>
 <style scoped>
 
-.contain{
-  position: relative;
-}
-.box{
-  margin-top:100px;
-}
+  .box{
+    margin-top:80px;
+    margin-bottom: 50px;
+  }
   .top{
     padding:10px;
-  }
-  .top>h4{
-    margin:0;padding:0;
+    margin:0;
   }
   .read{
     display:flex;
     border-bottom: 1px solid #ccc;
     padding:10px;
+    height: 120px;
   }
   .rpic{
     width:35%;
@@ -82,5 +76,8 @@ export default {
   }
   .time{
     margin-bottom:0;
+  }
+  .more{
+    text-align: center;
   }
 </style>
