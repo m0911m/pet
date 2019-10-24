@@ -40,21 +40,15 @@
 export default {
   data(){
     return{
-      homelist:[{
-        h_img:"family0.jpg",
-        u_img:"family_user0.jpg",
-        num:35,
-        u:"小福的家",
-        score:"5.0",
-        sit:"新科大厦",
-        gaps:"0.3km"
-      }]
+
     }
   },
   methods:{
 
   },
-  props:{}
+  props:{
+    homelist:{default:[]}
+  }
 }
 </script>
 <style scoped>

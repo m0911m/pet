@@ -39,9 +39,10 @@ router.get("/isreg",(req,res)=>{
 })
 //2.2注册接口
 router.post("/reg",(req,res)=>{
-	var obj=req.body;
-	var sql="INSERT INTO cw_user SET ?";
-	pool.query(sql,[obj],(err,result)=>{
+	var uname=req.body.uname;
+	var upwd=req.body.upwd;
+	var sql=`INSERT INTO cw_user VAlUES(NULL,'${uname}','${upwd}','${uname}',NULL,NULL,NULL,NULL,NULL)`;
+	pool.query(sql,(err,result)=>{
 		if(err)throw err;
 		if(result.affectedRows>0){
 			res.send({code:1,msg:"注册成功"});
@@ -76,7 +77,7 @@ pool.query(sql,(err,result)=>{
 });
 //四、动态页浏览模块     验证过
 router.get("/messagelist",(req,res)=>{
-var sql="SELECT tid,ttitle,tsmtitle,ttxt,t_img,uid FROM cw_text";
+var sql="SELECT tid,ttitle,tsmtitle,ttxt,t_img,taddress,tuname,uid FROM cw_text";
 pool.query(sql,(err,result)=>{
 	if(err)throw err;
 		if(result.length>0){
@@ -146,6 +147,19 @@ router.get("/indexstory",(req,res)=>{
 			}else{
 				res.send({code:-1,msg:"查询失败"})
 			}
+	})
+})
+//八、寄养家庭列表
+router.get("/fosterlist",(req,res)=>{
+	var sql="SELECT fid,ftitle,fprice,fisonbuy,faddress,f_img,uid FROM cw_foster";
+	pool.query(sql,(err,result)=>{
+		if(err)throw err;
+		if(result.length>0){
+			res.send({code:1,msg:"查询成功",data:result})
+		}else{
+			res.send({code:-1,msg:"查询失败"})
+		}
+
 	})
 })
 //导出路由器

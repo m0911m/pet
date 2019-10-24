@@ -1,8 +1,8 @@
 <template>
     <div>
+        <navbar></navbar>
         <!-- 头部 -->
-        <van-nav-bar title="添加动态" left-text="返回" right-text="发布" left-arrow @click-left="onClickLeft" @click-right="onClickRight"
-            />
+        <van-nav-bar title="添加动态"  right-text="发布" @click-right="onClickRight"/>
 
         <!-- 输入文本 -->
         <van-cell-group>
@@ -26,6 +26,8 @@
     </div>
 </template>
 <script>
+// 引入底部导航栏
+import Navbar from "../components/Navbar"
     export default {  
         data(){
             return {
@@ -35,14 +37,14 @@
                 fileList:[],
             }
         },
+        components:{
+            "navbar":Navbar
+        },
         methods: {
             afterRead(file) {
                 // 此时可以自行将文件上传至服务器
                 console.log(file);
             } ,
-            onClickLeft() {
-            console.log("返回");
-            },
             onClickRight() {
                 var url="user/updatamessagelist"
                 this.axios.post(url).then(res=>{
