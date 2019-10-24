@@ -10,11 +10,10 @@
       <img class="imgstyle" :src="require('../../public/imgs/'+homelist[i].u_img)" alt="">
       <!-- 左边的价格 -->
       <div class="bgstyle">
-        <span class="typestyle">寄养价格
-        <a class="numstyle">¥{{homelist[i].num}}</a>
-          起
+        <span class="typestyle">寄养价格 <a class="monstyle" href="javascript:;">¥</a> 
+        <span class="numstyle">{{homelist[i].fprice}}</span>起
         </span> 
-        <span class="ordstyle">随时可以接单</span>
+        <span class="ordstyle">{{homelist[i].fisonbuy}}</span>
       </div>
     </div>
     <!-- 下方的信息 -->
@@ -23,13 +22,13 @@
       <!-- 小badge -->
       <mt-badge size="small" color="#353535">家庭</mt-badge>
       <!-- 昵称 -->
-      <span class="namestyle">{{homelist[i].u}}</span>
+      <span class="namestyle">{{homelist[i].fittle}}</span>
       <span class="gradestyle">评分<a href="" class="scorestyle">{{homelist[i].score}}</a></span>
     </div>
     <div class="addstyle">
       <span class="icon"><img :src="require('../../public/imgs/heart_red.png')" alt=""></span>
       <ul class="locstyle">
-        <li class="sitstyle">{{homelist[i].sit}}</li>|
+        <li class="sitstyle">{{homelist[i].faddress}}</li>|
         <li class="gapstyle">距我 {{homelist[i].gaps}}</li>
       </ul>
     </div>
@@ -94,7 +93,7 @@ export default {
   height:5rem;
   flex-direction: column;
   background-color:rgba(0,0,0,0.4);
-  font:14px 楷体;
+  font:0.875rem 楷体;
 }
 /* 上边字体 */
 .typestyle{
@@ -108,9 +107,12 @@ export default {
   padding-top:0.7rem;
 }
 /* 中间的价格 */
-.numstyle{
+.numstyle,.monstyle{
   color:#FFD531;
   font:bolder 1.35rem 楷体;
+}
+.monstyle{
+  font-size:0.875rem;
 }
 /* 下方用户信息 */
 .understyle{

@@ -16,17 +16,23 @@ export default {
         {
           h_img:"family0.jpg",
           u_img:"family_user0.jpg",
-          num:35,
-          u:"小福的家",
           score:"5.0",
-          sit:"新科大厦",
           gaps:"0.3km"
         }
       ]
     }
   },
+  created(){
+   this.home();
+  },
   methods:{
-
+  home(){
+      var url="user/fosterlist";
+      this.axios.get(url).then(res=>{
+        console.log(res.data.data);
+        this.homelist=res.data.data;
+      })
+    }
   },
   components:{
     "heads":Head,
