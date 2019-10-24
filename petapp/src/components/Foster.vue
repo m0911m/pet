@@ -60,8 +60,8 @@ export default {
 <style scoped>
 /* 寄养家庭组件 */
 .fosstyle{
-  background-color:#FAF5F9;
   box-sizing: border-box;
+  border-radius:0.25rem; 
   padding:1rem;
 }
 .userstyle{

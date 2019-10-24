@@ -40,9 +40,10 @@ import Find from './views/Find.vue'
 import Index from './views/Index.vue'
 
 // 导航栏组件
-import Navbar from './components/Navbar.vue'
+// import Navbar from './components/Navbar.vue'
 
-
+// 详情页组件
+import Details from './views/Details.vue'
 
 
 Vue.use(Router)
@@ -50,7 +51,8 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    {path:"/Navbar",component:Navbar},
+    {path:"/Details",component:Details},
+    // {path:"/Navbar",component:Navbar},
     {path:'/Index',component:Index},
     {path:'/Foster',component:Foster},
     {path:'/Find',component:Find},
