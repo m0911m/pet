@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <!-- 背景的图片 -->
-    <img class="imgstyle" :src="require('../../public/imgs/login_bg.jpg')" alt="">
+    <img class="imgstyle" :src="require('../../public/imgs/family1.jpg')" alt="">
     <!-- logo图片 -->
     <van-image class="logostyle" :src="require('../../public/imgs/logo.jpg')"/>
    <!-- 输入框 -->
@@ -110,14 +110,14 @@ export default {
 .unamestyle{
   position: absolute;
   border-radius: 1rem;
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(255,255,255,0.8);
 }
 
 .upwdstyle{
   position: absolute;
   top:4rem;
   border-radius: 1rem;
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(0,0,0,0.8);
 }
 /* 登录按钮 */
 
