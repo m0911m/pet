@@ -88,57 +88,39 @@
       <!-- 猫种类子面板 -->
       <mt-tab-container-item id="tab2">
         <van-index-bar>
-          <van-index-anchor index="A" />
-          <van-cell title="埃及猫" />
-          <van-cell title="奥西猫" />
-          <van-cell title="阿比西尼亚猫" />
-          <van-index-anchor index="B" />
-          <van-cell title="布偶猫" />
-          <van-cell title="波斯猫" />
-          <van-cell title="伯曼猫" />
-          <van-cell title="巴厘猫" />
-          <van-cell title="波米拉猫" />
-          <van-cell title="彼得秃猫" />
-          <van-index-anchor index="C" />
-          <van-cell title="东奇尼猫" />
-          <van-cell title="德文卷毛猫" />
+          <div  v-for="item in station2" :key="item.id">
+            <van-index-anchor :index="item.index" />
+            <van-cell  :title="item.Name" @click="handle1"/>
+           </div>
         </van-index-bar>
       </mt-tab-container-item>
       <!-- 小宠种类子面板 -->
       <mt-tab-container-item id="tab3">
-          <van-index-anchor index="C" />
-          <van-cell title="仓鼠" />
-          <van-cell title="刺猬" />
-          <van-index-anchor index="D" />
-          <van-cell title="貂" />
-          <van-index-anchor index="G" />
-          <van-cell title="龟" />
-          <van-index-anchor index="L" />
-          <van-cell title="龙猫" />
-          <van-index-anchor index="N" />
-          <van-cell title="鸟" />
-          <van-index-anchor index="S" />
-          <van-cell title="松鼠" />
-          <van-cell title="蛇" />
-          <van-index-anchor index="T" />
-          <van-cell title="兔子" />
-          <van-cell title="豚鼠" />
-          <van-index-anchor index="X" />
-          <van-cell title="蜥蜴" />
-          <van-cell title="小香猪" />
+         <van-index-bar>
+           <div  v-for="item in station3" :key="item.id">
+            <van-index-anchor :index="item.index" />
+            <van-cell  :title="item.Name" @click="handle1"/>
+           </div>
+        </van-index-bar>
       </mt-tab-container-item>
     </mt-tab-container>
   </div>
 </template>
 <script>
+import SMALL from "../assets/js/kind.js"
 export default {
   data(){
     return{
       value:"",
-      active:"tab1"
+      active:"tab1",
+      station2:SMALL.catData(),
+      station3:SMALL.smallData()
       }
   },
    methods:{
+     handle1(e){
+       console.log(e.currentTarget.innerText);
+     },
     handle(e){
       var id=e.target.dataset.id;
       this.active=id;

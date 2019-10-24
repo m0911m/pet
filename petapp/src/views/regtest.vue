@@ -71,7 +71,6 @@ export default {
         })
       }
     },
-<<<<<<< HEAD
      pwdonblur(){
        var u=this.upwd;
        var ureg=/^\d{6,16}$/
@@ -115,11 +114,6 @@ export default {
        })
        
      }
-=======
-      
-    
-   
->>>>>>> 73862972a124f13e0db14a7b495e0de23c0de65a
   }
   
 }
