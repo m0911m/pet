@@ -1,6 +1,5 @@
 <template>
   <div>
-    <navbar></navbar>
     <van-tabs v-model="active" color="#f7bf25">
       <van-tab title="发现">
         <find></find>
@@ -14,7 +13,6 @@
 <script>
 import Newstory from "./Newstory"
 import Find from './Find.vue'
-import Navbar from "../components/Navbar"
   export default{
     data(){
       return{
@@ -23,8 +21,7 @@ import Navbar from "../components/Navbar"
     },
     components:{
       "newstory":Newstory,
-      "find":Find,
-      "navbar":Navbar
+      "find":Find
     }
   }
 </script>

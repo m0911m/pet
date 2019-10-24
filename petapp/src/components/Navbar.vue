@@ -1,42 +1,15 @@
 <template>
   <div>
-    <van-tabbar route active-color="#f7bf25">
-      <van-tabbar-item
-        replace
-        to="/Nav"
-        icon="home-o"
-      >
-        首页
-      </van-tabbar-item>
-      <van-tabbar-item
-        replace
-        to="/Petcircle"
-        icon="search"
-      >
-        宠圈
-      </van-tabbar-item>
-      <van-tabbar-item
-        replace
-        to="/Addstory"
-        icon="add-o"
-      >
-        发布
-      </van-tabbar-item>
-      <van-tabbar-item
-        replace
-        to="/Addstory"
-        icon="chat-o"
-      >
-        消息
-      </van-tabbar-item>
-      <van-tabbar-item
-        replace
-        to="/Addstory"
-        icon="contact"
-      >
-        我的
-      </van-tabbar-item>
-    </van-tabbar>
+    <mt-header class="header" fixed>
+      <router-link :to="{path:'/Nav'}" slot="left">
+        <mt-button icon="back"></mt-button>
+      </router-link>
+        <mt-button slot="left">西安</mt-button>
+        <mt-button slot="right">选择寄养时间</mt-button>
+        <mt-button slot="right">
+          <van-icon name="location-o"></van-icon>
+        </mt-button>
+    </mt-header>
   </div>
 </template>
 <script>
@@ -44,7 +17,24 @@ export default {
   
 }
 </script>
-<style scoped>
-
-
+<style>
+/* 最外层 */
+.mint-header.is-fixed {
+  width:100%;
+  height:4rem;
+  padding:0;
+  background-color:#f2f2f2;
+  color:#040404;
+}
+/* 左侧按钮 */
+.mintui-back:before{
+ padding-left:1rem;
+ font-size:1.875rem;
+} 
+/* 市区 */
+label{
+  padding-left:1.5rem;
+  font-size:1rem;
+  widows: 100px;
+}
 </style>
