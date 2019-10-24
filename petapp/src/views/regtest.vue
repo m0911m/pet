@@ -34,6 +34,7 @@
   >
     <van-button slot="button" size="small" type="primary">发送验证码</van-button>
   </van-field>
+  <van-button class="loginstyle" @click="reg">登录</van-button>
 </van-cell-group>
   </div>
 </template>
@@ -101,12 +102,31 @@ export default {
         
         var aupwd=this.aupwd;
         console.log(aupwd)
-        if(!upwd==aupwd){
+        if(aupwd!==upwd){
           this.$dialog.alert({
             message:"两次输入的密码不一致",
-          }).then(()=>{console.log(res);})
+          })
         }
      },
+     reg(){
+       var uname=this.uname
+       var upwd=this.upwd
+       var url="user/reg"
+       //发送axios请求
+       this.axios.post(url,qs.stringify(uname,upwd)).then(response=>{
+         if(response.data.code>0){
+           this.$dialog.alert({
+             message:"注册成功"
+           }).then(()=>{
+             this.$router.push({path:'/login'})
+           })
+         }else{this.$dialog.alert({
+             message:"注册失败"
+           })
+         }
+       })
+       
+     }
   }
  }
 
