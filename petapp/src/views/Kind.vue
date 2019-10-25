@@ -35,54 +35,10 @@
       <!-- 狗种类子面板 -->
       <mt-tab-container-item id="tab1">
         <van-index-bar>
-          <van-index-anchor index="A" />
-          <van-cell title="爱尔兰猎狼犬" />
-          <van-cell title="爱尔兰雪达犬" />
-          <van-cell title="阿拉斯加雪橇犬" />
-          <van-cell title="阿富汗猎犬" />
-          <van-index-anchor index="B" />
-          <van-cell title="标准贵宾犬" />
-          <van-cell title="巴吉度犬" />
-          <van-cell title="北京犬" />
-          <van-cell title="比熊犬"/>
-          <van-cell title="波士顿犬"/>
-          <van-cell title="博美犬"/>
-          <van-cell title="巴哥犬"/>
-          <van-cell title="波利犬"/>
-          <van-cell title="巴仙吉犬"/>
-          <van-cell title="边境牧羊犬"/>
-          <van-cell title="标准雪纳瑞"/>
-          <van-cell title="比格犬"/>
-          <van-cell title="贝林顿梗"/>
-          <van-cell title="波尔多犬"/>
-          <van-cell title="伯恩山犬"/>
-          <van-cell title="波音达犬"/>
-          <van-cell title="比利时牧羊犬"/>
-          <van-cell title="巴西菲勒"/>
-          <van-cell title="波尔多犬"/>
-          <van-index-anchor index="C" />
-          <van-cell title="串串-小型犬"/>
-          <van-cell title="查理王小猎犬"/>
-          <van-cell title="柴犬"/>
-          <van-cell title="串串-中型犬"/>
-          <van-cell title="串串-大型犬"/>
-          <van-cell title="川东猎犬"/>
-          <van-index-anchor index="D" />
-          <van-cell title="短脚长身梗"/>
-          <van-cell title="牛头梗"/>
-          <van-cell title="大麦町犬"/>
-          <van-cell title="斗牛獒犬"/>
-          <van-cell title="杜高犬"/>
-          <van-cell title="杜宾犬"/>
-          <van-cell title="大丹犬"/>
-          <van-cell title="大白熊犬"/>
-          <van-cell title="德国牧羊犬"/>
-          <van-index-anchor index="E" />
-          <van-cell title="恶霸犬"/>
-          <van-index-anchor index="F" />
-          <van-cell title="法国斗牛犬"/>
-          <van-cell title="法老王猎犬"/>
-          <van-index-anchor index="F" />
+          <div  v-for="item in station1" :key="item.id">
+            <van-index-anchor :index="item.index" />
+            <van-cell  :title="item.Name" @click="handle1"/>
+          </div>
         </van-index-bar>
       </mt-tab-container-item>
       <!-- 猫种类子面板 -->
@@ -113,8 +69,9 @@ export default {
     return{
       value:"",
       active:"tab1",
+      station1:SMALL.dogData(),
       station2:SMALL.catData(),
-      station3:SMALL.smallData()
+      station3:SMALL.smallData(),
       }
   },
    methods:{
