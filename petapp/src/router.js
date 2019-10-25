@@ -67,7 +67,7 @@ export default new Router({
     {path:'/Register',component:Register},
     {path:'/Newstory',component:Newstory},
     {path:'/Swipe',component:Swipe},
-    {path:'/Petmessage',component:Petmessage},
+    {path:'/Petmessage',component:Petmessage,meta:{keepAlive:true}},
     {path:'/Petlist',component:Petlist},
     {path:'/Addstory',component:Addstory},
     {path:'/Login',component:Login}
