@@ -4,6 +4,8 @@ const express=require("express");
 const bodyParser=require('body-parser');
 //引入用户路由器
 const userRouter=require('./routes/user');
+const fosterRouter=require('./routes/foster');
+const newsRouter=require('./routes/news');
 //引入session模块
 const session=require("express-session");
 //引入cors模块
@@ -43,3 +45,5 @@ app.use(express.static("public"));
 //使用路由器,
 // /user/reg
 app.use( '/user',userRouter );
+app.use( '/foster',fosterRouter );
+app.use( '/news',newsRouter );

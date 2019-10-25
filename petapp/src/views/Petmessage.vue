@@ -23,7 +23,7 @@
       <!-- 2.1宠物头像 -->
       <div class="divflex msgpadding">
         <div class="petavatar">宠物头像</div>
-        <div>
+        <div class="round">
           <van-uploader v-model="fileList" multiple :max-count="1"/>
         </div>
       </div>
@@ -372,5 +372,10 @@ export default {
     display: flex;
     justify-content: space-around;
     margin-bottom: 10px;
+  }
+  .class{
+    border:1px solid transparent;
+    border-radius: 50%;
+    overflow: hidden;
   }
 </style>

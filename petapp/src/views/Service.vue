@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <!-- 顶部导航栏 -->
-    <van-nav-bar title="客服消息" left-arrow @click-right="onClickRight">
+    <van-nav-bar title="客服消息" left-arrow @click-right="onClickRight" @click-left="onClickLeft">
       <van-icon name="phone-circle-o" slot="right" size="25px" />
     </van-nav-bar>
     <!-- 中间的聊天区域 -->
@@ -37,7 +37,10 @@ export default {
       }).catch(() => {
         // on cancel
       });
-    }
+    },
+    onClickLeft(){
+      this.$router.push('/Message')
+    },
   }
 }
 </script>

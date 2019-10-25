@@ -15,10 +15,10 @@ router.post("/login",(req,res)=>{
 	pool.query(sql,[uname,uname,upwd],(err,result)=>{
 		if(err)throw err;
 		if(result.length==0){
-			res.send({code:-1,msg:"用户名或密码有误"})
+			res.send({code:401,msg:"用户名或密码有误"})
 		}else{
 			req.session.uid=result[0].uid;
-			res.send({code:1,msg:"登录成功"})
+			res.send({code:200,msg:"登录成功"})
 		}
 	})
 })
@@ -31,9 +31,9 @@ router.get("/isreg",(req,res)=>{
 	pool.query(sql,[uname,uname],(err,result)=>{
 		if(err)throw err;
 		if(result.length>0){
-			res.send({code:-1,msg:"用户名或手机号被注册过"})
+			res.send({code:402,msg:"用户名或手机号被注册过"})
 		}else{
-			res.send({code:1,msg:"可以注册"})
+			res.send({code:200,msg:"可以注册"})
 		}
 	})
 })
@@ -41,58 +41,25 @@ router.get("/isreg",(req,res)=>{
 router.post("/reg",(req,res)=>{
 	var uname=req.body.uname;
 	var upwd=req.body.upwd;
-	var sql=`INSERT INTO cw_user VAlUES(NULL,'${uname}','${upwd}','${uname}',NULL,NULL,NULL,NULL,NULL)`;
+	console.log(uname,upwd)
+	var sql="INSERT INTO cw_user VAlUES(NULL,uname,upwd,uname,NULL,NULL,NULL,NULL,NULL)";
 	pool.query(sql,(err,result)=>{
 		if(err)throw err;
 		if(result.affectedRows>0){
-			res.send({code:1,msg:"注册成功"});
+			res.send({code:200,msg:"注册成功"});
 		}else{
-			res.send({code:-1,msg:"注册失败"});
+			res.send({code:401,msg:"注册失败"});
 		}
 	})
 })
 
-//三、动态发布模块   验证过
-router.post("/updatamessagelist",(req,res)=>{
-	//获取发布动态用户的uid
-	var uid=req.session.uid;
- if(!uid){
- res.send({code:-2,msg:"请登录"});
- 	return;
- }
-//获取用户发布的信息
-var ttitle=req.body.ttitle;
-var tsmtitle=req.body.tsmtitle;
-var ttxt=req.body.ttxt;
-var t_img=req.body.t_img;
-var sql=`INSERT INTO cw_text VALUES(NULL,'${ttitle}','${tsmtitle}','${ttxt}','${t_img}',${uid})`;
-pool.query(sql,(err,result)=>{
-	if(err)throw err;
-	if(result.affectedRows>0){
-	res.send({code:1,msg:"添加成功"})
-}else{
-	res.send({code:-1,msg:"添加失败"})
-}
-})
-});
-//四、动态页浏览模块     验证过
-router.get("/messagelist",(req,res)=>{
-var sql="SELECT tid,ttitle,tsmtitle,ttxt,t_img,taddress,tuname,uid FROM cw_text";
-pool.query(sql,(err,result)=>{
-	if(err)throw err;
-		if(result.length>0){
-			res.send({code:1,msg:"查询成功",data:result})
-		}else{
-			res.send({code:-1,msg:"查询失败"})
-		}
-})
-});
-//五、宠物信息添加   验证过
+
+//三、宠物信息添加   验证过
 router.post("/updatapetmessage",(req,res)=>{
 	//获取发布动态用户的uid
  	var uid=req.session.uid;
   if(!uid){
-  res.send({code:-2,msg:"请登录"});
+  res.send({code:402,msg:"请登录"});
   	return;
   }
  //获取宠物物信息
@@ -105,18 +72,18 @@ router.post("/updatapetmessage",(req,res)=>{
 	pool.query(sql,(err,result)=>{
 		if(err)throw err;
 		if(result.affectedRows>0){
-			res.send({code:1,msg:"宠物信息添加成功"})
+			res.send({code:200,msg:"宠物信息添加成功"})
 		}else{
-			res.send({code:-1,msg:"宠物信息添加查询失败"})
+			res.send({code:401,msg:"宠物信息添加查询失败"})
 		}
 	})
 })
-//六、查询宠物信息  验证过
+//四、查询宠物信息  验证过
 router.get("/selectpetmessage",(req,res)=>{
 	//获取发布动态用户的uid
  	var uid=req.session.uid;
   if(!uid){
-  res.send({code:-2,msg:"请登录"});
+  res.send({code:402,msg:"请登录"});
   	return;
   }
  //获取宠物物信息
@@ -129,38 +96,29 @@ router.get("/selectpetmessage",(req,res)=>{
 	pool.query(sql,[uid],(err,result)=>{
 		if(err)throw err;
 		if(result.length>0){
-			res.send({code:1,msg:"宠物信息查询成功",data:result})
+			res.send({code:200,msg:"宠物信息查询成功",data:result})
 		}else{
-			res.send({code:-1,msg:"宠物信息查询失败"})
+			res.send({code:401,msg:"宠物信息查询失败"})
 		}
 	})
 })
 
 
-//七、首页故事模块  验证过
-router.get("/indexstory",(req,res)=>{
-	var sql="SELECT iid,uid,ititle,iuname,ismtitle,itxt,itime,i_img,i_icon FROM cw_sindex";
-	pool.query(sql,(err,result)=>{
-		if(err)throw err;
-			if(result.length>0){
-				res.send({code:1,msg:"查询成功",data:result})
-			}else{
-				res.send({code:-1,msg:"查询失败"})
-			}
-	})
-})
-//八、寄养家庭列表
-router.get("/fosterlist",(req,res)=>{
-	var sql="SELECT fid,ftitle,fprice,fisonbuy,faddress,f_img,uid FROM cw_foster";
-	pool.query(sql,(err,result)=>{
-		if(err)throw err;
-		if(result.length>0){
-			res.send({code:1,msg:"查询成功",data:result})
-		}else{
-			res.send({code:-1,msg:"查询失败"})
-		}
 
-	})
+
+//修改用户个人信息
+router.post("/update",(req,res)=>{
+var obj=req.body;
+var sql="UPDATE cw_user SET ? WHERE uid=?"
+pool.query(sql,[obj,obj.uid],(err,result)=>{
+	if(err)throw err;
+	if(result.affectedRows>0){
+		res.send({code:200,msg:"修改成功"});
+	}else{
+	res.send({code:401,msg:"修改失败"});
+	}
+})
+
 })
 //导出路由器
 module.exports=router;
