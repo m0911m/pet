@@ -46,12 +46,15 @@ import Message from './views/Message.vue'
 import Announcement from './views/Announcement.vue'
 // 客服消息页
 import Service from './views/Service.vue'
+// 我的 页面
+import Mine from './views/Mine.vue'
 
 Vue.use(Router)
 
 
 export default new Router({
   routes: [
+    {path:"/Mine",component:Mine},
     {path:"/Service",component:Service},
     {path:"/Announcement",component:Announcement},
     {path:"/Message",component:Message},

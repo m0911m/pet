@@ -31,7 +31,7 @@
       </van-tabbar-item>
       <van-tabbar-item
         replace
-        to="/Addstory"
+        to="/Mine"
         icon="contact"
       >
         我的
