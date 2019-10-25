@@ -6,7 +6,7 @@
         <van-icon name="arrow-left" class="iconstyle"></van-icon>
         </mt-button>
       </router-link>
-      <mt-button class="btns"  slot="left">
+      <mt-button class="btns"  slot="left" @click="county">
         <div class="coustyle">
           <p> 西 安 </p>
         </div> 
@@ -22,7 +22,16 @@
 </template>
 <script>
 export default {
-  
+  data(){
+    return{
+
+    }
+  },
+  methods:{
+    county(){
+      this.$router.push({path:'/Kind'})
+    }
+  }
 }
 </script>
 <style scoped>
