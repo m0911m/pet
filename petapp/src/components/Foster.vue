@@ -5,9 +5,9 @@
     <!-- 上方的信息 -->
     <div class="userstyle">
       <!-- 家庭照片 -->
-      <img class="famstyle" :src="require('../../public/imgs/'+homelist[i].h_img)" alt="">
+      <img class="famstyle" :src="require('../../public/imgs/family0.jpg')" alt="">
       <!-- 用户头像 -->
-      <img class="imgstyle" :src="require('../../public/imgs/'+homelist[i].u_img)" alt="">
+      <img class="imgstyle" :src="require('../../public/imgs/family_user0.jpg')" alt="">
       <!-- 左边的价格 -->
       <div class="bgstyle">
         <span class="typestyle">寄养价格 <a class="monstyle" href="javascript:;">¥</a> 
@@ -23,13 +23,13 @@
       <mt-badge size="small" color="#353535">家庭</mt-badge>
       <!-- 昵称 -->
       <span class="namestyle">{{homelist[i].fittle}}</span>
-      <span class="gradestyle">评分<a href="" class="scorestyle">{{homelist[i].score}}</a></span>
+      <span class="gradestyle">评分<a href="" class="scorestyle">{{homelist[i].fid}}</a></span>
     </div>
     <div class="addstyle">
       <span class="icon"><img :src="require('../../public/imgs/heart_red.png')" alt=""></span>
       <ul class="locstyle">
         <li class="sitstyle">{{homelist[i].faddress}}</li>|
-        <li class="gapstyle">距我 {{homelist[i].gaps}}</li>
+        <li class="gapstyle">距我 {{homelist[i].fid}} km</li>
       </ul>
     </div>
   </div>

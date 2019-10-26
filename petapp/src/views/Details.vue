@@ -13,12 +13,7 @@ export default {
   data(){
     return{
       homelist:[
-        {
-          h_img:"family0.jpg",
-          u_img:"family_user0.jpg",
-          score:"5.0",
-          gaps:"0.3km"
-        }
+
       ]
     }
   },
