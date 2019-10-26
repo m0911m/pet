@@ -6,13 +6,10 @@ const pool=require('../pool.js');
 var router=express.Router();
 // 一、用户登录模块  
 router.post("/login",(req,res)=>{
-	var uname=req.body.uname;
+	var uphone=req.body.uphone;
 	var upwd=req.body.upwd;
-	console.log(uname);
-	console.log(upwd);
-	
-	var sql="SELECT uid FROM cw_user WHERE uname=? OR uphone=? AND upwd=?";
-	pool.query(sql,[uname,uname,upwd],(err,result)=>{
+	var sql="SELECT uid FROM cw_user WHERE uphone=? AND upwd=?";
+	pool.query(sql,[uphone,upwd],(err,result)=>{
 		if(err)throw err;
 		if(result.length==0){
 			res.send({code:401,msg:"用户名或密码有误"})
@@ -27,11 +24,11 @@ router.post("/login",(req,res)=>{
 //2.1用户注册验证用户名手机号是否可用
 router.get("/isreg",(req,res)=>{
 	var uname=req.query.uname;
-	var sql="SELECT uid FROM cw_user WHERE uname=? OR uphone=?";
-	pool.query(sql,[uname,uname],(err,result)=>{
+	var sql="SELECT uid FROM cw_user WHERE uphone=?";
+	pool.query(sql,[uphone],(err,result)=>{
 		if(err)throw err;
 		if(result.length>0){
-			res.send({code:402,msg:"用户名或手机号被注册过"})
+			res.send({code:402,msg:"该手机号手机号被注册过"})
 		}else{
 			res.send({code:200,msg:"可以注册"})
 		}
@@ -39,10 +36,10 @@ router.get("/isreg",(req,res)=>{
 })
 //2.2注册接口
 router.post("/reg",(req,res)=>{
-	var uname=req.body.uname;
+	var uphone=req.body.uphone;
 	var upwd=req.body.upwd;
-	console.log(uname,upwd)
-	var sql="INSERT INTO cw_user VAlUES(NULL,uname,upwd,uname,NULL,NULL,NULL,NULL,NULL)";
+	console.log(uphone,upwd)
+	var sql=`INSERT INTO cw_user VAlUES(NULL,NULL,${upwd},${uphone},NULL,NULL,NULL,NULL,NULL)`;
 	pool.query(sql,(err,result)=>{
 		if(err)throw err;
 		if(result.affectedRows>0){
@@ -108,9 +105,19 @@ router.get("/selectpetmessage",(req,res)=>{
 
 //修改用户个人信息
 router.post("/update",(req,res)=>{
-var obj=req.body;
-var sql="UPDATE cw_user SET ? WHERE uid=?"
-pool.query(sql,[obj,obj.uid],(err,result)=>{
+	var uid=req.session.uid;
+  if(!uid){
+  res.send({code:402,msg:"请登录"});
+  	return;
+  }
+var uname=req.body.uname;
+var usex=req.body.usex;
+var uage=req.body.uage;
+var uconstellation=req.body.uconstellation;
+var ujob=req.body.ujob;
+var uadderss=req.body.uadderss;
+var sql="UPDATE cw_user SET uname=?,usex=?,uage=?,uconstellation=?,ujob=?,uadderss=? WHERE uid=?"
+pool.query(sql,[uname,usex,uage,uconstellation,ujob,uadderss,uid],(err,result)=>{
 	if(err)throw err;
 	if(result.affectedRows>0){
 		res.send({code:200,msg:"修改成功"});
