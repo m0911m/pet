@@ -15,7 +15,7 @@ const cors=require("cors");
 //使用express模块
 var app=express();
 //监听端口
-var server = app.listen(5050);
+app.listen(5050);
 
 //配置session
 app.use(session({

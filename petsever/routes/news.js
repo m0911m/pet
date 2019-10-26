@@ -54,15 +54,16 @@ router.get("/indexstory",(req,res)=>{
 	})
 })
 //四、评论模块
-router.post("/views",(req,res)=>{
-  var uid=req.session.uid;
- if(!uid){
- res.send({code:402,msg:"请登录"});
- 	return;
- }
- var vcotnet=req.body.vcotnet;
- var vscore=req.body.vsore;
- var vtime=req.body.vtime;
- var v_img=req.body.v_img;
-})
+// router.post("/views",(req,res)=>{
+//   var uid=req.session.uid;
+//  if(!uid){
+//  res.send({code:402,msg:"请登录"});
+//  	return;
+//  }
+//  var vcotnet=req.body.vcotnet;
+//  var vscore=req.body.vsore;
+//  var vtime=req.body.vtime;
+//  var v_img=req.body.v_img;
+
+// })
 module.exports=router;
