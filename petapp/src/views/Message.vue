@@ -13,7 +13,7 @@
             <span class="title">【重要】园长精编 [ 寄养须知 ]</span>
             <!-- 图片 -->
             <div class="aimg">
-              <img src="../../public/imgs/13.jpg" alt="" class="subimg">
+              <img src="../../public/imgs/10.jpg" alt="" class="subimg">
             </div>
             <!-- 副标题 -->
             <p class="subtitle">划重点！寄养前必须了解的【最重要的事】</p>
@@ -60,10 +60,10 @@ import Navbar from "../components/Navbar"
     },
     methods: {
       server(){
-        console.log("跳转到客服界面")
+        this.$router.push('/Service')
       },
       detail(){
-        console.log("跳转到详情页")
+        this.$router.push('/Announcement')
       },
     },
   }
