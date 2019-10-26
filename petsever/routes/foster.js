@@ -18,6 +18,6 @@ router.get("/fosterlist",(req,res)=>{
 	})
 })
 //二、申请成为寄养家庭
-router.post()
+// router.post()
 
 module.exports=router;

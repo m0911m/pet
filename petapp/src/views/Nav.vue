@@ -2,7 +2,7 @@
 <div>
   <navbar></navbar>
   <!-- 顶部导航，进入寄养家庭 -->
-    <ul class="jumpstyle">
+    <ul class="jumpstyle" @click="foster">
       <li class="listyle">Hi 想让他住哪里</li>
       <li><input class="inputstyle" disabled placeholder="找附近的寄样家庭" type="text"></li>
     </ul>
@@ -78,9 +78,12 @@ export default {
     this.user()
   },
   methods:{
+    foster(){
+      this.$router.push({path:"/Details"})
+    },
     user(){
       // 请求首页故事
-      var url="user/indexstory"
+      var url="news/indexstory"
       this.axios.get(url).then(res=>{
         console.log(res.data.data);
         this.userlist=res.data.data;  
