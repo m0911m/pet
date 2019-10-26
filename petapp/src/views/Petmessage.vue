@@ -51,7 +51,7 @@
       <div class="divflex msgpadding" @click="jumpkind">
         <div>宠物类型</div>
         <div class="divright">
-          <span>未填写</span>
+          <span id="petkind">未填写</span>
           <span>&gt;</span>
         </div>
       </div>
@@ -79,7 +79,7 @@
       </div>
       <!-- 弹出层输入性别 -->
       <van-popup v-model="show3" position="bottom">
-        <van-picker show-toolbar :columns="petsex" @cancel="sexCancel" @confirm="sexConfirm"/>
+        <van-picker v-model="setsex" show-toolbar :columns="petsex" @cancel="sexCancel" @confirm="sexConfirm"/>
       </van-popup>
       <hr>
       <!-- 2.6体重 -->
@@ -209,6 +209,9 @@
   </div>
 </template>
 <script>
+var setkind;
+var setis;
+var setdate;
 export default {
   data(){
     return{
@@ -224,12 +227,15 @@ export default {
       petsex: ['GG', 'MM'],
       setweight:"",
       fileList: [],
-      petis:["是","否"]
+      petis:["是","否"],
+      setsex:"",
       }
   },
   methods: {
     //保存
-    save(){},
+    save(){
+      console.log(this.fileList[0],setkind,setdate,this.setsex,this.setname,this.setweight,setis);
+    },
     // 点击返回或取消
     back(){
       this.$messagebox.confirm('',{
@@ -249,6 +255,7 @@ export default {
     // 绝育弹出层确定
     isConfirm(value){
       var is=document.getElementById("petis");
+      setis=value;
       is.innerHTML=value;
       is.style.color="#000";
       this.show5=false;
@@ -279,6 +286,7 @@ export default {
     // 性别弹出层确定
     sexConfirm(value){
       var sex=document.getElementById("petsex");
+      this.setsex=value;
       sex.innerHTML=value;
       sex.style.color="#000";
       this.show3=false;
@@ -297,7 +305,8 @@ export default {
       var year=value.getFullYear();
       var month=value.getMonth();
       var date=value.getDate();
-      age.innerHTML=`${year}年${month+1}月${date}日`;
+      setdate=`${year}-${month+1}-${date}`;
+      age.innerHTML=`${year}-${month+1}-${date}`;
       age.style.color="#000";
       this.show2=false;
     },
@@ -325,6 +334,27 @@ export default {
       this.show1=true;
     },
   },
+  beforeRouteEnter (to, from, next) {
+    //判断如果从petlist页面进来,就为false刷新页面,kind页面进来就为true不刷新
+   if(from.name==='Petlist'){
+     to.meta.keepAlive=false;
+   } else{
+     to.meta.keepAlive=true;
+   }
+   next();
+  },
+  activated() {
+    this.question=this.$store.state.question
+  },
+  mounted() { 
+    var kind=document.getElementById("petkind");
+    this.petkind.$on(
+      "ReceiveKind", function(item) { 
+        setkind=item;
+        kind.innerHTML = item; 
+        kind.style.color="#000";
+      }) 
+    }
 }
 </script>
 <style scoped>

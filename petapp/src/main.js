@@ -28,6 +28,9 @@ axios.defaults.withCreadentials=true
 Vue.prototype.axios=axios
 
 Vue.config.productionTip = false
+// 创建中转站实现kind与petmessage之间的传值
+let petkind= new Vue()
+Vue.prototype.petkind=petkind;
 
 new Vue({
   router,
