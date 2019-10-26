@@ -77,7 +77,7 @@ CREATE TABLE cw_cart(
 CREATE TABLE cw_views(
     vid Int PRIMARY KEY AUTO_INCREMENT,
     uid Int,#评论人id
-    uname VARCHAR(30),#评论者昵称
+    #uname VARCHAR(30),#评论者昵称
     vcotnet TEXT, #评论
     vscore Int, #打分
     vtime BIGINT,#发布时间
@@ -93,7 +93,7 @@ INSERT INTO cw_user VALUES
 
 /**宠物寄养信息导入**/
 INSERT INTO cw_foster VALUES
-(null,'快乐之家',45,'5','随时接单','0.3','狮城堡仔屋',null,null,null),
+(null,'快乐之家',45,'5','随时接单','0.3','狮城堡仔屋','family0.jpg','family_user1.jpg',null),
 (null,'小福的家',36,'5','休息日接单','2.0','明德景园大厦',null,null,null),
 (null,'毛蛋的家',50,'5','随时接单','2.5','南郊铁路新村南二环',null,null,null);
 
