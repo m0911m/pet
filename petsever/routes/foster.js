@@ -17,10 +17,6 @@ router.get("/fosterlist",(req,res)=>{
 
 	})
 })
-<<<<<<< HEAD
-//二、申请成为寄养家庭
-// router.post()
-=======
 // //二、申请成为寄养家庭
 // router.post("/newfosterhome",(req,res)=>{
 
@@ -48,6 +44,5 @@ router.get("/fosterlist",(req,res)=>{
 // 	})
 
 // })
->>>>>>> a356817cb7fb813e618a099a6a7f0bf0ff3ddc05
 
 module.exports=router;

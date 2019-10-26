@@ -23,11 +23,11 @@
 </script>
 <style scoped>
   .swipestyle{
+    display:flex;
     width:100%;
-    height:100px;
   }
   .imgstyle{
     width:100%;
-    height:175px;
+    height:10rem;
   }
 </style>
