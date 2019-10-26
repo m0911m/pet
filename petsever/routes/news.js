@@ -61,7 +61,6 @@ router.get("/indexstory",(req,res)=>{
 //  	return;
 //  }
 //  var vcotnet=req.body.vcotnet;
-//  var vscore=req.body.vsore;
 //  var vtime=req.body.vtime;
 //  var v_img=req.body.v_img;
 
