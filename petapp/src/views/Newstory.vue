@@ -6,7 +6,7 @@
             <van-image class="storypic"
                 fit="fill"
                 radius="20px"
-                :src="require('../../public/imgs/'+item.t_img)" @click="detail"/>
+                :src="require('../../public/imgs/'+item.t_img)" @click="detail(item.tid)"/>
             <div class="user">
                 <!--左侧 用户头像 -->
                 <img :src="require('../../public/imgs/'+item.t_img)" alt="" class="imguser">
@@ -31,6 +31,7 @@
 </template>
 <script>
 export default {
+    
     data(){
         return{
             lists:[]
@@ -45,13 +46,16 @@ export default {
             heart2.style.display="inline-block";
             like.innerHTML++;
         },
-        detail(){
-            this.$router.push("/Detailstory");
+        detail(id){
+            
+            
+            // console.log(id);
+            this.$router.push(`/Detailstory/${id}`);
         },
         loadMore(){
-            var url="user/messagelist"
+            var url="news/messagelist"
             this.axios.get(url).then(res=>{
-                console.log(res.data.data);
+                // console.log(res.data.data);
                 this.lists=res.data.data;  
             })
         }
