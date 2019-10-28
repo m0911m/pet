@@ -23,7 +23,7 @@
       <!-- 2.1宠物头像 -->
       <div class="divflex msgpadding">
         <div class="petavatar">宠物头像</div>
-        <div class="round">
+        <div>
           <van-uploader v-model="fileList" multiple :max-count="1"/>
         </div>
       </div>
@@ -234,13 +234,14 @@ export default {
   methods: {
     //保存
     save(){
-      console.log(this.fileList[0],setkind,setdate,this.setsex,this.setname,this.setweight,setis);
+      // console.log(this.fileList[0],setkind,setdate,this.setsex,this.setname,this.setweight,setis);
       this.$messagebox.confirm('',{
         message:'是否保存',
         title:'提示',
         confirmButtonText:"保存"
       })
       .then(active=>{
+        console.log("保存")
         var t=setkind;
         var a=setdate;
         var s=0;
@@ -252,12 +253,13 @@ export default {
         var w=this.setweight;
         var i=this.fileList[0];
         //发送 axios请求
+        // console.log(t,a,s,w,i);
         var url="user/updatapetmessage";
         var obj={animal_type:t,animal_age:a,animal_sex:s,animal_weight:w,animal_img:i}
         this.axios.post(url,qs.stringify(obj))
         .then(response=>{
           console.log(response);
-          this.$router.push("/Petlist");
+          // this.$router.push("/Petlist");
         })
       })
       .catch(err=>{});
@@ -373,6 +375,7 @@ export default {
     this.question=this.$store.state.question
   },
   mounted() { 
+    //获取kind传参
     var kind=document.getElementById("petkind");
     this.petkind.$on(
       "ReceiveKind", function(item) { 

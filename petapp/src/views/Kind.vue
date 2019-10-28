@@ -76,6 +76,7 @@ export default {
   },
    methods:{
      handle1(e){
+      //  将参数传给petmessage页面
       //  console.log(e.currentTarget.innerText);
        this.petkind.$emit("ReceiveKind",e.currentTarget.innerText);
        this.$router.push({path:'/Petmessage'})

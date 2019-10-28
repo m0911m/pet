@@ -24,7 +24,7 @@
     <div class="daily">
       <h4 class="title">我的日常管理</h4>
       <van-grid :gutter="10" >
-        <van-grid-item icon="award-o" text="我的宠物" />
+        <van-grid-item icon="award-o" text="我的宠物" to="/Petlist" />
         <van-grid-item icon="balance-list-o" text="我的订单" />
         <van-grid-item icon="bulb-o" text="我的动态" />
         <van-grid-item icon="shop-o" text="快速找家庭" />
