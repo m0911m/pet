@@ -29,7 +29,7 @@ export default {
   },
   methods:{
     county(){
-      this.$router.push({path:'/Kind'})
+      console.log(111);
     }
   }
 }

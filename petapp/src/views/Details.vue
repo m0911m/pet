@@ -12,14 +12,7 @@ import Foster from "../components/Foster.vue"
 export default {
   data(){
     return{
-      homelist:[
-        {
-          h_img:"family0.jpg",
-          u_img:"family_user0.jpg",
-          score:"5.0",
-          gaps:"0.3km"
-        }
-      ]
+      homelist:[]
     }
   },
   created(){
@@ -27,7 +20,7 @@ export default {
   },
   methods:{
   home(){
-      var url="user/fosterlist";
+      var url="foster/fosterlist";
       this.axios.get(url).then(res=>{
         console.log(res.data.data);
         this.homelist=res.data.data;
