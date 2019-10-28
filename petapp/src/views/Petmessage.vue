@@ -12,9 +12,9 @@
       </div>
       <!-- 1.3右边 保存 -->
       <div @click="save">
-        <router-link  to="/Petlist" class="headerright">
+        <div class="headerright">
           保存
-        </router-link>
+        </div>
       </div>
     </div>
     <hr class="hrmargin">
@@ -235,7 +235,33 @@ export default {
     //保存
     save(){
       console.log(this.fileList[0],setkind,setdate,this.setsex,this.setname,this.setweight,setis);
-    },
+      this.$messagebox.confirm('',{
+        message:'是否保存',
+        title:'提示',
+        confirmButtonText:"保存"
+      })
+      .then(active=>{
+        var t=setkind;
+        var a=setdate;
+        var s=0;
+        if(this.setsex=="GG"){
+          s=1;
+        }else{
+          s=0;
+        };
+        var w=this.setweight;
+        var i=this.fileList[0];
+        //发送 axios请求
+        var url="user/updatapetmessage";
+        var obj={animal_type:t,animal_age:a,animal_sex:s,animal_weight:w,animal_img:i}
+        this.axios.post(url,qs.stringify(obj))
+        .then(response=>{
+          console.log(response);
+          this.$router.push("/Petlist");
+        })
+      })
+      .catch(err=>{});
+},
     // 点击返回或取消
     back(){
       this.$messagebox.confirm('',{
@@ -305,7 +331,7 @@ export default {
       var year=value.getFullYear();
       var month=value.getMonth();
       var date=value.getDate();
-      setdate=`${year}-${month+1}-${date}`;
+      setdate=value;
       age.innerHTML=`${year}-${month+1}-${date}`;
       age.style.color="#000";
       this.show2=false;
