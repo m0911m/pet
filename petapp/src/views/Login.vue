@@ -6,7 +6,7 @@
     <van-image class="logostyle" :src="require('../../public/imgs/logo.jpg')"/>
    <!-- 输入框 -->
    <van-cell-group class="inputstyle">
-    <van-field class="unamestyle" autofocus="autofocus" v-model="uname" label="用户名:" clearable placeholder="请输入用户名/手机号"></van-field>
+    <van-field class="unamestyle" autofocus="autofocus" v-model="uphone" label="用户名:" clearable placeholder="请输入用户名/手机号"></van-field>
     <van-field class="upwdstyle" v-model="upwd" label="密码:" clearable type="password" placeholder="请输入密码"></van-field>
      <!-- 登录按钮 -->
      <van-button class="loginstyle" @click="login">登录</van-button>
@@ -23,7 +23,7 @@ export default {
   data(){
     return{
       // 保存用户输入的手机号和密码
-      uname:"",  
+      uphone:"",  
       upwd:"" ,
       // 保存弹出层的属性
       show:false,
@@ -33,7 +33,7 @@ export default {
   methods:{
     login(){
       // 获取用户输入的手机号和密码
-      var n=this.uname;
+      var n=this.uphone;
       var u=this.upwd;
       // 创建手机号正则和密码(6-16位字母数字)正则
       var nreg=/^1[3-9]\d{9}$/ //手机
@@ -53,11 +53,11 @@ export default {
       }
       // 发送axios请求
        var url="user/login"
-       var obj={uname:n,upwd:u}
+       var obj={uphone:n,upwd:u}
       this.axios.post(url,qs.stringify(obj))
       .then(response=>{
       console.log(response);
-      if(response.data.code>0){
+      if(response.data.code==200){
         this.$router.push({path:'/Nav'});
       }else{
         this.msg="用户名或密码错误"
@@ -117,7 +117,7 @@ export default {
   position: absolute;
   top:4rem;
   border-radius: 1rem;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(255,255,255,0.8);
 }
 /* 登录按钮 */
 
@@ -129,14 +129,14 @@ export default {
   height:2rem;
   border-radius: 1rem;
   line-height: 2rem;
-  color:#ff0;
-  background:rgba(0,0,0,0.2) 
+  color:#000;
+  background:rgba(255,255,255,0.8); 
 }
  /* 下部的链接 */
 .textstyle{
+  width:100%;
   position:absolute;
-  bottom:10%;
-  left:30%;
+  bottom:0%;
   color:#FF0;
   font-weight:bold;
   background-color:rgba(0,0,0,0.5)
