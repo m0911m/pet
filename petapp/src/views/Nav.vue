@@ -1,22 +1,41 @@
 <template>
-<div>
-    <navbar></navbar>
+  <div>
+    <div class="bagstyle">
+      <img style="width:100%;height:230px;" src="../../public/imgs/dog04.jpg" alt="">
+    </div>
   <!-- 进入寄养家庭 -->
     <ul class="jumpstyle" @click="foster">
       <li class="listyle">Hi 想让他住哪里</li>
-      <li><input class="inputstyle" disabled placeholder="找附近的寄样家庭" type="text"></li>
+      <li><input class="inputstyle" disabled placeholder="找附近的寄养家庭" type="text"></li>
+    </ul>
+    <!-- 宠物服务 -->
+    <!-- 申请家庭+保障服务+合作医院 -->
+    <ul class="servestyle">
+      <li>
+        申请家庭
+        <img src="../../public/imgs/jiating.png" alt="">
+      </li>
+      <li>
+        保障服务
+        <img src="../../public/imgs/baozhang.png" alt="">
+      </li>
+      <li>
+        宠物医院
+        <img src="../../public/imgs/yiyuan.png" alt="">
+      </li>
     </ul>
     <!-- 轮播 -->
     <swipe></swipe>
-  <!-- 宠物服务 -->
-  <!-- 申请家庭+保障服务+合作医院 -->
-
+    <div class="recstyle">
+      <span class="recstyle">推荐家庭</span>
+    </div>
     <!-- 为你推荐 -->
     <div class="recstyle">
       <span>为你推荐</span>
     </div>
     <users :userlist="userlist"></users>
-</div>
+    <navbar></navbar>
+  </div>
 </template>
 <script>
 // 引入轮播组件
@@ -29,7 +48,6 @@ export default {
   data(){
     return{
      userlist:[],
-
     }
   },
   components: {
@@ -59,6 +77,8 @@ export default {
 }
 </script>
 <style scoped>
+
+
 /* 顶部导航 */
 .jumpstyle{
   display:flex;
@@ -91,7 +111,11 @@ export default {
   display:flex;
   justify-content: center;
 }
-
+.servestyle{
+  display:flex;
+  justify-content: space-around;
+  margin:0.5rem 0;
+}
 
 
 

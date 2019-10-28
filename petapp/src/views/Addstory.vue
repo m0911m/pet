@@ -45,20 +45,20 @@ import Navbar from "../components/Navbar"
                 // 此时可以自行将文件上传至服务器
                 console.log(file);
             } ,
-            onClickRight() {
-                var url="user/updatamessagelist"
-                this.axios.post(url).then(res=>{
-                console.log(res);  
+        onClickRight() {
+            var url="user/updatamessagelist"
+            this.axios.post(url).then(res=>{
+            console.log(res);  
                 if(res.data.code<=0){
                     this.$toast("请登录");
                     this.$router.push("/Login")
                 }
-                })
-            },
-            position(){
-                console.log("定位");
-            },                   
-        },        
+            })
+        },
+        position(){
+            console.log("定位");
+        },                   
+    },        
 }
 </script>
 <style scoped>
