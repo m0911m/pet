@@ -68,7 +68,7 @@ export default new Router({
     {path:'/Petcircle',component:Petcircle},
     {path:'/Nav',component:Nav},
     {path:'/Kind',component:Kind},
-    {path:'/Detailstory',component:Detailstory},
+    {path:'/Detailstory/:id',component:Detailstory,props:true},
     {path:'/Register',component:Register},
     {path:'/Newstory',component:Newstory},
     {path:'/Swipe',component:Swipe},
