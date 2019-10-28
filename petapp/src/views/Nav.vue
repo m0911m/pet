@@ -26,9 +26,9 @@
     </ul>
     <!-- 轮播 -->
     <swipe></swipe>
-    <div class="recstyle">
-      <span class="recstyle">推荐家庭</span>
-    </div>
+    <!-- 宠物服务 -->
+    <!-- 申请家庭+保障服务+合作医院 -->
+
     <!-- 为你推荐 -->
     <div class="recstyle">
       <span>为你推荐</span>

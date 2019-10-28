@@ -45,11 +45,11 @@ import Navbar from "../components/Navbar"
                 // 此时可以自行将文件上传至服务器
                 console.log(file);
             } ,
-        onClickRight() {
-            var url="user/updatamessagelist"
-            this.axios.post(url).then(res=>{
-            console.log(res);  
-                if(res.data.code<=0){
+            onClickRight() {
+                var url="news/updatamessagelist"
+                this.axios.post(url).then(res=>{
+                console.log(res);  
+                if(res.data.code==402){
                     this.$toast("请登录");
                     this.$router.push("/Login")
                 }
