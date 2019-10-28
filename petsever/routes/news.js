@@ -6,10 +6,11 @@ const pool=require('../pool.js');
 var router=express.Router();
 
 //一、动态发布模块   验证过
+var session_id;
 router.post("/updatamessagelist",(req,res)=>{
 	//获取发布动态用户的uid
-	var uid=req.session.uid;
-	// console.log(uid)	
+	var uid=session_id;
+	console.log(uid)	
  if(!uid){
  res.send({code:402,msg:"请登录"});
  	return;
@@ -33,6 +34,7 @@ pool.query(sql,(err,result)=>{
 router.get("/messagelist",(req,res)=>{
 var sql="SELECT tid,ttitle,tsmtitle,ttxt,t_img,taddress,tuname,uid FROM cw_text";
 pool.query(sql,(err,result)=>{
+	console.log("终极验证"+req.session.uid)
 	if(err)throw err;
 		if(result.length>0){
 			res.send({code:200,msg:"查询成功",data:result})

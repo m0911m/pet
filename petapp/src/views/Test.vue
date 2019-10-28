@@ -6,13 +6,10 @@
 </template>
 <script>
 export default {  
-  methods:{
+  methods:{ 
     change(){
-      this.axios.get("/user/selectpetmessage",{
-      params:
-      {}
-      }).then(res=>{
-        console.log(res);
+      this.axios.get("user/selectpetmessage").then(res=>{
+        console.log(res.session);
       })
     }
   }
