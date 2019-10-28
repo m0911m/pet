@@ -117,7 +117,7 @@ export default {
   position: absolute;
   top:4rem;
   border-radius: 1rem;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(255,255,255,0.8);
 }
 /* 登录按钮 */
 
@@ -129,14 +129,14 @@ export default {
   height:2rem;
   border-radius: 1rem;
   line-height: 2rem;
-  color:#ff0;
-  background:rgba(0,0,0,0.2) 
+  color:#000;
+  background:rgba(255,255,255,0.8); 
 }
  /* 下部的链接 */
 .textstyle{
+  width:100%;
   position:absolute;
-  bottom:10%;
-  left:30%;
+  bottom:0%;
   color:#FF0;
   font-weight:bold;
   background-color:rgba(0,0,0,0.5)
