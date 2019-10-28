@@ -23,9 +23,9 @@ app.use(cookieParser());
 app.use(session({ 
 // secret:"128位字符", 
 secret: 'sessiontest', 
-cookie:{maxAge:10000},
+// cookie:{maxAge:10000},
 resave:true, 
-saveUninitialized:false
+saveUninitialized:true
 })); 
 
 app.use(cors({ 

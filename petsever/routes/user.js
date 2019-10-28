@@ -90,7 +90,8 @@ router.post("/updatapetmessage",(req,res)=>{
 //四、查询宠物信息  验证过
 router.get("/selectpetmessage",(req,res)=>{
 	//获取发布动态用户的uid
- 	var uid=req.session.uid;
+	 var uid=req.session.uid;
+	 console.log(uid)
   if(!uid){
   res.send({code:402,msg:"请登录"});
   	return;
