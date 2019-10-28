@@ -9,6 +9,7 @@ var router=express.Router();
 router.post("/updatamessagelist",(req,res)=>{
 	//获取发布动态用户的uid
 	var uid=req.session.uid;
+	// console.log(uid)	
  if(!uid){
  res.send({code:402,msg:"请登录"});
  	return;

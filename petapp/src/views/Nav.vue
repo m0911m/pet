@@ -80,7 +80,7 @@ export default {
   methods:{
     user(){
       // 请求首页故事
-      var url="user/indexstory"
+      var url="news/indexstory"
       this.axios.get(url).then(res=>{
         console.log(res.data.data);
         this.userlist=res.data.data;  
