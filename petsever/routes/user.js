@@ -67,11 +67,11 @@ router.post("/updatapetmessage",(req,res)=>{
   }
  //获取宠物物信息
 	var animal_type=req.body.animal_type;
-	var animal_age=req.body.animal_age;
+	var animal_bir=req.body.animal_bir;
 	var animal_sex=req.body.animal_sex;
 	var animal_weight=req.body.animal_weight;
-	var animal_img=req.body.animal_img;
-	var sql=`INSERT INTO cw_animal VALUES(NULL,'${uid}','${animal_type}','${animal_age}',${animal_sex},'${animal_weight}','${animal_img}')`;
+	// var animal_img=req.body.animal_img;
+	var sql=`INSERT INTO cw_animal VALUES(NULL,${uid},${animal_type},${animal_bir},${animal_sex},${animal_weight}`;
 	pool.query(sql,(err,result)=>{
 		if(err)throw err;
 		if(result.affectedRows>0){
@@ -117,7 +117,7 @@ router.get("/selectpetmessage",(req,res)=>{
 	// var animal_sex=req.query.animal_sex;
 	// var animal_weight=req.query.animal_weight;
 	// var animal_img=req.query.animal_img;
-	var sql="SELECT  aid,animal_type,animal_age,animal_sex,animal_weight,animal_img FROM cw_animal WHERE uid=?";
+	var sql="SELECT  aid,animal_type,animal_bir,animal_sex,animal_weight,animal_img FROM cw_animal WHERE uid=?";
 	pool.query(sql,[uid],(err,result)=>{
 		if(err)throw err;
 		if(result.length>0){

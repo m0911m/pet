@@ -20,7 +20,7 @@ CREATE TABLE cw_animal(
   aid INT PRIMARY KEY AUTO_INCREMENT,#宠物id
   uid INT,          #用户id
   animal_type VARCHAR(30),#宠物类型
-  animal_age VARCHAR(30),#宠物年纪
+  animal_bir VARCHAR(30),#宠物年纪
   animal_sex BOOLEAN, #宠物性别
   animal_weight VARCHAR(30), #宠物体重
   animal_img VARCHAR(128) #宠物头像
@@ -100,9 +100,9 @@ INSERT INTO cw_foster VALUES
 
 /**宠物信息导入**/
 INSERT INTO cw_animal VALUES
-(null,2,"哈巴狗","3",true,"15","999_jpg"),
-(null,2,"哈巴狗","3",true,"15","999_jpg"),
-(null,2,"哈巴狗","3",true,"15","999_jpg");
+(null,2,"哈巴狗","2013-1-3",true,"15","999_jpg"),
+(null,2,"哈巴狗","2013-2-3",true,"15","999_jpg"),
+(null,2,"哈巴狗","2013-4-8",true,"15","999_jpg");
 
 
 

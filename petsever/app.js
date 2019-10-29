@@ -9,7 +9,6 @@ const bodyParser=require("express");
 //引入cors模块
 const cors=require("cors");
 //引入session模块
-var  session=require("express-session");
 
 
 //引入用户路由器

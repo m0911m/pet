@@ -18,11 +18,11 @@
                         <!-- 地址 -->
                         <span class="local">{{item.taddress}}</span>
                         <!-- 点赞 -->
-                        <div id="zan" @click="heart">
+                        <!-- <div id="zan" @click="heart">
                             <img src="../../public/imgs/heart.png" alt="" class="heart" >
                             <img src="../../public/imgs/heart_red.png" alt="" class="heart_red">
                             <span class="like">{{item.count}}</span> 
-                        </div> 
+                        </div>  -->
                     </div>   
                 </div> 
             </div>   
@@ -38,24 +38,22 @@ export default {
         }
     },
     methods: {
-        heart(){
-            var heart = document.querySelector(".heart");
-            var heart2 = document.querySelector(".heart_red");
-            var like = document.querySelector(".like");
-            heart.style.display="none";
-            heart2.style.display="inline-block";
-            like.innerHTML++;
-        },
+        // heart(){
+        //     var heart = document.querySelector(".heart");
+        //     var heart2 = document.querySelector(".heart_red");
+        //     var like = document.querySelector(".like");
+        //     heart.style.display="none";
+        //     heart2.style.display="inline-block";
+        //     like.innerHTML++;
+        // },
         detail(id){
-            
-            
-            // console.log(id);
             this.$router.push(`/Detailstory/${id}`);
         },
         loadMore(){
-            var url="news/messagelist"
+            console.log(111)
+            var url="news/messagelist";
             this.axios.get(url).then(res=>{
-                // console.log(res.data.data);
+                console.log(res.data.data);
                 this.lists=res.data.data;  
             })
         }
