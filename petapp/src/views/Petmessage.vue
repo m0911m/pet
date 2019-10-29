@@ -21,13 +21,13 @@
     <!-- 2.详细信息 -->
     <div class="msgdetail">
       <!-- 2.1宠物头像 -->
-      <div class="divflex msgpadding">
+      <!-- <div class="divflex msgpadding">
         <div class="petavatar">宠物头像</div>
         <div>
           <van-uploader v-model="fileList" multiple :max-count="1"/>
         </div>
       </div>
-      <hr>
+      <hr> -->
       <!-- 2.2昵称 -->
       <div class="divflex msgpadding" @click="showPop1">
         <div>昵称</div>
@@ -227,7 +227,7 @@ export default {
       currentDate: new Date(),
       petsex: ['GG', 'MM'],
       setweight:"",
-      fileList: [],
+      // fileList: [],
       petis:["是","否"],
       setsex:"",
       }
@@ -244,7 +244,7 @@ export default {
       .then(active=>{
         // console.log("保存")
         var t=setkind;
-        var a=setdate;
+        var b=setdate;
         var s=0;
         if(this.setsex=="GG"){
           s=1;
@@ -252,11 +252,11 @@ export default {
           s=0;
         };
         var w=this.setweight;
-        var i="../assets/image/3.jpg";
+        // var i=this.fileList[0].content.replace(/^data:image\/\w+;base64,/,'');
         //发送 axios请求
         console.log(t,a,s,w,i);
         var url="user/updatapetmessage";
-        var obj={animal_type:t,animal_age:a,animal_sex:s,animal_weight:w,animal_img:i}
+        var obj={animal_type:t,animal_bir:b,animal_sex:s,animal_weight:w}
         this.axios.post(url,qs.stringify(obj))
         .then(response=>{
           // console.log(response);
@@ -334,7 +334,7 @@ export default {
       var year=value.getFullYear();
       var month=value.getMonth();
       var date=value.getDate();
-      setdate=value;
+      setdate=`${year}-${month+1}-${date}`;
       age.innerHTML=`${year}-${month+1}-${date}`;
       age.style.color="#000";
       this.show2=false;

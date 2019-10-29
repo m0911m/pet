@@ -10,7 +10,6 @@ const session=require("express-session");
 //引入cors模块
 const cors=require("cors");
 //引入session模块
-var  session=require("express-session");
 
 
 //引入用户路由器
@@ -41,7 +40,7 @@ app.use(cors({
 })); 
 
 // 使用cookie
-app.use(cookieParser("sessiontest"));
+// app.use(cookieParser("sessiontest"));
 
 
 
