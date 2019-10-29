@@ -21,16 +21,12 @@ Vue.use(Vant);
 // 引入axios模块
 import axios from "axios"
 
-<<<<<<< HEAD
 // 配置保存session信息
-axios.defaults.withCredentials=true
-=======
-
->>>>>>> 984470060c9145d498b40e5979abec67d9a0ab98
+// axios.defaults.withCredentials=true
 // 配置服务器的基础路径
 axios.defaults.baseURL="http://127.0.0.1:5050/"
 
-// 配置保存session信息
+// // 配置保存session信息
 axios.defaults.withCredentials=true
 
 // 注册axios模块

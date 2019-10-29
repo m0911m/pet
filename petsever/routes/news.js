@@ -6,10 +6,10 @@ const pool=require('../pool.js');
 var router=express.Router();
 
 //一、动态发布模块   验证过
-var session_id;
+// var session_id;
 router.post("/updatamessagelist",(req,res)=>{
 	//获取发布动态用户的uid
-	var uid=session_id;
+	var uid=req.session.uid;
 	console.log(uid)	
  if(!uid){
  res.send({code:402,msg:"请登录"});
@@ -20,7 +20,10 @@ var ttitle=req.body.ttitle;
 var tsmtitle=req.body.tsmtitle;
 var ttxt=req.body.ttxt;
 var t_img=req.body.t_img;
-var sql="INSERT INTO cw_text VALUES(NULL,ttitle,tsmtitle,ttxt,t_img)";
+
+
+console.log(tid,ttitle,tsmtitle,ttxt,t_img,tid,tuname,taddress);
+var sql=`INSERT INTO cw_text VALUES(null,${ttitle},${tsmtitle},null,null,${ttxt},${t_img},uid)`;
 pool.query(sql,(err,result)=>{
 	if(err)throw err;
 	if(result.affectedRows>0){

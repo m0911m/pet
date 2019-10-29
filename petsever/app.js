@@ -4,7 +4,7 @@ const express=require("express");
 const bodyParser=require("express");
 
 //引入cookie模块
-const cookieParser=require("cookie-parser");
+// const cookieParser=require("cookie-parser");
 
 //引入cors模块
 const cors=require("cors");
@@ -33,13 +33,13 @@ app.use(cors({
 //配置session 
 app.use(session({ 
 	secret:"sessiontest", 
-	cookie:{maxAge:10000},
+	// cookie:{maxAge:10000},
 	resave:true, 
 	saveUninitialized:true
 })); 
 
 // 使用cookie
-app.use(cookieParser("sessiontest"));
+// app.use(cookieParser("sessiontest"));
 
 
 
