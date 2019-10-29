@@ -1,18 +1,20 @@
 <template>
   <div class="reg">
     <!-- 背景图片 -->
-    <img :src="require('../../public/imgs/family1.jpg')" alt="" class="imgstyle">
+    <img :src="require('../../public/imgs/bg1.jpg')" alt="" class="imgstyle">
     <div class="container">
         <!-- logo -->
       <van-image class="logostyle" :src="require('../../public/imgs/logo.jpg')"/>
         <van-cell-group class="inputstyle">
       <van-field
+      class="unamestyle"
         v-model="uphone" 
         v-on:blur="onblur"
         label="用户名"
         placeholder="请输入用户名"
       />
       <van-field
+        class="upwdstyle"
         v-model="upwd"
         type="password"
         v-on:blur="pwdonblur"
@@ -20,6 +22,7 @@
         placeholder="请输入密码"
       />
       <van-field
+        class="apwdstyle"
         v-model="apwd"
         type="password"
         v-on:blur="apwdonblur"
@@ -27,15 +30,17 @@
         placeholder="请再次输入密码"
       />
        <van-field
+       class="umsgstyle"
         v-model="umsg"
         center
         clearable
         label="短信验证码"
-        placeholder="请输入短信验证码"
+        placeholder="请输入验证码"
+        disabled
         >
          <van-button slot="button" size="small" type="primary">发送验证码</van-button>
         </van-field>
-      <van-button class="loginstyle" @click="reg">注册</van-button>
+      <van-button class="regstyle" @click="reg">注册</van-button>
      </van-cell-group>
     </div>
   </div>
@@ -165,31 +170,67 @@ export default {
 </script>
 <style scoped>
   .reg{
-    position: relative;
+    display:flex;
+    position:fixed;
+    width:100%;
+    height:100%;
+    text-align: center;
+    box-sizing: border-box;
   }
   .imgstyle{
-    position: fixed;
-    z-index: -1;
+    position:relative;
+    width:100%;
+    height:100%;
+    filter: blur(5px);
   }
-.container{
-  position: absolute;
-  z-index: 10;
-}
 .logostyle{
-  top:0;
-  left:0;
-  width:3.75rem;
-  top:6%;
-  left: 50%;
-  margin-left:-1.33rem;
-  z-index: 10;
+   position:absolute;
+   top:0;
+   left:0;
+   width:3.75rem;
+   top:20%;
+   left: 50%;
+   margin-left:-1.33rem;
 }
 .inputstyle{
-  width:90%;
-  height:400px;
-  top:20%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  position: absolute;
+  width:80%;
+  top:35%;
+  left:10%;
+  text-align: left;
+}
+.unamestyle{
+  position: absolute;
+  border-radius: 1rem;
+  background-color: rgba(255,255,255,0.8);
+}
+.upwdstyle{
+  position: absolute;
+  top:3rem;
+  border-radius: 1rem;
+  background-color: rgba(255,255,255,0.8);
+}
+.apwdstyle{
+  position: absolute;
+  top:6rem;
+  border-radius: 1rem;
+  background-color: rgba(255,255,255,0.8);
+}
+.umsgstyle{
+  position: absolute;
+  top:9rem;
+  border-radius: 1rem;
+  background-color: rgba(255,255,255,0.8);
+}
+.regstyle{
+  position:absolute;
+  top:13rem;
+  left:0;
+  width:100%;
+  height:2rem;
+  border-radius: 1rem;
+  line-height: 2rem;
+  color:#000;
+  background:rgba(255,255,255,0.8); 
 }
 </style>

@@ -82,7 +82,7 @@ router.post("/updatapetmessage",(req,res)=>{
 	})
 })
 
-//三、宠物信息删除   验证过
+//四、宠物信息删除   验证过
 router.get("/delpetmessage",(req,res)=>{
 	//获取发布动态用户的uid
  	var uid=req.session.uid;
@@ -92,7 +92,7 @@ router.get("/delpetmessage",(req,res)=>{
 	}
 	var aid=req.query.aid;
  //删除宠物信息
-	var sql="DELETE FORM cw_animal WHERE aid=?"
+	var sql="DELETE FROM cw_animal WHERE aid=?"
 	pool.query(sql,[aid],(err,result)=>{
 		if(err)throw err;
 		if(result.affectedRows>0){
@@ -102,7 +102,7 @@ router.get("/delpetmessage",(req,res)=>{
 		}
 	})
 })
-//四、查询宠物信息  验证过
+//五、查询宠物信息  验证过
 router.get("/selectpetmessage",(req,res)=>{
 	//获取发布动态用户的session_id
 	 var uid=req.session.uid;
@@ -131,7 +131,7 @@ router.get("/selectpetmessage",(req,res)=>{
 
 
 
-//修改用户个人信息
+//六、修改用户个人信息
 router.post("/update",(req,res)=>{
 	var uid=req.session.uid;
   if(!uid){

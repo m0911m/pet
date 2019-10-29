@@ -28,8 +28,8 @@ import Swipe from './components/Swipe.vue'
 // 引入寄养家庭组件
 import Foster from './components/Foster.vue'
 
-//注册测试
-import Test from './views/regtest'
+//注册组件
+import Reg from './views/Reg.vue'
 
 // 引入发现页面
 import Find from './views/Find.vue'
@@ -65,7 +65,7 @@ export default new Router({
     {path:"/Navbar",component:Navbar},
     {path:'/Foster',component:Foster},
     {path:'/Find',component:Find},
-    {path:'/regtest',component:Test},
+    {path:'/Reg',component:Reg},
     {path:'/Petcircle',component:Petcircle},
     {path:'/Nav',component:Nav},
     {path:'/Kind',component:Kind},
