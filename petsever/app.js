@@ -23,7 +23,6 @@ var app=express();
 
 //配置跨域
 app.use(cors({ 
-<<<<<<< HEAD
 	origin:["http://127.0.0.1:8080","http://localhost:8080"], 
 	credentials:true
 	// methods:['GET','POST'], 
@@ -34,19 +33,6 @@ app.use(cors({
 app.use(session({ 
 	secret:"sessiontest", 
 	// cookie:{maxAge:10000},
-=======
-	origin:["http://127.0.0.1:5050","http://localhost:8080"], 
-	credentials:true, 
-	methods:['GET','POST'], 
-	alloweHeaders:['Conten-Type', 'Authorization'] 
-	})); 
-//  app.use(cookieParser('sessiontest'));
-	 //配置session 
-	app.use(session({ 
-	// secret:"128位字符", 
-	secret: 'sessiontest', 
-	// cokkie:{maxAge:10000},
->>>>>>> 61ab34c6f1be9ec7acf26ad0027f0c2ff6b8fcd6
 	resave:true, 
 	saveUninitialized:true
 })); 
