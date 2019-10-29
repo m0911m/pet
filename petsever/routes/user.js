@@ -77,7 +77,7 @@ router.post("/updatapetmessage",(req,res)=>{
 	var animal_sex=req.body.animal_sex;
 	var animal_weight=req.body.animal_weight;
 	var animal_img=req.body.animal_img;
-	var sql=`INSERT INTO cw_animal VALUES(NULL,'${uid}','${animal_type}','${animal_age}',${animal_sex},'${animal_weight}','${animal_img}')`;
+	var sql=`INSERT INTO cw_animal VALUES(NULL,${uid},${animal_type},${animal_age},${animal_sex},${animal_weight},${animal_img})`;
 	pool.query(sql,(err,result)=>{
 		if(err)throw err;
 		if(result.affectedRows>0){
@@ -94,7 +94,7 @@ router.get("/selectpetmessage",(req,res)=>{
 	 console.log("seesion",uid)
   //3:如果用户没登录返回错误消息
 	if(!uid){
-		res.send({code:-1,msg:"请登录"});
+		res.send({code:402,msg:"请登录"});
 		return; 
 	 }
  //获取宠物物信息

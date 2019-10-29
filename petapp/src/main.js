@@ -21,18 +21,19 @@ Vue.use(Vant);
 // 引入axios模块
 import axios from "axios"
 
-// 配置保存session信息
-// axios.defaults.withCredentials=true
+
 // 配置服务器的基础路径
 axios.defaults.baseURL="http://127.0.0.1:5050/"
 
 // // 配置保存session信息
 axios.defaults.withCredentials=true
-
 // 注册axios模块
 Vue.prototype.axios=axios
 
-// Vue.config.productionTip = false
+Vue.config.productionTip = false
+// 创建中转站实现kind与petmessage之间的传值
+let petkind= new Vue()
+Vue.prototype.petkind=petkind;
 
 new Vue({
   router,
