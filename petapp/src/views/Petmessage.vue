@@ -252,20 +252,16 @@ export default {
           s=0;
         };
         var w=this.setweight;
-        var i=this.fileList[0].content;
+        var i="../assets/image/3.jpg";
         //发送 axios请求
         console.log(t,a,s,w,i);
-      //   var url="user/updatapetmessage";
-      //   var obj={animal_type:t,animal_age:a,animal_sex:s,animal_weight:w,animal_img:i}
-      //   this.axios.post(url,qs.stringify(obj))
-      //   .then(response=>{
-      //     // console.log(response);
-      //     if(res.data.data==402){
-      //     this.$router.push("/Login");
-      //     }else{
-      //       this.$router.push("/Petlist");
-      //     }
-      //   })
+        var url="user/updatapetmessage";
+        var obj={animal_type:t,animal_age:a,animal_sex:s,animal_weight:w,animal_img:i}
+        this.axios.post(url,qs.stringify(obj))
+        .then(response=>{
+          // console.log(response);
+            this.$router.push("/Petlist");
+        })
       })
       .catch(err=>{});
 },

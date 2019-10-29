@@ -4,14 +4,9 @@ const express=require("express");
 const bodyParser=require("express");
 
 //引入cookie模块
-<<<<<<< HEAD
 // const cookieParser=require('cookie-parser');
 //引入session模块
 const session=require("express-session");
-=======
-const cookieParser=require("cookie-parser");
-
->>>>>>> 941396ea373848bc13dc0fae4c1c647994c746cc
 //引入cors模块
 const cors=require("cors");
 //引入session模块
@@ -30,7 +25,6 @@ var app=express();
 
 //配置跨域
 app.use(cors({ 
-<<<<<<< HEAD
 	origin:["http://127.0.0.1:5050","http://localhost:8080"], 
 	credentials:true, 
 	methods:['GET','POST'], 
@@ -42,18 +36,6 @@ app.use(cors({
 	// secret:"128位字符", 
 	secret: 'sessiontest', 
 	// cokkie:{maxAge:10000},
-=======
-	origin:["http://127.0.0.1:8080","http://localhost:8080"], 
-	credentials:true
-	// methods:['GET','POST'], 
-	// alloweHeaders:['Conten-Type', 'Authorization'] 
-})); 
-
-//配置session 
-app.use(session({ 
-	secret:"sessiontest", 
-	cookie:{maxAge:10000},
->>>>>>> 941396ea373848bc13dc0fae4c1c647994c746cc
 	resave:true, 
 	saveUninitialized:true
 })); 
