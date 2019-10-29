@@ -36,6 +36,9 @@ ttxt TEXT,#正文
 t_img VARCHAR(30),#图片路径
 uid INT #用户id
 );
+
+
+
 /**寄养信息数据表**/
 CREATE TABLE cw_foster(
   fid INT PRIMARY KEY AUTO_INCREMENT,#id
@@ -118,6 +121,17 @@ INSERT INTO cw_sindex VALUES
 
 
 /*评论表信息*/
--- INSERT INTO cw_views VALUES
--- (null,'1','1','jack','好可爱','1572279619758','dog04.jpg'),
--- (null,'1','2','jack','乖宝宝','1572279619836','dog04.jpg');
+INSERT INTO cw_views VALUES
+(null,'1','1','jack','好可爱','1572279619758','dog04.jpg'),
+(null,'1','1','jack','好可爱','1572279619758','dog05.jpg'),
+(null,'1','1','jack','好可爱','1572279619758','dog09.jpg'),
+(null,'1','1','jack','好可爱','1572279619758','dog11.jpg'),
+(null,'1','2','jack','乖宝宝','1572279619836','dog12.jpg');
+/*动态信息表*/
+INSERT INTO cw_text VALUES
+(null,'寄养圈','这是肉嘟嘟的饺子女孩','Maoshu','北京北京市','一点也不安静，这张照片追了很久才拍到','dog09.jpg',1),
+(null,'狗大王的生活','幸福生活','lyren离潘','上海上海市','巧克力1岁生日快乐','dog11.jpg',2),
+(null,'每日一张宠物日常','希希的故事','Maoshu','北京北京市','天冷了，床上容易生猫','cat08.jpg',1),
+(null,'宠物日常','颜值在线','kemei','湖北省武汉市','天天颜值都在线','dog12.jpg',3),
+(null,'喵主子的日常','装扮大赛','索菲亚','陕西省西安市','哈哈，姐姐我用袜子给娃做了件小毛衣','cat20.jpeg',4),
+(null,'寄养圈','噜噜的寄养故事','蛮吉玛妈','北京北京市','小噜噜最会卖萌了','dog24.jpg',5);
