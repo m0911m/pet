@@ -20,7 +20,7 @@ CREATE TABLE cw_animal(
   aid INT PRIMARY KEY AUTO_INCREMENT,#宠物id
   uid INT,          #用户id
   animal_type VARCHAR(30),#宠物类型
-  animal_age VARCHAR(30),#宠物年纪
+  animal_bir VARCHAR(30),#宠物年纪
   animal_sex BOOLEAN, #宠物性别
   animal_weight VARCHAR(30), #宠物体重
   animal_img VARCHAR(128) #宠物头像
@@ -96,16 +96,16 @@ INSERT INTO cw_user VALUES
 
 /**宠物寄养信息导入**/
 INSERT INTO cw_foster VALUES
-(null,'快乐之家',45,'5','随时接单','0.3','狮城堡仔屋','fosterimg/family0.jpg','foster/family_user1.jpg',null),
+(null,'快乐之家',45,'5','随时接单','0.3','狮城堡仔屋','fosterimg/family0.jpg','fosterimg/family_user1.jpg',null),
 (null,'小福的家',36,'5','休息日接单','2.0','明德景园大厦','fosterimg/f1.jpg','fosterimg/fu1.jpg',null),
 (null,'毛蛋的家',50,'5','随时接单','2.5','南郊铁路新村南二环','fosterimg/f2.jpg','fosterimg/fu2.jpg',null),
 (null,'喵了个咪',40,'4.8','随时接单','2.5','南郊铁路新村东二环','fosterimg/f3.jpg','fosterimg/fu3.jpg',null);
 
 /**宠物信息导入**/
 INSERT INTO cw_animal VALUES
-(null,2,"哈巴狗","3",true,"15","999_jpg"),
-(null,2,"哈巴狗","3",true,"15","999_jpg"),
-(null,2,"哈巴狗","3",true,"15","999_jpg");
+(null,2,"哈巴狗","2013-1-3",true,"15","999_jpg"),
+(null,2,"哈巴狗","2013-2-3",true,"15","999_jpg"),
+(null,2,"哈巴狗","2013-4-8",true,"15","999_jpg");
 
 
 

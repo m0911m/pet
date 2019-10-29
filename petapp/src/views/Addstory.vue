@@ -20,12 +20,14 @@
             <div>
                 <van-icon name="location-o" class="iconStyle"/>
                 <span class="local">所在位置</span>
+                <input type="text" v-model="location">
             </div>
             <van-icon name="arrow" />
         </div>    
     </div>
 </template>
 <script>
+import qs from "qs"
 // 引入底部导航栏
 import Navbar from "../components/Navbar"
     export default {  
@@ -35,6 +37,7 @@ import Navbar from "../components/Navbar"
                 subtitle:"",
                 article:"",
                 fileList:[],
+                location:""
             }
         },
         components:{
@@ -43,11 +46,29 @@ import Navbar from "../components/Navbar"
         methods: {
             afterRead(file) {
                 // 此时可以自行将文件上传至服务器
-                console.log(file);
+                let content = file.file;
+                let data = new FormData();
+                data.append('img',content);
+                this.axios.post('图片上传地址',data)
+                .then((res) => {
+                    let datas = res.data.datas.path;
+                    this.msg.hallImg.push(`api地址${datas}`);
+                })
+
             } ,
-            onClickRight() {
+            onClickRight(file) {
+                console.log(file.file);
+                var ttitle=this.title;
+                var tsmtitle=this.subtitle;
+                var ttxt=this.article;
+                // var t_img=?;//测试数据
+                var fileList=this.fileList;
+                // console.log(ttitle,tsmtitle,ttxt,t_img)
+                // console.log(fileList);
+                // console.log(fileList[0].content.replace(/^data:image\/\w+;base64,/, '') )// replace消除前缀，获取完整的base64码
+                var obj={ttitle,tsmtitle,ttxt,t_img}
                 var url="news/updatamessagelist"
-                this.axios.post(url).then(res=>{
+                this.axios.post(url,qs.stringify(obj)).then(res=>{
                 console.log(res);  
                 if(res.data.code==402){
                     this.$toast("请登录");

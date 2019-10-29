@@ -76,12 +76,20 @@ export default {
   },
    methods:{
      handle1(e){
-       console.log(e.currentTarget.innerText);
+      //  将参数传给petmessage页面
+      //  console.log(e.currentTarget.innerText);
+       this.petkind.$emit("ReceiveKind",e.currentTarget.innerText);
+       this.$router.push({path:'/Petmessage'})
      },
     handle(e){
       var id=e.target.dataset.id;
       this.active=id;
     }
+  },
+  beforeRouteLeave (to, from, next) {
+    //设置下一个路由的meta
+    to.meta.keepAlive=true;
+    next();
   }
 }
 </script>

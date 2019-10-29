@@ -237,5 +237,6 @@ var dog=[
   },
   dogData:function(){
     return dog;
-  }
+  },
+
 }

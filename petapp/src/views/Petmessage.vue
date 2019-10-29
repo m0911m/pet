@@ -12,22 +12,22 @@
       </div>
       <!-- 1.3右边 保存 -->
       <div @click="save">
-        <router-link  to="/Petlist" class="headerright">
+        <div class="headerright">
           保存
-        </router-link>
+        </div>
       </div>
     </div>
     <hr class="hrmargin">
     <!-- 2.详细信息 -->
     <div class="msgdetail">
       <!-- 2.1宠物头像 -->
-      <div class="divflex msgpadding">
+      <!-- <div class="divflex msgpadding">
         <div class="petavatar">宠物头像</div>
-        <div class="round">
+        <div>
           <van-uploader v-model="fileList" multiple :max-count="1"/>
         </div>
       </div>
-      <hr>
+      <hr> -->
       <!-- 2.2昵称 -->
       <div class="divflex msgpadding" @click="showPop1">
         <div>昵称</div>
@@ -51,7 +51,7 @@
       <div class="divflex msgpadding" @click="jumpkind">
         <div>宠物类型</div>
         <div class="divright">
-          <span>未填写</span>
+          <span id="petkind">未填写</span>
           <span>&gt;</span>
         </div>
       </div>
@@ -79,7 +79,7 @@
       </div>
       <!-- 弹出层输入性别 -->
       <van-popup v-model="show3" position="bottom">
-        <van-picker show-toolbar :columns="petsex" @cancel="sexCancel" @confirm="sexConfirm"/>
+        <van-picker v-model="setsex" show-toolbar :columns="petsex" @cancel="sexCancel" @confirm="sexConfirm"/>
       </van-popup>
       <hr>
       <!-- 2.6体重 -->
@@ -209,6 +209,10 @@
   </div>
 </template>
 <script>
+import qs from 'qs'
+var setkind;
+var setis;
+var setdate;
 export default {
   data(){
     return{
@@ -223,13 +227,44 @@ export default {
       currentDate: new Date(),
       petsex: ['GG', 'MM'],
       setweight:"",
-      fileList: [],
-      petis:["是","否"]
+      // fileList: [],
+      petis:["是","否"],
+      setsex:"",
       }
   },
   methods: {
     //保存
-    save(){},
+    save(){
+      // console.log(this.fileList[0],setkind,setdate,this.setsex,this.setname,this.setweight,setis);
+      this.$messagebox.confirm('',{
+        message:'是否保存',
+        title:'提示',
+        confirmButtonText:"保存"
+      })
+      .then(active=>{
+        // console.log("保存")
+        var t=setkind;
+        var b=setdate;
+        var s=0;
+        if(this.setsex=="GG"){
+          s=1;
+        }else{
+          s=0;
+        };
+        var w=this.setweight;
+        // var i=this.fileList[0].content.replace(/^data:image\/\w+;base64,/,'');
+        //发送 axios请求
+        console.log(t,a,s,w,i);
+        var url="user/updatapetmessage";
+        var obj={animal_type:t,animal_bir:b,animal_sex:s,animal_weight:w}
+        this.axios.post(url,qs.stringify(obj))
+        .then(response=>{
+          // console.log(response);
+            this.$router.push("/Petlist");
+        })
+      })
+      .catch(err=>{});
+},
     // 点击返回或取消
     back(){
       this.$messagebox.confirm('',{
@@ -249,6 +284,7 @@ export default {
     // 绝育弹出层确定
     isConfirm(value){
       var is=document.getElementById("petis");
+      setis=value;
       is.innerHTML=value;
       is.style.color="#000";
       this.show5=false;
@@ -279,6 +315,7 @@ export default {
     // 性别弹出层确定
     sexConfirm(value){
       var sex=document.getElementById("petsex");
+      this.setsex=value;
       sex.innerHTML=value;
       sex.style.color="#000";
       this.show3=false;
@@ -297,7 +334,8 @@ export default {
       var year=value.getFullYear();
       var month=value.getMonth();
       var date=value.getDate();
-      age.innerHTML=`${year}年${month+1}月${date}日`;
+      setdate=`${year}-${month+1}-${date}`;
+      age.innerHTML=`${year}-${month+1}-${date}`;
       age.style.color="#000";
       this.show2=false;
     },
@@ -325,6 +363,28 @@ export default {
       this.show1=true;
     },
   },
+  beforeRouteEnter (to, from, next) {
+    //判断如果从petlist页面进来,就为false刷新页面,kind页面进来就为true不刷新
+   if(from.name==='Petlist'){
+     to.meta.keepAlive=false;
+   } else{
+     to.meta.keepAlive=true;
+   }
+   next();
+  },
+  activated() {
+    this.question=this.$store.state.question
+  },
+  mounted() { 
+    //获取kind传参
+    var kind=document.getElementById("petkind");
+    this.petkind.$on(
+      "ReceiveKind", function(item) { 
+        setkind=item;
+        kind.innerHTML = item; 
+        kind.style.color="#000";
+      }) 
+    }
 }
 </script>
 <style scoped>

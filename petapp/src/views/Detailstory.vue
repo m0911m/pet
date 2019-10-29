@@ -3,7 +3,8 @@
         <!-- 顶部导航栏 -->
         <van-nav-bar title="动态详情" left-arrow @click-left="onClickLeft" />
         <!-- 动态详情 -->
-        <p>动态id{{id}}</p>
+       
+       
         <div v-for="(item,i) of list" :key="i">
             <!-- 用户名 -->
             <div class="usermsg">
@@ -33,7 +34,15 @@
                     <span class="like">{{item.heart}}</span> 
                 </div>
                 <!-- 评论 -->
-                <inputmsg></inputmsg>
+                <!-- <inputmsg></inputmsg> -->
+                <div>
+                    <van-icon name="chat-o" @click="showPopup"/>
+                    <span>3</span>
+                    <van-popup v-model="show" position="bottom" :style="{height:'10%'}">
+                    <input type="text" class="txt" placeholder="说点什么...">
+                    <button class="send">发送</button>
+                    </van-popup>
+                </div>
             </div>
             
 
@@ -64,13 +73,12 @@ import Inputmsg from '../views/Inputmsg.vue'
                 like.innerHTML++;
             },
             loadMore(){
-                var tid=this.tid;
-                var obj={tid:tid};
+                var tid=this.id;
                 console.log(this.id);
-                var url="news/messagelist"
+                var obj={tid};
+                var url="news/detailstory"
                 this.axios.get(url,obj).then(res=>{
-                    console.log(res.data.data);
-                    this.lists=res.data.data;  
+                    console.log(res);  
                 })
             }
         },

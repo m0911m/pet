@@ -6,7 +6,6 @@
       <input type="text" class="txt" placeholder="说点什么...">
       <button class="send">发送</button>
     </van-popup>
-
   </div>
 </template>
 <script>
