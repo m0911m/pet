@@ -7,7 +7,7 @@ const userRouter=require('./routes/user');
 const fosterRouter=require('./routes/foster');
 const newsRouter=require('./routes/news');
 //引入cookie模块
-const cookieParser=require('cookie-parser');
+// const cookieParser=require('cookie-parser');
 //引入session模块
 const session=require("express-session");
 //引入cors模块
@@ -30,7 +30,7 @@ app.use(cors({
 	app.use(session({ 
 	// secret:"128位字符", 
 	secret: 'sessiontest', 
-	cokkie:{maxAge:10000},
+	// cokkie:{maxAge:10000},
 	resave:true, 
 	saveUninitialized:false
 	})); 
