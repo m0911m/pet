@@ -22,7 +22,7 @@ Vue.use(Vant);
 import axios from "axios"
 
 // 配置保存session信息
-axios.defaults.withCredentials=true
+// axios.defaults.withCredentials=true
 // 配置服务器的基础路径
 axios.defaults.baseURL="http://127.0.0.1:5050/"
 

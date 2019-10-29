@@ -73,11 +73,11 @@ router.post("/updatapetmessage",(req,res)=>{
   }
  //获取宠物物信息
 	var animal_type=req.body.animal_type;
-	var animal_age=req.body.animal_age;
+	var animal_bir=req.body.animal_bir;
 	var animal_sex=req.body.animal_sex;
 	var animal_weight=req.body.animal_weight;
-	var animal_img=req.body.animal_img;
-	var sql=`INSERT INTO cw_animal VALUES(NULL,${uid},${animal_type},${animal_age},${animal_sex},${animal_weight},${animal_img})`;
+	// var animal_img=req.body.animal_img;
+	var sql=`INSERT INTO cw_animal VALUES(NULL,${uid},${animal_type},${animal_bir},${animal_sex},${animal_weight}`;
 	pool.query(sql,(err,result)=>{
 		if(err)throw err;
 		if(result.affectedRows>0){
@@ -87,6 +87,26 @@ router.post("/updatapetmessage",(req,res)=>{
 		}
 	})
 })
+//三、宠物信息删除   验证过
+router.get("/delpetmessage",(req,res)=>{
+	  //获取发布动态用户的uid
+	  var uid=req.session.uid;
+	  if(!uid){
+	  res.send({code:402,msg:"请登录"});
+	    return;
+	  }
+	  var aid=parseInt(req.query.aid);
+	 //删除宠物信息
+	  var sql="DELETE FROM cw_animal WHERE aid=?"
+	  pool.query(sql,[aid],(err,result)=>{
+	    if(err)throw err;
+	    if(result.affectedRows>0){
+	      res.send({code:200,msg:"宠物信息删除成功"})
+	    }else{
+	      res.send({code:401,msg:"宠物信息删除失败"})
+	    }
+	  })
+	})
 //四、查询宠物信息  验证过
 router.get("/selectpetmessage",(req,res)=>{
 	//获取发布动态用户的session_id
@@ -103,7 +123,7 @@ router.get("/selectpetmessage",(req,res)=>{
 	// var animal_sex=req.query.animal_sex;
 	// var animal_weight=req.query.animal_weight;
 	// var animal_img=req.query.animal_img;
-	var sql="SELECT  aid,animal_type,animal_age,animal_sex,animal_weight,animal_img FROM cw_animal WHERE uid=?";
+	var sql="SELECT  aid,animal_type,animal_bir,animal_sex,animal_weight,animal_img FROM cw_animal WHERE uid=?";
 	pool.query(sql,[uid],(err,result)=>{
 		if(err)throw err;
 		if(result.length>0){

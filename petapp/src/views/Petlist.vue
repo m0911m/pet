@@ -19,26 +19,32 @@
     </div>
     <hr>
     <div class="pet1" v-for="(item,i) of list" :key="i">
-      <div >
+      <div>
         <div class="round size1">
           <img class="img1" :src="item.animal_img">
         </div>
         <div class="round size2">
-          <img class="img2" src="../assets/image/1.png" alt="">
+          <img class="img2" :src="item.animal_sex?Male:Female" alt="">
          </div>
       </div>
       <div class="pet2">
         <div>{{item.animal_type}}</div>
-        <div>{{item.animal_age}}岁</div>
+        <div>{{item.animal_bir}}</div>
         <div>{{item.animal_weight}}</div>
       </div>
+      <div @click="del" class="del" :data-aid="item.aid">删除</div>
     </div>
   </div>
 </template>
 <script>
 export default {
   data(){
-    return{list:[]};
+    return{
+      list:[],
+      // item.animal_sex?Male:Female
+      Male:require('../assets/image/1.png'),
+      Female:require('../assets/image/0.png')
+      };
   },
   created() {
     this.onload();
@@ -46,6 +52,23 @@ export default {
   methods: {
     back(){
       this.$router.push("/Mine");
+    },
+    del(event){
+     //交互提示:是否删除
+      this.$messagebox.confirm("是否删除")
+      .then(res=>{
+        var aid=event.target.dataset.aid;
+        var url="user/delpetmessage";
+        var obj={aid};
+        this.axios.get(url,{params:obj})
+        .then(res=>{
+          // console.log(res);
+          if(res.data.code==200){
+            this.$toast("删除成功")
+            this.loadMore(); 
+          }
+        })
+      }).catch(err=>{})
     },
     onload(){
       //发送axios请求
@@ -94,22 +117,24 @@ export default {
     height: 60px;
     position: absolute;
     top:-10px;
-    left:20px;
+    left:7px;
   }
   .size2{
     width:20px;
     height:20px;
     position: absolute;
     top:20px;
-    left:60px;
+    left:45px;
     z-index: 2;
   }
   .pet2{
-    width:70%;
+    width:60%;
     display: flex;
     justify-content: space-around;
     color: #388;
-    margin-top:10px;
+    margin-top:14px;
+    padding-left:40px;
+    font-size:13px;
   }
   .img1{
     width: 60px;
@@ -118,5 +143,9 @@ export default {
   .img2{
     width:20px;
     height: 20px;
+  }
+  .del{
+    color: #388;
+    margin-top:10px;
   }
 </style>

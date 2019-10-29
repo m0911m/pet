@@ -54,8 +54,8 @@ export default {
       // 发送axios请求
        var url="user/login"
        var obj={uphone:n,upwd:u}
-      // this.axios.post(url,qs.stringify(obj))
-      this.axios.get(url,{params:(obj)})
+      this.axios.post(url,qs.stringify(obj))
+      // this.axios.get(url,{params:(obj)})
       .then(res=>{
       console.log(res);
       if(res.data.code==200){
