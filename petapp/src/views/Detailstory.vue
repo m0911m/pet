@@ -3,8 +3,6 @@
         <!-- 顶部导航栏 -->
         <van-nav-bar title="动态详情" left-arrow @click-left="onClickLeft" />
         <!-- 动态详情 -->
-       
-       
         <div v-for="(item,i) of list" :key="i">
             <!-- 用户名 -->
             <div class="usermsg">
@@ -28,11 +26,11 @@
             </div>
             <div class="make">
                 <!-- 点赞 -->
-                <div id="zan" @click="heart">
+                <!-- <div id="zan" @click="heart">
                     <img src="../../public/imgs/heart.png" alt="" class="heart" >
                     <img src="../../public/imgs/heart_red.png" alt="" class="heart_red">
                     <span class="like">{{item.heart}}</span> 
-                </div>
+                </div> -->
                 <!-- 评论 -->
                 <!-- <inputmsg></inputmsg> -->
                 <div>
@@ -64,18 +62,19 @@ import Inputmsg from '../views/Inputmsg.vue'
             onClickLeft() {
             this.$router.push("/Petcircle");
             },
-            heart(){
-                var heart = document.querySelector(".heart");
-                var heart2 = document.querySelector(".heart_red");
-                var like = document.querySelector(".like");
-                heart.style.display="none";
-                heart2.style.display="inline-block";
-                like.innerHTML++;
-            },
+            // heart(){
+            //     var heart = document.querySelector(".heart");
+            //     var heart2 = document.querySelector(".heart_red");
+            //     var like = document.querySelector(".like");
+            //     heart.style.display="none";
+            //     heart2.style.display="inline-block";
+            //     like.innerHTML++;
+            // },
             loadMore(){
-                var tid=this.id;
-                console.log(this.id);
-                var obj={tid};
+                var tid=parseInt(this.id);
+                console.log(tid);
+                var obj={tid:tid};
+                console.log(obj)
                 var url="news/detailstory"
                 this.axios.get(url,obj).then(res=>{
                     console.log(res);  

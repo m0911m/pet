@@ -50,7 +50,7 @@ export default {
             this.$router.push(`/Detailstory/${id}`);
         },
         loadMore(){
-            console.log(111)
+            // console.log(111)
             var url="news/messagelist";
             this.axios.get(url).then(res=>{
                 console.log(res.data.data);

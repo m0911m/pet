@@ -33,13 +33,13 @@ pool.query(sql,(err,result)=>{
 router.get("/messagelist",(req,res)=>{
 var sql="SELECT tid,ttitle,tsmtitle,ttxt,t_img,taddress,tuname,uid FROM cw_text";
 pool.query(sql,(err,result)=>{
-	console.log("终极验证"+req.session.uid)
-	if(err)throw err;
-		if(result.length>0){
-			res.send({code:200,msg:"查询成功",data:result})
-		}else{
-			res.send({code:401,msg:"查询失败"})
-		}
+	// console.log("终极验证"+req.session.uid)
+	if(err) throw err;
+	if(result.length>0){
+		res.send({code:200,msg:"查询成功",data:result})
+	}else{
+		res.send({code:401,msg:"查询失败"})
+	}
 })
 });
 
@@ -68,10 +68,25 @@ router.get("/indexstory",(req,res)=>{
 
 // })
 
+//查找动态评论
+router.get("/viewsdetail",(req,res)=>{
+	var tid=req.query.tid;
+	var sql='SELECT * FROM cw_views WHERE tid=?';
+	pool.query(sql,[tid],(err,result)=>{
+		if(err) throw err;
+		if(result.length>0){
+			res.send({code:200,msg:"查询成功",data:result})
+		}else{
+			res.send({code:401,msg:"查询失败"})
+		}
+	})
+	
+	// })
+
 //查看动态详情页
 router.get("/detailstory",(req,res)=>{
 	var tid=req.query.tid;
-	console.log(tid)
+	console.log("tid:"+tid)
 	var sql="SELECT tid,ttitle,tsmtitle,ttxt,t_img,taddress,tuname,uid FROM cw_text WHERE tid=?";
 	pool.query(sql,[tid],(err,result)=>{
 		if(err)throw err;

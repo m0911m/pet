@@ -48,6 +48,7 @@ import Announcement from './views/Announcement.vue'
 import Service from './views/Service.vue'
 // 我的 页面
 import Mine from './views/Mine.vue'
+import Comment from './components/Comment.vue'
 
 
 Vue.use(Router)
@@ -55,7 +56,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-   
+    {path:"/Comment",component:Comment},
     {path:"/Map",component:Map},
     {path:"/Mine",component:Mine},
     {path:"/Service",component:Service},

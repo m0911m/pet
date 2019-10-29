@@ -30,8 +30,25 @@
           {pic:"../../public/imgs/cat01.png",cname:"茶小乖",ctext:"睡得真香"},
           {pic:"../../public/imgs/cat01.png",cname:"麒麟",ctext:"爱心满满"},
           {pic:"../../public/imgs/cat01.png",cname:"郁闷的火柴",ctext:"可爱"},
-        ]
+        ],
+        clists:[] ,  //评论列表
+        tid:1
       }
+    },
+    methods:{
+      loadMore(){
+        // 1.获取动态id
+        var tid=this.tid;
+        // 2.发送请求，根据动态id查找相应评论
+        var obj={tid}
+        var url="news/viewsdetail"
+        this.axios.get(url,obj).then(res=>{
+          console.log(res);  
+        })
+      }
+    },
+    created(){
+      this.loadMore();
     }
   }
 </script>
