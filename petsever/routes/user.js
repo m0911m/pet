@@ -94,7 +94,7 @@ router.get("/selectpetmessage",(req,res)=>{
 	 console.log("seesion",uid)
   //3:如果用户没登录返回错误消息
 	if(!uid){
-		res.send({code:-1,msg:"请登录"});
+		res.send({code:402,msg:"请登录"});
 		return; 
 	 }
  //获取宠物物信息
