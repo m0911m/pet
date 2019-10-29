@@ -10,8 +10,8 @@ import Petlist from './views/Petlist.vue'
 import Petmessage from './views/Petmessage.vue'
 // 引入动态组件
 import Newstory from './views/Newstory.vue'
-// 引入注册组件
-import Register from './views/Register.vue'
+//引入地图组件
+import Map from './views/map.vue'
 //引入宠物品种组件
 import Kind from './views/Kind.vue'
 // 引入动态详情组件
@@ -48,14 +48,15 @@ import Announcement from './views/Announcement.vue'
 import Service from './views/Service.vue'
 // 我的 页面
 import Mine from './views/Mine.vue'
-import Test1 from './views/Test.vue'
+
 
 Vue.use(Router)
 
 
 export default new Router({
   routes: [
-    {path:"/Test",component:Test1},
+   
+    {path:"/Map",component:Map},
     {path:"/Mine",component:Mine},
     {path:"/Service",component:Service},
     {path:"/Announcement",component:Announcement},
@@ -69,7 +70,6 @@ export default new Router({
     {path:'/Nav',component:Nav},
     {path:'/Kind',component:Kind},
     {path:'/Detailstory/:id',component:Detailstory,props:true},
-    {path:'/Register',component:Register},
     {path:'/Newstory',component:Newstory},
     {path:'/Swipe',component:Swipe},
     {path:'/Petmessage',component:Petmessage,meta:{keepAlive:true}},

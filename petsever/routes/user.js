@@ -16,7 +16,7 @@ router.post("/login",(req,res)=>{
 			res.send({code:401,msg:"用户名或密码有误"})
 		}else{
 			console.log(result);
-			// session_id为req.session.id
+			//保存session值
 			req.session.uid = result[0].uid;
 			 console.log("----------",req.session.uid);
 			res.send({code:200,msg:"登录成功"})
@@ -40,12 +40,7 @@ router.get("/isreg",(req,res)=>{
 })
 //2.2注册接口
 router.post("/reg",(req,res)=>{
-	var uid=req.session.uid;
-	console.log(":"+uid)
-	if(!uid){
-		res.send({code:"404",msg:"请您登陆"})
-		return;
-	}else{
+	
 
 		var uphone=req.body.uphone;
 		var upwd=req.body.upwd;
@@ -59,7 +54,6 @@ router.post("/reg",(req,res)=>{
 				res.send({code:401,msg:"注册失败"});
 			}
 		})
-	}
 	})
 	
 
@@ -87,11 +81,31 @@ router.post("/updatapetmessage",(req,res)=>{
 		}
 	})
 })
+
+//三、宠物信息删除   验证过
+router.get("/delpetmessage",(req,res)=>{
+	//获取发布动态用户的uid
+ 	var uid=req.session.uid;
+  if(!uid){
+  res.send({code:402,msg:"请登录"});
+  	return;
+	}
+	var aid=req.query.aid;
+ //删除宠物信息
+	var sql="DELETE FORM cw_animal WHERE aid=?"
+	pool.query(sql,[aid],(err,result)=>{
+		if(err)throw err;
+		if(result.affectedRows>0){
+			res.send({code:200,msg:"宠物信息删除成功"})
+		}else{
+			res.send({code:401,msg:"宠物信息删除失败"})
+		}
+	})
+})
 //四、查询宠物信息  验证过
 router.get("/selectpetmessage",(req,res)=>{
 	//获取发布动态用户的session_id
 	 var uid=req.session.uid;
-	 console.log("seesion",uid)
   //3:如果用户没登录返回错误消息
 	if(!uid){
 		res.send({code:402,msg:"请登录"});
