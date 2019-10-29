@@ -20,12 +20,14 @@
             <div>
                 <van-icon name="location-o" class="iconStyle"/>
                 <span class="local">所在位置</span>
+                <input type="text" v-model="location">
             </div>
             <van-icon name="arrow" />
         </div>    
     </div>
 </template>
 <script>
+import qs from "qs"
 // 引入底部导航栏
 import Navbar from "../components/Navbar"
     export default {  
@@ -35,6 +37,7 @@ import Navbar from "../components/Navbar"
                 subtitle:"",
                 article:"",
                 fileList:[],
+                location:""
             }
         },
         components:{
@@ -46,8 +49,13 @@ import Navbar from "../components/Navbar"
                 console.log(file);
             } ,
             onClickRight() {
+                var ttitle=this.title;
+                var tsmtitle=this.subtitle;
+                var ttxt=this.article;
+                var t_img='15236255';//测试数据
+                var obj={ttitle,tsmtitle,ttxt,t_img}
                 var url="news/updatamessagelist"
-                this.axios.post(url).then(res=>{
+                this.axios.post(url,qs.stringify(obj)).then(res=>{
                 console.log(res);  
                 if(res.data.code==402){
                     this.$toast("请登录");

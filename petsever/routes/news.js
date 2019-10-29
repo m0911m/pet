@@ -19,7 +19,7 @@ var ttitle=req.body.ttitle;
 var tsmtitle=req.body.tsmtitle;
 var ttxt=req.body.ttxt;
 var t_img=req.body.t_img;
-var sql=`INSERT INTO cw_text VALUES(NULL,'${ttitle}','${tsmtitle}','${ttxt}','${t_img}',${uid})`;
+var sql="INSERT INTO cw_text VALUES(NULL,ttitle,tsmtitle,ttxt,t_img)";
 pool.query(sql,(err,result)=>{
 	if(err)throw err;
 	if(result.affectedRows>0){
@@ -68,18 +68,19 @@ router.get("/indexstory",(req,res)=>{
 // })
 
 //查看动态详情页
-// router.get("/detailstory",(req,res)=>{
-// 	var tid=req.query.tid;
-// 	var sql="SELECT tid,ttitle,tsmtitle,ttxt,t_img,taddress,tuname,uid FROM cw_text WHERE tid=?";
-// 	pool.query(sql,[tid],(err,result)=>{
-// 		if(err)throw err;
-// 			if(result.length>0){
-// 				res.send({code:200,msg:"查询成功",data:result})
-// 			}else{
-// 				res.send({code:401,msg:"查询失败"})
-// 			}
-// 	})
-// 	});
+router.get("/detailstory",(req,res)=>{
+	var tid=req.query.tid;
+	console.log(tid)
+	var sql="SELECT tid,ttitle,tsmtitle,ttxt,t_img,taddress,tuname,uid FROM cw_text WHERE tid=?";
+	pool.query(sql,[tid],(err,result)=>{
+		if(err)throw err;
+			if(result.length>0){
+				res.send({code:200,msg:"查询成功",data:result})
+			}else{
+				res.send({code:401,msg:"查询失败"})
+			}
+	})
+	});
 
 
 module.exports=router;
