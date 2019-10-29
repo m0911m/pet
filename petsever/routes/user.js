@@ -4,7 +4,7 @@ const express=require('express');
 const pool=require('../pool.js');
 //创建路由器对象
 var router=express.Router();
-// 一、用户登录模块  
+// 一、用户登录模块 
 router.post("/login",(req,res)=>{
 	var uphone=req.body.uphone;
 	var upwd=req.body.upwd;
@@ -16,8 +16,9 @@ router.post("/login",(req,res)=>{
 			res.send({code:401,msg:"用户名或密码有误"})
 		}else{
 			console.log(result);
-			req.session.uid=result[0].uid;
-			 console.log(req.session.uid);
+			// session_id为req.session.id
+			req.session.uid = result[0].uid;
+			 console.log("----------",req.session.uid);
 			res.send({code:200,msg:"登录成功"})
 		}
 	})
@@ -39,7 +40,6 @@ router.get("/isreg",(req,res)=>{
 })
 //2.2注册接口
 router.post("/reg",(req,res)=>{
-	console.log(req.session.uid)
 	var uid=req.session.uid;
 	console.log(":"+uid)
 	if(!uid){
@@ -89,12 +89,14 @@ router.post("/updatapetmessage",(req,res)=>{
 })
 //四、查询宠物信息  验证过
 router.get("/selectpetmessage",(req,res)=>{
-	//获取发布动态用户的uid
- 	var uid=req.session.uid;
-  if(!uid){
-  res.send({code:402,msg:"请登录"});
-  	return;
-  }
+	//获取发布动态用户的session_id
+	 var uid=req.session.uid;
+	 console.log("seesion",uid)
+  //3:如果用户没登录返回错误消息
+	if(!uid){
+		res.send({code:402,msg:"请登录"});
+		return; 
+	 }
  //获取宠物物信息
 	// var animal_type=req.query.animal_type;
 	// var animal_age=req.query.animal_age;

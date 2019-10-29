@@ -54,10 +54,11 @@ export default {
       // 发送axios请求
        var url="user/login"
        var obj={uphone:n,upwd:u}
-      this.axios.post(url,qs.stringify(obj))
-      .then(response=>{
-      console.log(response);
-      if(response.data.code==200){
+      // this.axios.post(url,qs.stringify(obj))
+      this.axios.get(url,{params:(obj)})
+      .then(res=>{
+      console.log(res);
+      if(res.data.code==200){
         this.$router.push({path:'/Nav'});
       }else{
         this.msg="用户名或密码错误"

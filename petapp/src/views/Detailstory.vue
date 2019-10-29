@@ -3,6 +3,7 @@
         <!-- 顶部导航栏 -->
         <van-nav-bar title="动态详情" left-arrow @click-left="onClickLeft" />
         <!-- 动态详情 -->
+        <p>动态id{{id}}</p>
         <div v-for="(item,i) of list" :key="i">
             <!-- 用户名 -->
             <div class="usermsg">
@@ -41,8 +42,7 @@
         <div>
             <!-- 输入框 -->
             <!-- 评论列表 -->
-            <comment></comment>
-            
+            <comment></comment> 
         </div>
     </div>
 </template>
@@ -50,6 +50,7 @@
 import Comment from '../components/Comment.vue'
 import Inputmsg from '../views/Inputmsg.vue'
     export default {
+        props:["id"],
         methods: {
             onClickLeft() {
             this.$router.push("/Petcircle");
@@ -62,27 +63,30 @@ import Inputmsg from '../views/Inputmsg.vue'
                 heart2.style.display="inline-block";
                 like.innerHTML++;
             },
+            loadMore(){
+                var tid=this.id;
+                console.log(this.id);
+                var obj={tid};
+                
+                var url="news/detailstory"
+                this.axios.get(url,obj).then(res=>{
+                    console.log(res);  
+                })
+            }
         },
         data(){
             return{
-                list:[
-                    {u_pic:'../../public/imgs/dog12.jpg',uname:"蜡笔小新",local:"北京北京市",text:"冬天来了，可以当枕头呀,小心今天取游乐园了，很开心很开心",pics:[
-                        '../../public/imgs/cat01.png',
-                        '../../public/imgs/cat08.jpg',
-                        '../../public/imgs/dog03.jpg',
-                        '../../public/imgs/dog04.jpg',
-                        '../../public/imgs/dog05.jpg',
-                        '../../public/imgs/dog09.jpg'
-                        ],heart:1
-                    },                        
-                ],
+                list:[],
             }
         },
         // 注册子组件
         components:{
             "comment":Comment,
             "inputmsg":Inputmsg
-        }
+        },
+        created() {
+            this.loadMore();
+        },
 }
 </script>
 <style scoped>

@@ -6,10 +6,11 @@ const pool=require('../pool.js');
 var router=express.Router();
 
 //一、动态发布模块   验证过
+var session_id;
 router.post("/updatamessagelist",(req,res)=>{
 	//获取发布动态用户的uid
-	var uid=req.session.uid;
-	// console.log(uid)	
+	var uid=session_id;
+	console.log(uid)	
  if(!uid){
  res.send({code:402,msg:"请登录"});
  	return;
@@ -19,7 +20,7 @@ var ttitle=req.body.ttitle;
 var tsmtitle=req.body.tsmtitle;
 var ttxt=req.body.ttxt;
 var t_img=req.body.t_img;
-var sql=`INSERT INTO cw_text VALUES(NULL,'${ttitle}','${tsmtitle}','${ttxt}','${t_img}',${uid})`;
+var sql="INSERT INTO cw_text VALUES(NULL,ttitle,tsmtitle,ttxt,t_img)";
 pool.query(sql,(err,result)=>{
 	if(err)throw err;
 	if(result.affectedRows>0){
@@ -33,6 +34,7 @@ pool.query(sql,(err,result)=>{
 router.get("/messagelist",(req,res)=>{
 var sql="SELECT tid,ttitle,tsmtitle,ttxt,t_img,taddress,tuname,uid FROM cw_text";
 pool.query(sql,(err,result)=>{
+	console.log("终极验证"+req.session.uid)
 	if(err)throw err;
 		if(result.length>0){
 			res.send({code:200,msg:"查询成功",data:result})
@@ -66,4 +68,21 @@ router.get("/indexstory",(req,res)=>{
 //  var v_img=req.body.v_img;
 
 // })
+
+//查看动态详情页
+router.get("/detailstory",(req,res)=>{
+	var tid=req.query.tid;
+	console.log(tid)
+	var sql="SELECT tid,ttitle,tsmtitle,ttxt,t_img,taddress,tuname,uid FROM cw_text WHERE tid=?";
+	pool.query(sql,[tid],(err,result)=>{
+		if(err)throw err;
+			if(result.length>0){
+				res.send({code:200,msg:"查询成功",data:result})
+			}else{
+				res.send({code:401,msg:"查询失败"})
+			}
+	})
+	});
+
+
 module.exports=router;

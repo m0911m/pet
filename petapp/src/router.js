@@ -48,12 +48,14 @@ import Announcement from './views/Announcement.vue'
 import Service from './views/Service.vue'
 // 我的 页面
 import Mine from './views/Mine.vue'
+import Test1 from './views/Test.vue'
 
 Vue.use(Router)
 
 
 export default new Router({
   routes: [
+    {path:"/Test",component:Test1},
     {path:"/Mine",component:Mine},
     {path:"/Service",component:Service},
     {path:"/Announcement",component:Announcement},
@@ -66,7 +68,7 @@ export default new Router({
     {path:'/Petcircle',component:Petcircle},
     {path:'/Nav',component:Nav},
     {path:'/Kind',component:Kind},
-    {path:'/Detailstory',component:Detailstory},
+    {path:'/Detailstory/:id',component:Detailstory,props:true},
     {path:'/Register',component:Register},
     {path:'/Newstory',component:Newstory},
     {path:'/Swipe',component:Swipe},
