@@ -68,4 +68,20 @@ router.get("/indexstory",(req,res)=>{
 //  var v_img=req.body.v_img;
 
 // })
+
+//查看动态详情页
+// router.get("/detailstory",(req,res)=>{
+// 	var tid=req.query.tid;
+// 	var sql="SELECT tid,ttitle,tsmtitle,ttxt,t_img,taddress,tuname,uid FROM cw_text WHERE tid=?";
+// 	pool.query(sql,[tid],(err,result)=>{
+// 		if(err)throw err;
+// 			if(result.length>0){
+// 				res.send({code:200,msg:"查询成功",data:result})
+// 			}else{
+// 				res.send({code:401,msg:"查询失败"})
+// 			}
+// 	})
+// 	});
+
+
 module.exports=router;

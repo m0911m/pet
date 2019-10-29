@@ -64,13 +64,14 @@ import Inputmsg from '../views/Inputmsg.vue'
                 like.innerHTML++;
             },
             loadMore(){
-                // var obj=this.tid;
+                var tid=this.tid;
+                var obj={tid:tid};
                 console.log(this.id);
-                // var url="news/messagelist"
-                // this.axios.get(url).then(res=>{
-                //     console.log(res.data.data);
-                //     this.lists=res.data.data;  
-                // })
+                var url="news/messagelist"
+                this.axios.get(url,obj).then(res=>{
+                    console.log(res.data.data);
+                    this.lists=res.data.data;  
+                })
             }
         },
         data(){

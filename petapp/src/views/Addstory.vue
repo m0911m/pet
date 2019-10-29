@@ -53,12 +53,12 @@ import Navbar from "../components/Navbar"
                     this.$toast("请登录");
                     this.$router.push("/Login")
                 }
-                })
-            },
-            position(){
-                console.log("定位");
-            },                   
-        },        
+            })
+        },
+        position(){
+            console.log("定位");
+        },                   
+    },        
 }
 </script>
 <style scoped>
