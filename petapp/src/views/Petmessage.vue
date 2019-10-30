@@ -209,10 +209,8 @@
   </div>
 </template>
 <script>
-import qs from 'qs'
 var setkind;
-var setis;
-var setdate;
+import qs from 'qs'
 export default {
   data(){
     return{
@@ -230,6 +228,7 @@ export default {
       // fileList: [],
       petis:["是","否"],
       setsex:"",
+      setdate:""
       }
   },
   methods: {
@@ -241,10 +240,10 @@ export default {
         title:'提示',
         confirmButtonText:"保存"
       }) 
-      // .then(active=>{
+      .then(active=>{
         // console.log("保存")
         var t=setkind;
-        var b=setdate;
+        var b=this.setdate;
         var s=0;
         if(this.setsex=="GG"){
           s=1;
@@ -257,13 +256,14 @@ export default {
         // console.log(t,s,w);
         var url="user/updatapetmessage";
         var obj={animal_type:t,animal_bir:b,animal_sex:s,animal_weight:w}
-        console.log(obj)
+        // console.log(obj)
         this.axios.post(url,qs.stringify(obj))
         .then(res=>{
-          console.log(res);
+          // console.log(res);
             this.$router.push("/Petlist");
+            this.$toast("添加成功")
         })
-      // })
+      })
       .catch(err=>{});
 },
     // 点击返回或取消
@@ -285,7 +285,6 @@ export default {
     // 绝育弹出层确定
     isConfirm(value){
       var is=document.getElementById("petis");
-      setis=value;
       is.innerHTML=value;
       is.style.color="#000";
       this.show5=false;
@@ -335,7 +334,7 @@ export default {
       var year=value.getFullYear();
       var month=value.getMonth();
       var date=value.getDate();
-      setdate=`${year}-${month+1}-${date}`;
+      this.setdate=`${year}-${month+1}-${date}`;
       age.innerHTML=`${year}-${month+1}-${date}`;
       age.style.color="#000";
       this.show2=false;

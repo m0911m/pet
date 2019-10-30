@@ -21,7 +21,7 @@
     <div class="pet1" v-for="(item,i) of list" :key="i">
       <div>
         <div class="round size1">
-          <img class="img1" :src="item.animal_img">
+          <img class="img1" src="../assets/image/dog01.jpg">
         </div>
         <div class="round size2">
           <img class="img2" :src="item.animal_sex?Male:Female" alt="">
@@ -55,7 +55,8 @@ export default {
     },
     del(event){
      //交互提示:是否删除
-      this.$messagebox.confirm("是否删除");
+      this.$messagebox.confirm("是否删除")
+      .then(active=>{
         var aid=event.target.dataset.aid;
         var url="user/delpetmessage";
         var obj={aid};
@@ -65,11 +66,13 @@ export default {
           // console.log(res);
           if(res.data.code==200){
             this.$toast("删除成功")
-            this.loadMore(); 
+            this.onload(); 
           }
         }).catch(err=>{
           console.log(err);
         })
+      })
+      .catch(err=>{});
     },
     onload(){
       //发送axios请求
