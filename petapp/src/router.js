@@ -29,14 +29,12 @@ import Swipe from './components/Swipe.vue'
 import Foster from './components/Foster.vue'
 
 //注册测试
-import Test from './views/regtest'
+import Test from './views/regtest.vue'
 
 // 引入发现页面
 import Find from './views/Find.vue'
 
 
-// 导航栏组件
-import Navbar from './components/Navbar.vue'
 
 // 详情页组件
 import Details from './views/Details.vue'
@@ -55,14 +53,12 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-   
     {path:"/Map",component:Map},
     {path:"/Mine",component:Mine},
     {path:"/Service",component:Service},
     {path:"/Announcement",component:Announcement},
     {path:"/Message",component:Message},
     {path:"/Details",component:Details},
-    {path:"/Navbar",component:Navbar},
     {path:'/Foster',component:Foster},
     {path:'/Find',component:Find},
     {path:'/regtest',component:Test},

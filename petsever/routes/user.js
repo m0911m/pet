@@ -18,7 +18,7 @@ router.post("/login",(req,res)=>{
 			console.log(result);
 			//保存session值
 			req.session.uid = result[0].uid;
-			 console.log("----------",req.session.uid);
+			//  console.log("----------",req.session.uid);
 			res.send({code:200,msg:"登录成功"})
 		}
 	})
@@ -71,7 +71,7 @@ router.post("/updatapetmessage",(req,res)=>{
 	var animal_sex=req.body.animal_sex;
 	var animal_weight=req.body.animal_weight;
 	// var animal_img=req.body.animal_img;
-	var sql=`INSERT INTO cw_animal VALUES(NULL,${uid},${animal_type},${animal_bir},${animal_sex},${animal_weight}`;
+	var sql=`INSERT INTO cw_animal VALUES(NULL,${uid},'${animal_type}','${animal_bir}',${animal_sex},'${animal_weight}'`;
 	pool.query(sql,(err,result)=>{
 		if(err)throw err;
 		if(result.affectedRows>0){
@@ -91,6 +91,7 @@ router.get("/delpetmessage",(req,res)=>{
   	return;
 	}
 	var aid=req.query.aid;
+	console.log("宠物",aid)
  //删除宠物信息
 	var sql="DELETE FORM cw_animal WHERE aid=?"
 	pool.query(sql,[aid],(err,result)=>{
