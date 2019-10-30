@@ -11,8 +11,6 @@ const userRouter=require('./routes/user');
 const fosterRouter=require('./routes/foster');
 const newsRouter=require('./routes/news');
 
-
-//引入session模块
 //引入cors模块
 const cors=require("cors");
 

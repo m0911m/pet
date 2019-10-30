@@ -107,7 +107,12 @@ INSERT INTO cw_animal VALUES
 (null,2,"哈巴狗","2013-2-3",0,"15","dog05.jpg"),
 (null,2,"哈巴狗","2013-4-8",true,"15","dog09.jpg");
 
-
+/**轮播信息导入**/
+INSERT INTO cw_indexlunbo VALUES
+(null,'luoboimg/l1.jpg'),
+(null,'luoboimg/l2.jpg'),
+(null,'luoboimg/l3.jpg'),
+(null,'luoboimg/l4.jpg');
 
 /**首页故事信息导入**/
 INSERT INTO cw_sindex VALUES

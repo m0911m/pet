@@ -13,7 +13,7 @@
       <van-popup v-model="show" position="top">{{msg}}</van-popup>
     </van-cell-group>
     <div class="textstyle">您还没有账号?
-      <router-link class="jumpstyle" :to="{path:'/Register'}">注册</router-link>
+      <router-link class="jumpstyle" :to="{path:'/Reg'}">注册</router-link>
     </div>
   </div>
 </template>
