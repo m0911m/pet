@@ -46,13 +46,26 @@ import Navbar from "../components/Navbar"
         methods: {
             afterRead(file) {
                 // 此时可以自行将文件上传至服务器
-                console.log(file);
+                let content = file.file;
+                let data = new FormData();
+                data.append('img',content);
+                this.axios.post('图片上传地址',data)
+                .then((res) => {
+                    let datas = res.data.datas.path;
+                    this.msg.hallImg.push(`api地址${datas}`);
+                })
+
             } ,
-            onClickRight() {
+            onClickRight(file) {
+                console.log(file.file);
                 var ttitle=this.title;
                 var tsmtitle=this.subtitle;
                 var ttxt=this.article;
-                var t_img='15236255';//测试数据
+                // var t_img=?;//测试数据
+                var fileList=this.fileList;
+                // console.log(ttitle,tsmtitle,ttxt,t_img)
+                // console.log(fileList);
+                // console.log(fileList[0].content.replace(/^data:image\/\w+;base64,/, '') )// replace消除前缀，获取完整的base64码
                 var obj={ttitle,tsmtitle,ttxt,t_img}
                 var url="news/updatamessagelist"
                 this.axios.post(url,qs.stringify(obj)).then(res=>{

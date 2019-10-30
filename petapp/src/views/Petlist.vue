@@ -55,11 +55,11 @@ export default {
     },
     del(event){
      //交互提示:是否删除
-      this.$messagebox.confirm("是否删除")
-      .then(res=>{
+      this.$messagebox.confirm("是否删除");
         var aid=event.target.dataset.aid;
         var url="user/delpetmessage";
         var obj={aid};
+        console.log(obj)
         this.axios.get(url,{params:obj})
         .then(res=>{
           // console.log(res);
@@ -67,8 +67,9 @@ export default {
             this.$toast("删除成功")
             this.loadMore(); 
           }
+        }).catch(err=>{
+          console.log(err);
         })
-      }).catch(err=>{})
     },
     onload(){
       //发送axios请求

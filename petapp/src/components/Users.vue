@@ -4,11 +4,11 @@
     <div class="dynstyle" v-for="(item,i) of userlist" :key ="i">
       <!-- 上面的图片和图片上的内容 -->
       <div class="upstyle">
-         <img class="bgstyle" :src="require('../../public/imgs/'+userlist[i].i_img)" alt="">
+         <img class="bgstyle" :src="'http://127.0.0.1:5050/'+userlist[i].i_img" alt="">
         <p class="markstyle">养宠记录册</p>
         <!-- 标题 -->
         <p class="titlestyle">{{userlist[i].ititle}}</p> 
-        <img class="imgstyle" :src="require('../../public/imgs/'+userlist[i].i_icon)" alt="">     
+        <img class="imgstyle" :src="'http://127.0.0.1:5050/'+userlist[i].i_icon" alt="">     
       </div> 
       <!-- 下方的字段 -->
       <div class="textstyle">

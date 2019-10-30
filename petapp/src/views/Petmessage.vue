@@ -239,8 +239,8 @@ export default {
         message:'是否保存',
         title:'提示',
         confirmButtonText:"保存"
-      })
-      .then(active=>{
+      }) 
+      // .then(active=>{
         // console.log("保存")
         var t=this.setkind;
         var b=this.setdate;
@@ -253,15 +253,16 @@ export default {
         var w=this.setweight;
         // var i=this.fileList[0].content.replace(/^data:image\/\w+;base64,/,'');
         //发送 axios请求
-        console.log(t,a,s,w,i);
+        // console.log(t,s,w);
         var url="user/updatapetmessage";
         var obj={animal_type:t,animal_bir:b,animal_sex:s,animal_weight:w}
+        console.log(obj)
         this.axios.post(url,qs.stringify(obj))
-        .then(response=>{
-          // console.log(response);
+        .then(res=>{
+          console.log(res);
             this.$router.push("/Petlist");
         })
-      })
+      // })
       .catch(err=>{});
 },
     // 点击返回或取消

@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <!-- 背景的图片 -->
-    <img class="imgstyle" :src="require('../../public/imgs/family1.jpg')" alt="">
+    <img class="imgstyle" :src="require('../../public/imgs/bg1.jpg')" alt="">
     <!-- logo图片 -->
     <van-image class="logostyle" :src="require('../../public/imgs/logo.jpg')"/>
    <!-- 输入框 -->
@@ -54,8 +54,7 @@ export default {
       // 发送axios请求
        var url="user/login"
        var obj={uphone:n,upwd:u}
-      this.axios.post(url,qs.stringify(obj))
-      // this.axios.get(url,{params:(obj)})
+       this.axios.post(url,qs.stringify(obj))
       .then(res=>{
       console.log(res);
       if(res.data.code==200){
@@ -88,6 +87,7 @@ export default {
   position:relative;
   width:100%;
   height:100%;
+  filter: blur(5px);
 }
 /* logo */
 .logostyle{
@@ -137,13 +137,12 @@ export default {
 .textstyle{
   width:100%;
   position:absolute;
-  bottom:0%;
-  color:#FF0;
+  bottom:30%;
+  color:#101010;
   font-weight:bold;
-  background-color:rgba(0,0,0,0.5)
 }
 .jumpstyle{
-  color:#0FF;
+  color:red;
 }
 
 </style>
