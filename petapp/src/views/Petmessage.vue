@@ -210,9 +210,6 @@
 </template>
 <script>
 import qs from 'qs'
-var setkind;
-var setis;
-var setdate;
 export default {
   data(){
     return{
@@ -230,6 +227,8 @@ export default {
       // fileList: [],
       petis:["是","否"],
       setsex:"",
+      setdate:"",
+      setkind:""
       }
   },
   methods: {
@@ -243,8 +242,8 @@ export default {
       })
       .then(active=>{
         // console.log("保存")
-        var t=setkind;
-        var b=setdate;
+        var t=this.setkind;
+        var b=this.setdate;
         var s=0;
         if(this.setsex=="GG"){
           s=1;
@@ -284,7 +283,6 @@ export default {
     // 绝育弹出层确定
     isConfirm(value){
       var is=document.getElementById("petis");
-      setis=value;
       is.innerHTML=value;
       is.style.color="#000";
       this.show5=false;
@@ -334,7 +332,7 @@ export default {
       var year=value.getFullYear();
       var month=value.getMonth();
       var date=value.getDate();
-      setdate=`${year}-${month+1}-${date}`;
+      this.setdate=`${year}-${month+1}-${date}`;
       age.innerHTML=`${year}-${month+1}-${date}`;
       age.style.color="#000";
       this.show2=false;
@@ -380,7 +378,7 @@ export default {
     var kind=document.getElementById("petkind");
     this.petkind.$on(
       "ReceiveKind", function(item) { 
-        setkind=item;
+        this.setkind=item;
         kind.innerHTML = item; 
         kind.style.color="#000";
       }) 
