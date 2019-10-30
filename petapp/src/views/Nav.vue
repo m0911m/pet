@@ -1,8 +1,5 @@
 <template>
   <div>
-    <div class="bagstyle">
-      <img style="width:100%;height:230px;" src="../../public/imgs/dog04.jpg" alt="">
-    </div>
   <!-- 进入寄养家庭 -->
     <ul class="jumpstyle" @click="foster">
       <li class="listyle">Hi 想让他住哪里</li>

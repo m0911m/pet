@@ -55,7 +55,19 @@ router.get("/indexstory",(req,res)=>{
 			}
 	})
 })
-//四、评论模块
+//四、轮播接口
+router.get("/selectlunbo",(req,res)=>{
+	var sql="SELECT id,luobo_url FROM cw_indexlunbo";
+	pool.query(sql,(err,result)=>{
+		if(err)throw err;
+		if(result.length>0){
+			res.send({code:200,msg:"轮播查询成功",data:result})
+		}else{
+			res.send({code:401,msg:"轮播查询失败"})
+		}
+	})
+})
+//评论模块
 // router.post("/views",(req,res)=>{
 //   var uid=req.session.uid;
 //  if(!uid){
@@ -81,7 +93,7 @@ router.get("/viewsdetail",(req,res)=>{
 		}
 	})
 	
-	// })
+	 })
 
 //查看动态详情页
 router.get("/detailstory",(req,res)=>{

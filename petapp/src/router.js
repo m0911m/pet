@@ -23,11 +23,10 @@ import Nav from './views/Nav.vue'
 import Petcircle from './views/Petcircle.vue'
 
 
-// 引入轮播图组件
-import Swipe from './components/Swipe.vue'
 // 引入寄养家庭组件
 import Foster from './components/Foster.vue'
-
+//引入注册页
+import Reg from './views/Reg.vue'
 
 // 引入发现页面
 import Find from './views/Find.vue'
@@ -67,7 +66,6 @@ export default new Router({
     {path:'/Kind',component:Kind},
     {path:'/Detailstory/:id',component:Detailstory,props:true},
     {path:'/Newstory',component:Newstory},
-    {path:'/Swipe',component:Swipe},
     {path:'/Petmessage',component:Petmessage,meta:{keepAlive:true}},
     {path:'/Petlist',component:Petlist},
     {path:'/Addstory',component:Addstory},

@@ -40,8 +40,6 @@ router.get("/isreg",(req,res)=>{
 })
 //2.2注册接口
 router.post("/reg",(req,res)=>{
-	
-
 		var uphone=req.body.uphone;
 		var upwd=req.body.upwd;
 		console.log(uphone,upwd)
