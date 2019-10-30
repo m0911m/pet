@@ -103,9 +103,9 @@ INSERT INTO cw_foster VALUES
 
 /**宠物信息导入**/
 INSERT INTO cw_animal VALUES
-(null,2,"哈巴狗","2013-1-3",true,"15","999_jpg"),
-(null,2,"哈巴狗","2013-2-3",true,"15","999_jpg"),
-(null,2,"哈巴狗","2013-4-8",true,"15","999_jpg");
+(null,2,"哈巴狗","2013-1-3",true,"15","dog04.jpg"),
+(null,2,"哈巴狗","2013-2-3",0,"15","dog05.jpg"),
+(null,2,"哈巴狗","2013-4-8",true,"15","dog09.jpg");
 
 
 

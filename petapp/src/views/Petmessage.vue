@@ -209,6 +209,7 @@
   </div>
 </template>
 <script>
+var setkind;
 import qs from 'qs'
 export default {
   data(){
@@ -227,8 +228,7 @@ export default {
       // fileList: [],
       petis:["是","否"],
       setsex:"",
-      setdate:"",
-      setkind:""
+      setdate:""
       }
   },
   methods: {
@@ -240,9 +240,9 @@ export default {
         title:'提示',
         confirmButtonText:"保存"
       }) 
-      // .then(active=>{
+      .then(active=>{
         // console.log("保存")
-        var t=this.setkind;
+        var t=setkind;
         var b=this.setdate;
         var s=0;
         if(this.setsex=="GG"){
@@ -256,13 +256,14 @@ export default {
         // console.log(t,s,w);
         var url="user/updatapetmessage";
         var obj={animal_type:t,animal_bir:b,animal_sex:s,animal_weight:w}
-        console.log(obj)
+        // console.log(obj)
         this.axios.post(url,qs.stringify(obj))
         .then(res=>{
-          console.log(res);
+          // console.log(res);
             this.$router.push("/Petlist");
+            this.$toast("添加成功")
         })
-      // })
+      })
       .catch(err=>{});
 },
     // 点击返回或取消
@@ -379,7 +380,7 @@ export default {
     var kind=document.getElementById("petkind");
     this.petkind.$on(
       "ReceiveKind", function(item) { 
-        this.setkind=item;
+        setkind=item;
         kind.innerHTML = item; 
         kind.style.color="#000";
       }) 

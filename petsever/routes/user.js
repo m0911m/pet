@@ -70,8 +70,9 @@ router.post("/updatapetmessage",(req,res)=>{
 	var animal_bir=req.body.animal_bir;
 	var animal_sex=req.body.animal_sex;
 	var animal_weight=req.body.animal_weight;
+	console.log(animal_type);
 	// var animal_img=req.body.animal_img;
-	var sql=`INSERT INTO cw_animal VALUES(NULL,${uid},'${animal_type}','${animal_bir}',${animal_sex},'${animal_weight}'`;
+	var sql=`INSERT INTO cw_animal VALUES(NULL,${uid},'${animal_type}','${animal_bir}',${animal_sex},'${animal_weight}',NULL)`;
 	pool.query(sql,(err,result)=>{
 		if(err)throw err;
 		if(result.affectedRows>0){

@@ -81,7 +81,7 @@ router.get("/viewsdetail",(req,res)=>{
 		}
 	})
 	
-	// })
+	})
 
 //查看动态详情页
 router.get("/detailstory",(req,res)=>{

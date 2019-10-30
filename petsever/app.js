@@ -13,7 +13,6 @@ const newsRouter=require('./routes/news');
 
 
 //引入session模块
-var session=require("express-session");
 //引入cors模块
 const cors=require("cors");
 
