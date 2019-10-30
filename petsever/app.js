@@ -2,6 +2,8 @@
 const express=require("express");
 //引入body-parser中间件
 const bodyParser=require('body-parser');
+//引入session模块
+const session=require("express-session")
 
 
 //引入用户路由器
@@ -31,8 +33,20 @@ app.use(session({
 app.use(cors({
 	origin:["http://127.0.0.1:8080","http://localhost:8080"],
 	credentials:true
-}));
+	// methods:['GET','POST'], 
+	// alloweHeaders:['Conten-Type', 'Authorization'] 
+})); 
 
+//配置session 
+app.use(session({ 
+	secret:"sessiontest", 
+	// cookie:{maxAge:10000},
+	resave:true, 
+	saveUninitialized:true
+})); 
+
+
+		
 //使用body-parser中间件
 app.use(bodyParser.urlencoded({extended:false}));
 //托管静态资源到public目录下

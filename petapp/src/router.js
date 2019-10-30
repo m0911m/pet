@@ -28,8 +28,6 @@ import Swipe from './components/Swipe.vue'
 // 引入寄养家庭组件
 import Foster from './components/Foster.vue'
 
-//注册测试
-import Test from './views/regtest.vue'
 
 // 引入发现页面
 import Find from './views/Find.vue'
@@ -46,6 +44,7 @@ import Announcement from './views/Announcement.vue'
 import Service from './views/Service.vue'
 // 我的 页面
 import Mine from './views/Mine.vue'
+import Comment from './components/Comment.vue'
 
 
 Vue.use(Router)
@@ -53,6 +52,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:"/Comment",component:Comment},
     {path:"/Map",component:Map},
     {path:"/Mine",component:Mine},
     {path:"/Service",component:Service},
@@ -61,7 +61,7 @@ export default new Router({
     {path:"/Details",component:Details},
     {path:'/Foster',component:Foster},
     {path:'/Find',component:Find},
-    {path:'/regtest',component:Test},
+    {path:'/Reg',component:Reg},
     {path:'/Petcircle',component:Petcircle},
     {path:'/Nav',component:Nav},
     {path:'/Kind',component:Kind},
