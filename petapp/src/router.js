@@ -44,7 +44,6 @@ import Service from './views/Service.vue'
 // 我的 页面
 import Mine from './views/Mine.vue'
 import Comment from './components/Comment.vue'
-import Reg from './views/Reg.vue'
 
 
 Vue.use(Router)
