@@ -53,6 +53,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:"/",component:Login},
     {path:"/Comment",component:Comment},
     {path:"/Map",component:Map},
     {path:"/Mine",component:Mine},

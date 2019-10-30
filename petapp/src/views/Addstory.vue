@@ -20,7 +20,7 @@
             <div>
                 <van-icon name="location-o" class="iconStyle"/>
                 <span class="local">所在位置</span>
-                <input type="text" v-model="location">
+                <!-- <map></map> -->
             </div>
             <van-icon name="arrow" />
         </div>    
@@ -30,6 +30,7 @@
 import qs from "qs"
 // 引入底部导航栏
 import Navbar from "../components/Navbar"
+// import Map from './map'
     export default {  
         data(){
             return {
@@ -41,7 +42,8 @@ import Navbar from "../components/Navbar"
             }
         },
         components:{
-            "navbar":Navbar
+            "navbar":Navbar,
+            // "map":Map
         },
         methods: {
             afterRead(file) {
@@ -61,11 +63,8 @@ import Navbar from "../components/Navbar"
                 var ttitle=this.title;
                 var tsmtitle=this.subtitle;
                 var ttxt=this.article;
-                // var t_img=?;//测试数据
-                var fileList=this.fileList;
-                // console.log(ttitle,tsmtitle,ttxt,t_img)
-                // console.log(fileList);
-                // console.log(fileList[0].content.replace(/^data:image\/\w+;base64,/, '') )// replace消除前缀，获取完整的base64码
+                var t_img='cat08.jpg';//测试数据
+                
                 var obj={ttitle,tsmtitle,ttxt,t_img}
                 var url="news/updatamessagelist"
                 this.axios.post(url,qs.stringify(obj)).then(res=>{

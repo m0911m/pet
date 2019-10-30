@@ -6,55 +6,65 @@
       <span>评论</span>
     </div>
     <!-- 评论列表 -->
-    <div  v-for="(c,i) of clist" :key="i" class="comment"> 
+    <div  v-for="(c,i) of clists" :key="i" class="comment"> 
       <!-- 评论者头像 -->
       <div class="cimg">
-        <van-image round width="60" height="60" src="https://img.yzcdn.cn/vant/cat.jpeg"/>
+        <van-image round width="60" height="60" :src="'http://127.0.0.1:5050/'+c.vicon"/>
       </div>
       <div class="ctxt">
           <!-- 用户名 -->
-          <p class="cname">{{c.cname}}</p>
+          <p class="cname">{{c.uname}}</p>
           <span></span>
           <!-- 评论内容 -->
-          <p class="ctext">{{c.ctext}}</p>
+          <p class="ctext">{{c.vcotnet}}</p>
       </div>
     </div>
-     
+    <!-- 若无评论，显示内容 -->
+    <div id="ready" v-show="this.clists.length<1">
+      <div class="res">
+        <img src="../../public/imgs/cry.png" alt="">
+        <p>还没有人评论呢~</p>
+      </div>    
+    </div>  
   </div>
 </template>
 <script>
   export default{
     data(){
       return{
-        clist:[
-          {pic:"../../public/imgs/cat01.png",cname:"茶小乖",ctext:"睡得真香"},
-          {pic:"../../public/imgs/cat01.png",cname:"麒麟",ctext:"爱心满满"},
-          {pic:"../../public/imgs/cat01.png",cname:"郁闷的火柴",ctext:"可爱"},
-        ],
         clists:[] ,  //评论列表
-        tid:1
       }
     },
+    props:{
+      tid:0,
+    },
     methods:{
-      loadMore(){
+      loadMore(ready){
         // 1.获取动态id
-        var tid=this.tid;
+        var tid=parseInt(this.tid);
+        var obj={tid};
         // 2.发送请求，根据动态id查找相应评论
-        var obj={tid}
         var url="news/viewsdetail"
-        this.axios.get(url,obj).then(res=>{
-          console.log(res);  
+        this.axios.get(url,{params:obj}).then(res=>{
+          if(res.data.code==200){
+            this.clists=res.data.data;
+          }else if(res.data.code==401){
+            this.clists=[];
+          }
         })
       }
     },
     created(){
       this.loadMore();
-    }
+    },
   }
 </script>
 <style>
-  .contain{
-    background: #eee;
+  .res{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
   .comment{
     display:flex;

@@ -70,9 +70,9 @@ router.get("/indexstory",(req,res)=>{
 
 //查找动态评论
 router.get("/viewsdetail",(req,res)=>{
-	var tid=req.query.tid;
-	var sql='SELECT * FROM cw_views WHERE tid=?';
-	pool.query(sql,[tid],(err,result)=>{
+	var iid=req.query.tid;
+	var sql='SELECT * FROM cw_views WHERE iid=?';
+	pool.query(sql,[iid],(err,result)=>{
 		if(err) throw err;
 		if(result.length>0){
 			res.send({code:200,msg:"查询成功",data:result})
@@ -87,7 +87,7 @@ router.get("/viewsdetail",(req,res)=>{
 router.get("/detailstory",(req,res)=>{
 	var tid=req.query.tid;
 	console.log("tid:"+tid)
-	var sql="SELECT tid,ttitle,tsmtitle,ttxt,t_img,taddress,tuname,uid FROM cw_text WHERE tid=?";
+	var sql="SELECT ttitle,tsmtitle,ttxt,t_img,taddress,tuname,uid FROM cw_text WHERE tid=?";
 	pool.query(sql,[tid],(err,result)=>{
 		if(err)throw err;
 			if(result.length>0){
