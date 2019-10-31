@@ -68,17 +68,27 @@ router.get("/selectlunbo",(req,res)=>{
 	})
 })
 //评论模块
-// router.post("/views",(req,res)=>{
-//   var uid=req.session.uid;
-//  if(!uid){
-//  res.send({code:402,msg:"请登录"});
-//  	return;
-//  }
-//  var vcotnet=req.body.vcotnet;
-//  var vtime=req.body.vtime;
-//  var v_img=req.body.v_img;
-
-// })
+router.post("/views",(req,res)=>{
+  var uid=req.session.uid;
+	if(!uid){
+		res.send({code:402,msg:"请登录"});
+		return;
+	}
+	var iid=req.body.iid;
+	var uname=req.body.uname;
+	var vcotnet=req.body.vcotnet;
+	var vtime=req.body.vtime;
+	var vicon=req.body.vicon;
+	var sql=`INSERT INTO cw_views VALUES(NULL,'${uid}','${iid}','${uname}','${vcotnet}','${vtime}','${vicon}')`;
+	pool.query(sql,(err,result)=>{
+		if(err) throw err;
+		if(result.affectedRows>0){
+			res.send({code:200,msg:"添加成功",data:result})
+		}else{
+			res.send({code:401,msg:"添加失败"})
+		}
+	})
+})
 
 //查找动态评论
 router.get("/viewsdetail",(req,res)=>{

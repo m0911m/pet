@@ -59,111 +59,114 @@ export default {
   },
   methods:{
     onblur(){
-      var n=this.uphone;
       // 创建手机号正则和密码(6-16位字母数字)正则
       var nreg=/^1[3-9]\d{9}$/; //手机
       var ureg=/^\d{6,16}$/ ;  //密码
       // 验证用户名 
-      if(nreg.test(n)==false){
-        this.$dialog.alert({
-         message: "输入的手机号码格式不正确", //改变弹出框的内容
-        })
-      .then(() => { 
-      return;
-      })
+      // 判断是否为空
+      if(this.uphone==""){
+        this.$dialog.alert({ message:"请输入手机号" });
+        this.uphone="";
+        return;
       }else{
-        this.axios.get('/user/isreg',{
-          params:{
-            uname:n
-          }
-        })
-        .then(response=>{
-            if(response.data.code==402){
+        var n=this.uphone;
+        // 如果不为空，判断是否满足正则表达式
+        if(nreg.test(n)==false){
           this.$dialog.alert({
-         message: "该号码已被注册",
-          }).then(()=>{
-            return;
+            message: "输入的手机号码格式不正确", //改变弹出框的内容
+          });
+          this.uphone="";
+          return;
+        }else{
+          // 如果格式正确，判断是否已存在
+          this.axios.get('/user/isreg',{params:{uphone:n}})
+          .then(response=>{
+            if(response.data.code==402){
+              this.$dialog.alert({message: "该号码已被注册"})
+              this.uphone="";
+              return;
+            }
           })
-      }
-        })
+        }
       }
     },
-     pwdonblur(){
-       var u=this.upwd;
-       var ureg=/^\d{6,16}$/
-       if(ureg.test(u)==false){
-         this.$dialog.alert({
-          message: "密码格式不正确", //改变弹出框的内容
-         })
-       .then(() => { 
-       return;
-       })
-       }
-   },
-    apwdonblur(){
-        var upwd=this.upwd;
-        console.log(upwd)
-        
-        var apwd=this.apwd;
-        console.log(apwd)
-        if(apwd!==upwd){
+    pwdonblur(){
+      var u=this.upwd;
+      var ureg=/^\d{6,16}$/;
+      // 判断是否为空
+      if(this.upwd==""){
+        this.$dialog.alert({
+          message:"请输入密码" 
+        });
+        return;
+      }else{
+        // 如果不为空，判断格式
+        if(ureg.test(u)==false){
           this.$dialog.alert({
-            message:"两次输入的密码不一致",
-          }).then(() => { 
-      return;
-      })
+            message: "密码格式不正确", //改变弹出框的内容
+          });
+          this.upwd="";
+          return;
         }
-     },
-     reg(){
+      }
+      
+    },
+    apwdonblur(){
+      var upwd=this.upwd;
+      var apwd=this.apwd;
+      if(apwd!==upwd){
+        this.$dialog.alert({
+          message:"两次输入的密码不一致",
+        });
+        this.apwd="";
+        return;
+      }
+    },
+    reg(){
       if(this.uphone==""){
         this.$dialog.alert({
           message:"请输入手机号"
-        }).then(() => { 
-      return;
-      })
-        
-      }else if(this.upwd==""){
-         this.$dialog.alert({
-          message:"请输入密码" 
-        }).then(() => { 
-      return;
-      })
-        
-      }else if(this.apwd==""){this.$dialog.alert({
-          message:"请确认密码"
-        }).then(() => { 
-      return;
-      })
-       
-        }else{
-
-        var uphone=this.uphone
-       var upwd=this.upwd
-       var obj={uphone:uphone,upwd:upwd}
-       var url="user/reg"
-       //发送axios请求
-       this.axios.post(url,qs.stringify(obj)).then(response=>{
-         if(response.data.code==200){
-           console.log(response)
-           this.$dialog.alert({
-             message:"注册成功"
-           }).then(()=>{
-             this.$router.push({path:'/login'})
-           })
-         }
-         else{
-           this.$dialog.alert({
-             message:"注册失败"
-           }).then(()=>{
-             this.$router.push({path:'/regtest'})
-           })
-           
-         }
-
-       })
-       
-      }//else end
-     }
+        }).then(() => {return;})  
+      }
+      else{ 
+        if(this.upwd==""){
+          this.$dialog.alert({
+            message:"请输入密码" 
+          }).then(() => { return;}) 
+        }
+        else{ 
+          if(this.apwd==""){
+            this.$dialog.alert({
+              message:"请确认密码"
+            }).then(() => { return;})
+          }
+          else{
+            var uphone=this.uphone
+            var upwd=this.upwd
+            var obj={uphone:uphone,upwd:upwd}
+            var url="user/reg"
+            // 发送axios请求
+            this.axios.post(url,qs.stringify(obj)).then(response=>{
+              if(response.data.code==200){
+                // console.log(response)
+                this.$dialog.alert({
+                  message:"注册成功"
+                }).then(()=>{
+                  this.$router.push({path:'/login'})
+                })
+              }
+              else{
+                this.$dialog.alert({
+                  message:"注册失败"
+                }).then(()=>{
+                  this.$router.push({path:'/regtest'})
+                }) 
+              }
+            })       
+          }//else end
+        }
+      }
+    }
   }
   
 }

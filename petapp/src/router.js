@@ -46,6 +46,7 @@ import Mine from './views/Mine.vue'
 //寄养家庭详情页
 import Fosterdetails from './views/Fosterdetails.vue'
 import Comment from './components/Comment.vue'
+import Mystory from './views/Mystory.vue'
 
 
 Vue.use(Router)
@@ -53,6 +54,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:"Mystory",component:Mystory},
     {path:"/Fosterdetails/:fid",component:Fosterdetails,props:true},
     {path:"/Comment",component:Comment},
     {path:"/Map",component:Map},

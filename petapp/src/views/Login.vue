@@ -56,7 +56,7 @@ export default {
        var obj={uphone:n,upwd:u}
        this.axios.post(url,qs.stringify(obj))
       .then(res=>{
-      console.log(res);
+      // console.log(res);
       if(res.data.code==200){
         this.$router.push({path:'/Nav'});
       }else{

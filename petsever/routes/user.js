@@ -155,5 +155,29 @@ pool.query(sql,[uname,usex,uage,uconstellation,ujob,uadderss,uid],(err,result)=>
 })
 
 })
+
+
+router.get("/usermessage",(req,res)=>{
+	//获取发布动态用户的session_id
+	 var uid=req.session.uid;
+  //3:如果用户没登录返回错误消息
+	if(!uid){
+		res.send({code:402,msg:"请登录"});
+		return; 
+	 }
+	var sql="SELECT * FROM cw_user WHERE uid=?";
+	pool.query(sql,[uid],(err,result)=>{
+		if(err)throw err;
+		if(result.length>0){
+			res.send({code:200,msg:"查询成功",data:result})
+		}else{
+			res.send({code:401,msg:"查询失败"})
+		}
+	})
+})
+
+
+
+
 //导出路由器
 module.exports=router;

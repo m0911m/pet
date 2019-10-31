@@ -40,6 +40,7 @@
 <script>
 import Comment from '../components/Comment.vue'
 import Inputmsg from '../views/Inputmsg.vue'
+import qs from "qs"
     export default {
         props:["id"],
         data(){
@@ -58,12 +59,28 @@ import Inputmsg from '../views/Inputmsg.vue'
                 var obj={tid:tid};
                 var url="news/detailstory"
                 this.axios.get(url,{params:obj}).then(res=>{
-                    // console.log(res.data.data);  
+                    console.log(res.data.data);  
                     this.list=res.data.data;
                 })
             },
             send(){
-                console.log(this.msg)
+                var iid=parseInt(this.id);//动态id
+                var uname=this.list[0].tuname;//评论人昵称
+                var vcotnet=this.msg;//评论内容
+                var vtime=new Date().getTime();
+                var vicon='dog11.jpg';
+                // console.log(iid,uname,vcotnet,vtime,vicon);
+                var obj={iid,uname,vcotnet,vtime,vicon};
+                // console.log(obj)
+                var url="news/views"
+                this.axios.post(url,qs.stringify(obj)).then(res=>{
+                    console.log(res);  
+                    if(res.data.code==402){
+                        this.$toast("请登录");
+                        this.$router.push("/Login")
+                    }
+                })
+
             }
             
         },
