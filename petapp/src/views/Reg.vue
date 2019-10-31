@@ -74,11 +74,11 @@ export default {
       }else{
         this.axios.get('/user/isreg',{
           params:{
-            uname:n
+            uphone:n
           }
         })
         .then(response=>{
-            if(response.data.code==402){
+            if(response.data.code==401){
           this.$dialog.alert({
          message: "该号码已被注册",
           }).then(()=>{
@@ -95,9 +95,7 @@ export default {
          this.$dialog.alert({
           message: "密码格式不正确", //改变弹出框的内容
          })
-       .then(() => { 
-       return;
-       })
+         return;
        }
    },
     apwdonblur(){
@@ -109,9 +107,8 @@ export default {
         if(apwd!==upwd){
           this.$dialog.alert({
             message:"两次输入的密码不一致",
-          }).then(() => { 
+          })
       return;
-      })
         }
      },
      reg(){
@@ -125,19 +122,14 @@ export default {
       }else if(this.upwd==""){
          this.$dialog.alert({
           message:"请输入密码" 
-        }).then(() => { 
-      return;
-      })
-        
+        }) 
+      return; 
       }else if(this.apwd==""){this.$dialog.alert({
           message:"请确认密码"
-        }).then(() => { 
+        })
       return;
-      })
-       
         }else{
-
-        var uphone=this.uphone
+       var uphone=this.uphone
        var upwd=this.upwd
        var obj={uphone:uphone,upwd:upwd}
        var url="user/reg"
@@ -154,14 +146,10 @@ export default {
          else{
            this.$dialog.alert({
              message:"注册失败"
-           }).then(()=>{
-             this.$router.push({path:'/regtest'})
            })
-           
          }
 
        })
-       
       }//else end
      }
   }

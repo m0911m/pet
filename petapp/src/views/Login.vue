@@ -10,7 +10,7 @@
     <van-field class="upwdstyle" v-model="upwd" label="密码:" clearable type="password" placeholder="请输入密码"></van-field>
      <!-- 登录按钮 -->
      <van-button class="loginstyle" @click="login">登录</van-button>
-      <van-popup v-model="show" position="top">{{msg}}</van-popup>
+      <van-popup  position="top">{{msg}}</van-popup>
     </van-cell-group>
     <div class="textstyle">您还没有账号?
       <router-link class="jumpstyle" :to="{path:'/Reg'}">注册</router-link>
@@ -26,7 +26,6 @@ export default {
       uphone:"",  
       upwd:"" ,
       // 保存弹出层的属性
-      show:false,
       msg:""
     }
   },
@@ -41,14 +40,16 @@ export default {
       // 验证用户名 
       if(nreg.test(n)==false){
         //验证不成功 弹出层弹出提示信息
-        this.msg="手机格式有误,请重新输入";
-        this.show=true;
+        this.$dialog.alert({
+         message: "输入的手机号码格式不正确", //改变弹出框的内容
+        })
         return;
       }
       if(ureg.test(u)==false){
         // 验证密码不成功,弹出提示信息
-        this.msg="密码格式有误,请重新输入";
-        this.show=true;
+        this.$dialog.alert({
+         message: "输入的密码格式不正确", //改变弹出框的内容
+        })
         return;
       }
       // 发送axios请求
@@ -60,9 +61,9 @@ export default {
       if(res.data.code==200){
         this.$router.push({path:'/Nav'});
       }else{
-        this.msg="用户名或密码错误"
-        this.show=true;
-        return;
+        this.$dialog.alert({
+         message: "有户名或密码错误", //改变弹出框的内容
+        })
       }
       })
       .catch(function (error) {

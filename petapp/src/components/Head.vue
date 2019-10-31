@@ -15,7 +15,7 @@
         <div class="timestyle">选 择 寄 养 时 间</div>
       </mt-button>
       <mt-button class="btns" slot="left">
-        <van-icon name="location-o" class="iconstyle"></van-icon>
+        <van-icon name="location-o" class="iconstyle" @click="jumpmap()"></van-icon>
       </mt-button>
     </mt-header>
   </div>
@@ -28,6 +28,9 @@ export default {
     }
   },
   methods:{
+    jumpmap(){
+      this.$router.push({path:"/Map"})
+    },
     county(){
       console.log(111);
     }

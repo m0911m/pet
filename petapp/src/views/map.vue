@@ -1,22 +1,10 @@
 <template>
   <div class="amap-page-container">
-    <div :style="{width:'100%',height:'300px'}">
+    <div :style="{width:'100%',height:'40rem'}">
       <el-amap vid="amap" :plugin="plugin" class="amap-demo" :center="center">
       </el-amap>
     </div>
 
-
-    <div class="toolbar">
-        <span v-if="loaded">
-          location: lng = {{ lng }} lat = {{ lat }}
-        </span>
-      <span v-else>正在定位</span>
-    </div>
-    <div
-      v-on:click="req_post()"
-    >
-      查询周边
-    </div>
   </div>
 </template>
 <style>
@@ -25,8 +13,7 @@
   }
 </style>
 <script>
-
-  export default {
+export default {
         data(){
           const self = this;
           return {
@@ -48,9 +35,8 @@
               extensions:'all',
               pName: 'Geolocation',
               events: {
-                init(o) {
-                  // o 是高德地图定位插件实例
-                  o.getCurrentPosition((status, result) => {
+                init(map) {
+                  map.getCurrentPosition((status, result) => {
                     console.log(result)
                     if (result && result.position) {
                       self.lng = result.position.lng;
@@ -65,7 +51,5 @@
             }]
           }
         }
-   
-}
+   }
 </script>
-  

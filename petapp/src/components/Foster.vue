@@ -7,7 +7,7 @@
       <!-- 家庭照片 -->
       <img class="famstyle" :src="'http://127.0.0.1:5050/'+homelist[i].f_img" alt="" @click="fosterhome" :data-fid="item.fid" >
       <!-- 用户头像 -->
-      <img class="imgstyle" :src="'http://1270.0.1:5050/'+homelist[i].f_uimg" alt="">
+      <img class="imgstyle" :src="'http://127.0.0.1:5050/'+homelist[i].f_uimg" alt="">
       <!-- 左边的价格 -->
       <div class="bgstyle">
         <span class="typestyle">寄养价格 <a class="monstyle" href="javascript:;">¥</a> 
