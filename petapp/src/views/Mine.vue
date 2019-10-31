@@ -3,11 +3,11 @@
     <navbar></navbar>
     <div class="top-user">
       <!-- <img src="../../public/imgs/14.jpg" alt="" class="bgpic">  -->
-      <div class="leftbox">
+      <div class="leftbox" v-for="(item,i) of userList" :key="i">
         <!-- 用户名 -->
-        <h3>用户名</h3>
+        <h3>{{item.uname}}</h3>
         <!-- 地址 -->
-        <p>陕西省西安市</p>
+        <p>{{item.uadderss}}</p>
       </div>
       <div class="rightbox">
         <!-- 用户头像 -->
@@ -26,14 +26,11 @@
       <van-grid :gutter="10" >
         <van-grid-item icon="award-o" text="我的宠物" to="/Petlist" />
         <van-grid-item icon="balance-list-o" text="我的订单" />
-        <van-grid-item icon="bulb-o" text="我的动态" />
+        <van-grid-item icon="bulb-o" text="我的动态" to="/Mystory"/>
         <van-grid-item icon="shop-o" text="快速找家庭" />
       </van-grid>
     </div>
-    <!-- 招募令 -->
-    <!-- <div class="ad">
-      <img src="../../public/imgs/gg01.jpg" alt="">
-    </div> -->
+    
     <!-- 列表 -->
     <div class="listbox">
       <div class="list">
@@ -89,7 +86,8 @@ import Navbar from '../components/Navbar'
   export default{
     data(){
       return{
-        show: false
+        show: false,
+        userList:[]
       }
     },
     methods:{
@@ -101,11 +99,24 @@ import Navbar from '../components/Navbar'
       },
       cancle(){
         this.show = false;
+      },
+      loadMore(){
+        var url="user/usermessage"
+        this.axios.get(url).then(res=>{
+            this.userList=res.data.data;
+            if(res.data.code==402){
+              this.$toast("请登录");
+              this.$router.push("/Login")
+            }
+        })
       }
     },
     components:{
       "navbar":Navbar
-    }
+    },
+    created() {
+      this.loadMore()
+    },
   }
 </script>
 <style>
