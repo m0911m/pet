@@ -72,9 +72,11 @@ luobo_url VARCHAR(30)#轮播图地址
 /**购物车信息数据表**/
 CREATE TABLE cw_cart(
  cid INT PRIMARY KEY AUTO_INCREMENT,
- uid INT,   #用户id
+ fid INT,   #用户id
  ftitle VARCHAR(30),#宠物家的名字
- fprice DECIMAL(10,2) #价格
+ fprice VARCHAR(30), #价格
+ uid INT,   #用户id
+ f_img VARCHAR(30) #图片
 );
 /**宠物之家评论消息**/
 CREATE TABLE cw_views(

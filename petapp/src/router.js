@@ -30,8 +30,8 @@ import Reg from './views/Reg.vue'
 
 // 引入发现页面
 import Find from './views/Find.vue'
-
-
+//引入购物车组件
+import Cart from './views/Cart.vue'
 
 // 详情页组件
 import Details from './views/Details.vue'
@@ -54,6 +54,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:"/Cart",component:Cart},
     {path:"Mystory",component:Mystory},
     {path:"/Fosterdetails/:fid",component:Fosterdetails,props:true},
     {path:"/Comment",component:Comment},

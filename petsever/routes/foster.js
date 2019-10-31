@@ -6,7 +6,7 @@ const pool=require('../pool.js');
 var router=express.Router();
 //一、寄养家庭列表
 router.get("/fosterlist",(req,res)=>{
-	var sql="SELECT fid,ftitle,fprice,fscore,fisonbuy,f_length,faddress,f_img,f_uimg,uid FROM cw_foster";
+	var sql="SELECT fid,ftitle,fprice,fscore,fisonbuy,f_length,faddress,f_img,f_uimg,fprice,uid FROM cw_foster";
 	pool.query(sql,(err,result)=>{
 		if(err)throw err;
 		if(result.length>0){
@@ -20,7 +20,7 @@ router.get("/fosterlist",(req,res)=>{
 //二、查询指定的寄养家庭
 router.get("/fosterhome",(req,res)=>{
 	var fid=req.query.fid;
-	var sql="SELECT ftitle,fprice,fscore,f_img,f_uimg FROM cw_foster WHERE fid=?";
+	var sql="SELECT fid,ftitle,fprice,fscore,f_img,f_uimg FROM cw_foster WHERE fid=?";
 	pool.query(sql,[fid],(err,result)=>{
 		if(err)throw err;
 		if(result.length>0){
@@ -44,6 +44,67 @@ router.get("/searchhome",(req,res)=>{
 		}
 	})
 })
+//四、购物车模块
+router.get("/addcart",(req,res)=>{
+	var uid = req.session.uid;
+	if(!uid){
+	 res.send({code:402,msg:"请登录"});
+	 return; 
+	}
+	var fid=req.query.fid;
+	var ftitle=req.query.ftitle;
+	var fprice=req.query.fprice;
+	var f_img=req.query.f_img;
+	var sql = "SELECT cid FROM cw_cart WHERE uid = ? AND fid = ?";
+	pool.query(sql,[uid,fid],(err,result)=>{
+	 if(err)throw err; 
+	 if(result.length==0){
+	 var sql = `INSERT INTO cw_cart VALUES(null,${fid},'${ftitle}','${fprice}',${uid},'${f_img}')`;
+	 }else{
+		res.send({code:403,msg:"已添加"})
+		return;
+	 }
+	 pool.query(sql,(err,result)=>{
+	   if(err)throw err;
+	   res.send({code:200,msg:"添加成功"})
+	 })
+	})
+   });
+//五、查询购物车
+router.get("/selectcart",(req,res)=>{
+	var uid = req.session.uid;
+	if(!uid){
+	 res.send({code:402,msg:"请登录"});
+	 return; 
+	}
+	var sql="SELECT cid,ftitle,fprice,f_img FROM cw_cart WHERE uid=?";
+	pool.query(sql,[uid],(err,result)=>{
+		if(err)throw err;
+		if(result.length>0){
+			res.send({code:200,msg:"查询成功",data:result})
+		}else{
+			res.send({code:401,msg:"查询失败"})
+		}
+	})
+});
+//六、删除购物车
+router.get("/delcart",(req,res)=>{
+	var uid = req.session.uid;
+	if(!uid){
+	 res.send({code:402,msg:"请登录"});
+	 return; 
+	}
+	var cid=req.query.cid;
+	var sql="DELETE FROM cw_cart WHERE cid=?";
+	pool.query(sql,[cid],(err,result)=>{
+		if(err)throw err;
+		if(result.affectedRows>0){
+			res.send({code:200,msg:"删除成功"})
+		}else{
+			res.send({code:401,msg:"删除失败"})
+		}
+		})
+});
 // /申请成为寄养家庭
 // router.post("/newfosterhome",(req,res)=>{
 

@@ -9,13 +9,15 @@
     <van-cell-group>
       <van-cell >
         <div class="group">
-          <div class="right1">
-            <img :src="'http://127.0.0.1:5050/'+list[0].f_uimg" alt="" class="leftimg"> 
+          <div class="right1" v-for="(item,i) of list" :key="i">
+            <img :src="'http://127.0.0.1:5050/'+item.f_uimg" alt="" class="leftimg"> 
           
             <div class="right">
-              <div class="title">{{list[0].ftitle}}</div>
-              <div class="score">评分:{{list[0].fscore}}</div>
+              <div class="title">{{item.ftitle}}</div>
+              <span class="score">评分:{{item.fscore}}</span>
+              <span class="price">价格:￥{{item.fprice}}</span>
             </div>
+
           </div>
           <div class="message">个人资料</div>
         </div>
@@ -36,13 +38,17 @@
 </van-grid>
 
     <van-goods-action>
-      <van-goods-action-icon icon="chat-o" @click="sorry">
+      <van-goods-action-icon icon="chat-o">
         客服
       </van-goods-action-icon>
-      <van-goods-action-icon icon="cart-o" @click="onClickCart">
+      <van-goods-action-icon icon="cart-o" @click="jumpCart">
         购物车
       </van-goods-action-icon>
-      <van-goods-action-button type="warning" @click="sorry">
+      <van-goods-action-button type="warning" @click="addCart"
+      :data-fid="list[0].fid"
+      :data-fprice="list[0].fprice"
+      :data-ftitle="list[0].ftitle"
+      :data-f_img="list[0].f_img">
         立即下单
       </van-goods-action-button>
     </van-goods-action>
@@ -64,14 +70,41 @@ export default {
     this.londMore();
   },
   methods: {
+    jumpCart(){
+       //查看购物车 22
+       this.$router.push("/Cart");
+     },
+     addCart(event){
+       //将商品添加至购物车
+       //*1:添加参数event 事件对象
+       //*2:获取三个定义属性
+       //  输出属性再写后续内容
+       var fid = event.target.dataset.fid;
+       var ftitle = 
+       event.target.dataset.ftitle;
+       var fprice = 
+       event.target.dataset.fprice;
+       var f_img=
+       event.target.dataset.f_img;
+       var url = "foster/addcart";
+       var obj = {fid,ftitle,fprice,f_img};
+       this.axios.get(url,{params:obj}).then(res=>{
+         if(res.data.code==402){
+           this.$toast("请登录");
+           this.$router.push({path:'/login'})
+         }else if(res.data.code==403){
+           this.$toast("已经添加过该商家了");
+         }else{
+           this.$toast("添加成功");
+         }
+       })
+     },
     londMore(){
-      console.log(this.fid);
     var fid=this.fid
     var url="foster/fosterhome";
     var obj={fid};
     this.axios.get(url,
      {params:obj}).then(res=>{
-      console.log(res)
       this.list=res.data.data
      }) 
     },
@@ -81,9 +114,6 @@ export default {
     onClickCart() {
       this.$router.push('cart');
     },
-    sorry() {
-      Toast('暂无后续逻辑~');
-    }
   }
 };
 </script>
@@ -117,6 +147,10 @@ export default {
   margin-left: 0.625rem;
 }
 .score{
+  font: 0.9rem Tahoma;
+  margin-left: 0.75rem;
+}
+.price{
   font: 0.9rem Tahoma;
   margin-left: 0.75rem;
 }
