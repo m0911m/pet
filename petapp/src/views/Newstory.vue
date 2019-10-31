@@ -6,10 +6,10 @@
             <van-image class="storypic"
                 fit="fill"
                 radius="20px"
-                :src="require('../../public/imgs/'+item.t_img)" @click="detail(item.tid)"/>
+                :src="'http://127.0.0.1:5050/'+item.t_img" @click="detail(item.tid)"/>
             <div class="user">
                 <!--左侧 用户头像 -->
-                <img :src="require('../../public/imgs/'+item.t_img)" alt="" class="imguser">
+                <img :src="'http://127.0.0.1:5050/'+item.t_img" alt="" class="imguser">
                 <!-- 右侧 用户名称 -->
                 <div class="usertxt">
                     <!-- 用户昵称 -->
@@ -17,12 +17,7 @@
                     <div class="down">
                         <!-- 地址 -->
                         <span class="local">{{item.taddress}}</span>
-                        <!-- 点赞 -->
-                        <!-- <div id="zan" @click="heart">
-                            <img src="../../public/imgs/heart.png" alt="" class="heart" >
-                            <img src="../../public/imgs/heart_red.png" alt="" class="heart_red">
-                            <span class="like">{{item.count}}</span> 
-                        </div>  -->
+                        
                     </div>   
                 </div> 
             </div>   
@@ -38,22 +33,14 @@ export default {
         }
     },
     methods: {
-        // heart(){
-        //     var heart = document.querySelector(".heart");
-        //     var heart2 = document.querySelector(".heart_red");
-        //     var like = document.querySelector(".like");
-        //     heart.style.display="none";
-        //     heart2.style.display="inline-block";
-        //     like.innerHTML++;
-        // },
+        
         detail(id){
             this.$router.push(`/Detailstory/${id}`);
         },
         loadMore(){
-            // console.log(111)
             var url="news/messagelist";
             this.axios.get(url).then(res=>{
-                console.log(res.data.data);
+                // console.log(res.data.data);
                 this.lists=res.data.data;  
             })
         }

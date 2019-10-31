@@ -143,10 +143,10 @@ INSERT INTO cw_sindex VALUES
 /*评论表信息*/
 INSERT INTO cw_views VALUES
 (null,'1','1','jack','好可爱','1572279619758','dog04.jpg'),
-(null,'1','1','jack','好可爱','1572279619758','dog05.jpg'),
-(null,'1','1','jack','好可爱','1572279619758','dog09.jpg'),
-(null,'1','1','jack','好可爱','1572279619758','dog11.jpg'),
-(null,'1','2','jack','乖宝宝','1572279619836','dog12.jpg');
+(null,'2','1','Roamn','犹抱琵琶半遮面','1572279619758','dog05.jpg'),
+(null,'3','1','Tom','乖','1572279619758','dog09.jpg'),
+(null,'1','2','jack','好可爱','1572279619758','dog11.jpg'),
+(null,'2','2','Roamn','乖宝宝','1572279619836','dog12.jpg');
 /*动态信息表*/
 INSERT INTO cw_text VALUES
 (null,'寄养圈','这是肉嘟嘟的饺子女孩','Maoshu','北京北京市','一点也不安静，这张照片追了很久才拍到','dog09.jpg',1),

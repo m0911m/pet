@@ -9,47 +9,31 @@
                 <van-image round
                     width="3rem"
                     height="3rem"
-                    src="../../public/imgs/bg.jpg"
+                    :src="'http://127.0.0.1:5050/'+item.t_img"
                     /> 
                 <div class="namemsg">
-                    <p class="uname">{{item.uname}}</p>
-                    <p class="ulocal">{{item.local}}</p>
+                    <p class="uname">{{item.tuname}}</p>
+                    <p class="ulocal">{{item.taddress}}</p>
                 </div>
             </div>
             <!-- 文章内容 -->
-            <p class="text">{{item.text}}</p>
+            <p class="text">{{item.ttxt}}</p>
             <!-- 文章图片 -->
             <div class="imgs">
                 <div class="imgbox">
-                <img :src="require('../../public/imgs/cat08.jpg')" alt="" class="img">
+                <img :src="'http://127.0.0.1:5050/'+item.t_img" alt="" class="img">
                 </div>
             </div>
-            <div class="make">
-                <!-- 点赞 -->
-                <!-- <div id="zan" @click="heart">
-                    <img src="../../public/imgs/heart.png" alt="" class="heart" >
-                    <img src="../../public/imgs/heart_red.png" alt="" class="heart_red">
-                    <span class="like">{{item.heart}}</span> 
-                </div> -->
-                <!-- 评论 -->
-                <!-- <inputmsg></inputmsg> -->
-                <div>
-                    <van-icon name="chat-o" @click="showPopup"/>
-                    <span>3</span>
-                    <van-popup v-model="show" position="bottom" :style="{height:'10%'}">
-                    <input type="text" class="txt" placeholder="说点什么...">
-                    <button class="send">发送</button>
-                    </van-popup>
-                </div>
-            </div>
-            
-
         </div>
         <!-- 评论 -->
         <div>
             <!-- 输入框 -->
+            <div class="inputbox">
+                <input type="text" class="txt" placeholder="说点什么..." v-model="msg">
+                <button class="send" @click="send">发送</button>
+            </div>
             <!-- 评论列表 -->
-            <comment></comment> 
+            <comment :tid=this.id></comment> 
         </div>
     </div>
 </template>
@@ -58,38 +42,34 @@ import Comment from '../components/Comment.vue'
 import Inputmsg from '../views/Inputmsg.vue'
     export default {
         props:["id"],
+        data(){
+            return{
+                list:[],
+                msg:""
+            }
+        },
         methods: {
             onClickLeft() {
             this.$router.push("/Petcircle");
             },
-            // heart(){
-            //     var heart = document.querySelector(".heart");
-            //     var heart2 = document.querySelector(".heart_red");
-            //     var like = document.querySelector(".like");
-            //     heart.style.display="none";
-            //     heart2.style.display="inline-block";
-            //     like.innerHTML++;
-            // },
+            
             loadMore(){
                 var tid=parseInt(this.id);
-                console.log(tid);
                 var obj={tid:tid};
-                console.log(obj)
                 var url="news/detailstory"
-                this.axios.get(url, obj).then(res=>{
-                    console.log(res);  
+                this.axios.get(url,{params:obj}).then(res=>{
+                    // console.log(res.data.data);  
+                    this.list=res.data.data;
                 })
+            },
+            send(){
+                console.log(this.msg)
             }
-        },
-        data(){
-            return{
-                list:[],
-            }
+            
         },
         // 注册子组件
         components:{
             "comment":Comment,
-            "inputmsg":Inputmsg
         },
         created() {
             this.loadMore();
@@ -97,6 +77,28 @@ import Inputmsg from '../views/Inputmsg.vue'
 }
 </script>
 <style scoped>
+    .inputbox{
+        margin-bottom: 10px;
+    }
+    .txt{
+    width:80%;
+    border:1px solid #ccc;
+    border-radius: 3px;
+    box-shadow:0 0 1px #ccc;
+    outline: 0;
+    margin-top:10px;
+    margin-left:10px;
+    padding:5px;
+    font-size:12px;
+  }
+  .send{
+    background: #f7bf25;
+    border-radius: 3px;
+    border:0;
+    font-size: 12px;
+    color:#fff;
+    padding:5px;
+  }
     .usermsg{
         display:flex; 
         justify-content: left;
