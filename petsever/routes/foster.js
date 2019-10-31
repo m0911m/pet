@@ -17,7 +17,20 @@ router.get("/fosterlist",(req,res)=>{
 
 	})
 })
-// //二、申请成为寄养家庭
+//二、查询指定的寄养家庭
+router.get("/fosterhome",(req,res)=>{
+	var fid=req.query.fid;
+	var sql="SELECT ftitle,fprice,fscore,f_img,f_uimg FROM cw_foster WHERE fid=?";
+	pool.query(sql,[fid],(err,result)=>{
+		if(err)throw err;
+		if(result.length>0){
+			res.send({code:200,msg:"查询成功",data:result})
+		}else{
+			res.send({code:401,msg:"查询失败"})
+		}
+	})
+})
+// /申请成为寄养家庭
 // router.post("/newfosterhome",(req,res)=>{
 
 

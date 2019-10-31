@@ -76,7 +76,7 @@ import Inputmsg from '../views/Inputmsg.vue'
                 var obj={tid:tid};
                 console.log(obj)
                 var url="news/detailstory"
-                this.axios.get(url,obj).then(res=>{
+                this.axios.get(url, obj).then(res=>{
                     console.log(res);  
                 })
             }

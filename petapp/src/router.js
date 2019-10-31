@@ -43,6 +43,8 @@ import Announcement from './views/Announcement.vue'
 import Service from './views/Service.vue'
 // 我的 页面
 import Mine from './views/Mine.vue'
+//寄养家庭详情页
+import Fosterdetails from './views/Fosterdetails.vue'
 import Comment from './components/Comment.vue'
 
 
@@ -51,6 +53,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:"/Fosterdetails/:fid",component:Fosterdetails,props:true},
     {path:"/Comment",component:Comment},
     {path:"/Map",component:Map},
     {path:"/Mine",component:Mine},

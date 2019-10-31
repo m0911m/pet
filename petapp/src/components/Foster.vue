@@ -5,7 +5,7 @@
     <!-- 上方的信息 -->
     <div class="userstyle">
       <!-- 家庭照片 -->
-      <img class="famstyle" :src="'http://127.0.0.1:5050/'+homelist[i].f_img" alt="">
+      <img class="famstyle" :src="'http://127.0.0.1:5050/'+homelist[i].f_img" alt="" @click="fosterhome" :data-fid="item.fid" >
       <!-- 用户头像 -->
       <img class="imgstyle" :src="'http://1270.0.1:5050/'+homelist[i].f_uimg" alt="">
       <!-- 左边的价格 -->
@@ -22,7 +22,7 @@
       <!-- 小badge -->
       <mt-badge size="small" color="#353535">家庭</mt-badge>
       <!-- 昵称 -->
-      <span class="namestyle">{{homelist[i].fittle}}</span>
+      <span class="namestyle">{{homelist[i].ftitle}}</span>
       <span class="gradestyle">评分<a href="" class="scorestyle">{{homelist[i].fid}}</a></span>
     </div>
     <div class="addstyle">
@@ -43,7 +43,11 @@ export default {
     }
   },
   methods:{
-
+    
+    fosterhome(event){
+    var fid=event.target.dataset.fid;
+      this.$router.push(`/Fosterdetails/${fid}`)
+    }
   },
   props:{
     homelist:{default:[]}
@@ -124,7 +128,7 @@ export default {
 .namestyle{
   display:flex;
   margin-left:0.5rem;
-  font:bolder 1.5rem 楷体;
+  font:bolder 1rem 楷体;
 }
 /* 评分 */
 .gradestyle,.scorestyle{
