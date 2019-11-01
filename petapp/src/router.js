@@ -11,28 +11,23 @@ import Petmessage from './views/Petmessage.vue'
 // 引入动态组件
 import Newstory from './views/Newstory.vue'
 //引入地图组件
-import Map from './views/Map.vue'
+import Map from './views/map.vue'
 //引入宠物品种组件
 import Kind from './views/Kind.vue'
 // 引入动态详情组件
 import Detailstory from './views/Detailstory.vue'
-
 // 引入面板组件
 import Nav from './views/Nav.vue' 
 // 引入宠圈
 import Petcircle from './views/Petcircle.vue'
-
-
 // 引入寄养家庭组件
 import Foster from './components/Foster.vue'
 //引入注册页
 import Reg from './views/Reg.vue'
-
 // 引入发现页面
 import Find from './views/Find.vue'
 //引入购物车组件
 import Cart from './views/Cart.vue'
-
 // 详情页组件
 import Details from './views/Details.vue'
 // 引入消息组件
@@ -45,8 +40,12 @@ import Service from './views/Service.vue'
 import Mine from './views/Mine.vue'
 //寄养家庭详情页
 import Fosterdetails from './views/Fosterdetails.vue'
+// 评论组件
 import Comment from './components/Comment.vue'
+// 个人动态组件
 import Mystory from './views/Mystory.vue'
+// 首页故事详情组件
+import DetailIndex from './views/DetailIndex.vue'
 
 
 Vue.use(Router)
@@ -54,8 +53,9 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:"/DetailIndex/:iid",component:DetailIndex,props:true},
     {path:"/Cart",component:Cart},
-    {path:"Mystory",component:Mystory},
+    {path:"/Mystory",component:Mystory},
     {path:"/Fosterdetails/:fid",component:Fosterdetails,props:true},
     {path:"/Comment",component:Comment},
     {path:"/Map",component:Map},

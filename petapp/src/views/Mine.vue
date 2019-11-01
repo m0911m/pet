@@ -37,7 +37,7 @@
         <p>申请家庭</p>
         <van-icon name="arrow" />
       </div>
-      <div class="list">
+      <div class="list" @click="colloction">
         <p>我的收藏</p>
         <van-icon name="arrow" />
       </div>
@@ -129,6 +129,9 @@ import Navbar from '../components/Navbar'
               this.$router.push("/Login")
             }
         })
+      },
+      colloction(){
+        this.$toast("很抱歉，暂不提供该服务！")
       }
     },
     components:{

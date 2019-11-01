@@ -69,7 +69,11 @@ router.get("/selectlunbo",(req,res)=>{
 })
 //评论模块
 router.post("/views",(req,res)=>{
-  var uid=req.session.uid;
+	var uid=req.session.uid;
+	if(!uid){
+		res.send({code:402,msg:"请登录"});
+			return;
+	}
 	if(!uid){
 		res.send({code:402,msg:"请登录"});
 		return;
@@ -93,7 +97,7 @@ router.post("/views",(req,res)=>{
 //查找动态评论
 router.get("/viewsdetail",(req,res)=>{
 	var iid=req.query.tid;
-	var sql='SELECT * FROM cw_views WHERE iid=?';
+	var sql='SELECT vid,uid,uname,vcotnet,vtime,vicon FROM cw_views WHERE iid=?';
 	pool.query(sql,[iid],(err,result)=>{
 		if(err) throw err;
 		if(result.length>0){
@@ -108,7 +112,7 @@ router.get("/viewsdetail",(req,res)=>{
 //查看动态详情页
 router.get("/detailstory",(req,res)=>{
 	var tid=req.query.tid;
-	console.log("tid:"+tid)
+	// console.log("tid:"+tid)
 	var sql="SELECT ttitle,tsmtitle,ttxt,t_img,taddress,tuname,uid FROM cw_text WHERE tid=?";
 	pool.query(sql,[tid],(err,result)=>{
 		if(err)throw err;
@@ -120,5 +124,35 @@ router.get("/detailstory",(req,res)=>{
 	})
 	});
 
+	// 查看用户个人动态
+	router.get("/ownstory",(req,res)=>{
+		var uid=req.session.uid;
+		if(!uid){
+			res.send({code:402,msg:"请登录"});
+			return;
+		}
+		var sql="SELECT tid,ttitle,tsmtitle,tuname,taddress,ttxt,t_img FROM cw_text WHERE uid=?";
+		pool.query(sql,[uid],(err,result)=>{
+			if(err)throw err;
+				if(result.length>0){
+					res.send({code:200,msg:"查询成功",data:result})
+				}else{
+					res.send({code:401,msg:"查询失败"})
+				}
+		})
+	})
 
+	// 首页故事详情
+	router.get("/detailindex",(req,res)=>{
+		var iid=req.query.iid;
+		var sql="SELECT uid,ititle,iuname,ismtitle,itxt,itime,i_img,i_icon FROM cw_sindex WHERE iid=?";
+		pool.query(sql,[iid],(err,result)=>{
+			if(err)throw err;
+				if(result.length>0){
+					res.send({code:200,msg:"查询成功",data:result})
+				}else{
+					res.send({code:401,msg:"查询失败"})
+				}
+		})
+	})
 module.exports=router;

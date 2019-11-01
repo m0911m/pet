@@ -6,7 +6,7 @@
     </van-nav-bar>
     <!-- 中间的聊天区域 -->
     <div class="chat">
-      1111111111111111
+      暂无聊天记录~
     </div>
     <!-- 底部输入框 -->
     <div class="downfixed">
@@ -55,6 +55,7 @@ export default {
 .chat{
   width:100%;
   height:672px;
+  text-align: center;
 }
 .down{
   height:30px;

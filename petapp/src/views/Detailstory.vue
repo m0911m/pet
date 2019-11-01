@@ -39,7 +39,6 @@
 </template>
 <script>
 import Comment from '../components/Comment.vue'
-import Inputmsg from '../views/Inputmsg.vue'
 import qs from "qs"
     export default {
         props:["id"],
