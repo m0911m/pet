@@ -25,7 +25,7 @@
       <h4 class="title">我的日常管理</h4>
       <van-grid :gutter="10" >
         <van-grid-item icon="award-o" text="我的宠物" to="/Petlist" />
-        <van-grid-item icon="balance-list-o" text="我的订单" />
+        <van-grid-item icon="balance-list-o" text="我的订单" @click="cart"/>
         <van-grid-item icon="bulb-o" text="我的动态" to="/Mystory"/>
         <van-grid-item icon="shop-o" text="快速找家庭" />
       </van-grid>
@@ -49,6 +49,11 @@
         <p>分享给好友</p>
         <van-icon name="arrow" />
       </div>
+      <div class="list" @click="close">
+        <p>退出登录</p>
+        <van-icon name="arrow" />
+      </div>
+      
     </div>
     <van-popup
       v-model="show"
@@ -91,6 +96,21 @@ import Navbar from '../components/Navbar'
       }
     },
     methods:{
+      cart(){
+        this.$router.push("/Cart")
+      },
+      close(){
+        this.$messagebox.confirm("是否退出登录").then(res=>{
+          var url="user/close";
+          this.axios.get(url).then(res=>{
+            if(res.data.code==200){
+              this.$router.push("/Login")
+            }
+          })
+        })
+        .catch(err=>{        
+      })
+      },
       server(){
         this.$router.push('/Service')
       },

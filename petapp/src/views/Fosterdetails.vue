@@ -1,15 +1,21 @@
 <template>
   <div class="goods">
+    <div class="head">
+      <van-button class="back" @click="back">
+        <van-icon name="arrow-left" />
+      </van-button>
+    </div>
+    <div v-for="(item,i) of list" :key="i">
     <van-swipe>
       <van-swipe-item>
-        <img :src="'http://127.0.0.1:5050/'+list[0].f_img"  class="lunbo">
+        <img :src="'http://127.0.0.1:5050/'+item.f_img"  class="lunbo">
       </van-swipe-item>
     </van-swipe>
 
     <van-cell-group>
       <van-cell >
         <div class="group">
-          <div class="right1" v-for="(item,i) of list" :key="i">
+          <div class="right1" >
             <img :src="'http://127.0.0.1:5050/'+item.f_uimg" alt="" class="leftimg"> 
           
             <div class="right">
@@ -52,6 +58,7 @@
         立即下单
       </van-goods-action-button>
     </van-goods-action>
+    </div>
   </div>
 </template>
 
@@ -75,17 +82,10 @@ export default {
        this.$router.push("/Cart");
      },
      addCart(event){
-       //将商品添加至购物车
-       //*1:添加参数event 事件对象
-       //*2:获取三个定义属性
-       //  输出属性再写后续内容
-       var fid = event.target.dataset.fid;
-       var ftitle = 
-       event.target.dataset.ftitle;
-       var fprice = 
-       event.target.dataset.fprice;
-       var f_img=
-       event.target.dataset.f_img;
+       var fid=event.target.dataset.fid;
+       var ftitle=event.target.dataset.ftitle;
+       var fprice=event.target.dataset.fprice;
+       var f_img=event.target.dataset.f_img;
        var url = "foster/addcart";
        var obj = {fid,ftitle,fprice,f_img};
        this.axios.get(url,{params:obj}).then(res=>{
@@ -114,53 +114,69 @@ export default {
     onClickCart() {
       this.$router.push('cart');
     },
+    back(){
+      this.$router.back()
+    }
   }
 };
 </script>
 
 <style scoped>
-.right1{
-  display: flex;
-}
-
-.lunbo{
-  height: 20rem;
-  width: 100%;
-}
-.leftimg{
-  width: 3rem;
-  height: 3rem;
-  display: flex;
-}
-.group{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.baozhang{
-  font-size: 0.3rem;
-  color: #666;
-}
-.title{
-  font-size:1.1rem;
-  margin-left: 0.625rem;
-}
-.score{
-  font: 0.9rem Tahoma;
-  margin-left: 0.75rem;
-}
-.price{
-  font: 0.9rem Tahoma;
-  margin-left: 0.75rem;
-}
-.message{
-  font:bolder 0.9rem Tahoma;
+  .head{
+    background:rgba(0,0,0,0.1);
+    width: 100%;
+    height: 4rem;
+    position: fixed;
+    line-height: 4rem;
+    z-index: 11;
+  }
+  .back{
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    height: 4rem;
+  }
+  .right1{
+    display: flex;
   }
 
-</style>
-<style>
-  .van-grid-item__content:first-child {
-  background-color: #e8e8e8;
-}
+  .lunbo{
+    height: 20rem;
+    width: 100%;
+  }
+  .leftimg{
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+  }
+  .group{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .baozhang{
+    font-size: 0.3rem;
+    color: #666;
+  }
+  .title{
+    font-size:1.1rem;
+    margin-left: 0.625rem;
+  }
+  .score{
+    font: 0.9rem Tahoma;
+    margin-left: 0.75rem;
+  }
+  .price{
+    font: 0.9rem Tahoma;
+    margin-left: 0.75rem;
+  }
+  .message{
+    font:bolder 0.9rem Tahoma;
+    }
+
+  </style>
+  <style>
+    .van-grid-item__content:first-child {
+    background-color: #e8e8e8;
+  }
 </style>

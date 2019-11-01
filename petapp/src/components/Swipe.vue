@@ -21,7 +21,6 @@ methods:{
   image(){
     var url="news/selectlunbo";
     this.axios.get(url).then(res=>{
-    console.log(res.data.data);
     this.images=res.data.data;
     })
    }

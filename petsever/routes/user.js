@@ -15,10 +15,7 @@ router.post("/login",(req,res)=>{
 		if(result.length==0){
 			res.send({code:401,msg:"用户名或密码有误"})
 		}else{
-			console.log(result);
-			//保存session值
 			req.session.uid = result[0].uid;
-			//  console.log("----------",req.session.uid);
 			res.send({code:200,msg:"登录成功"})
 		}
 	})
@@ -32,7 +29,7 @@ router.get("/isreg",(req,res)=>{
 	pool.query(sql,[uphone],(err,result)=>{
 		if(err)throw err;
 		if(result.length>0){
-			res.send({code:401,msg:"该手机号手机号被注册过"})
+			res.send({code:402,msg:"该手机号手机号被注册过"})
 		}else{
 			res.send({code:200,msg:"可以注册"})
 		}
@@ -175,8 +172,12 @@ router.get("/usermessage",(req,res)=>{
 		}
 	})
 })
-
-
+//七、退出登录
+router.get("/close",(req,res)=>{
+	req.session.destroy();
+		// res.redirect('/');
+		res.send({code:200,msg:"已注销"})
+})
 
 
 //导出路由器
