@@ -69,7 +69,11 @@ router.get("/selectlunbo",(req,res)=>{
 })
 //评论模块
 router.post("/views",(req,res)=>{
-  var uid=req.session.uid;
+	var uid=req.session.uid;
+	if(!uid){
+		res.send({code:402,msg:"请登录"});
+			return;
+	}
 	if(!uid){
 		res.send({code:402,msg:"请登录"});
 		return;
@@ -93,7 +97,7 @@ router.post("/views",(req,res)=>{
 //查找动态评论
 router.get("/viewsdetail",(req,res)=>{
 	var iid=req.query.tid;
-	var sql='SELECT * FROM cw_views WHERE iid=?';
+	var sql='SELECT vid,uid,uname,vcotnet,vtime,vicon FROM cw_views WHERE iid=?';
 	pool.query(sql,[iid],(err,result)=>{
 		if(err) throw err;
 		if(result.length>0){
@@ -108,7 +112,7 @@ router.get("/viewsdetail",(req,res)=>{
 //查看动态详情页
 router.get("/detailstory",(req,res)=>{
 	var tid=req.query.tid;
-	console.log("tid:"+tid)
+	// console.log("tid:"+tid)
 	var sql="SELECT ttitle,tsmtitle,ttxt,t_img,taddress,tuname,uid FROM cw_text WHERE tid=?";
 	pool.query(sql,[tid],(err,result)=>{
 		if(err)throw err;
@@ -127,7 +131,7 @@ router.get("/detailstory",(req,res)=>{
 			res.send({code:402,msg:"请登录"});
 			return;
 		}
-		var sql="SELECT * FROM cw_text WHERE uid=?";
+		var sql="SELECT tid,ttitle,tsmtitle,tuname,taddress,ttxt,t_img FROM cw_text WHERE uid=?";
 		pool.query(sql,[uid],(err,result)=>{
 			if(err)throw err;
 				if(result.length>0){

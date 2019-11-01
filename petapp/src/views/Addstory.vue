@@ -55,16 +55,20 @@ import Navbar from "../components/Navbar"
                 // })
             } ,
             onClickRight(file) {
-                console.log(file.file);
+                // console.log(file.file);
                 var ttitle=this.title;
                 var tsmtitle=this.subtitle;
                 var ttxt=this.article;
-                var t_img='cat08.jpg';//测试数据
-                
+                var t_img='cat08.jpg';
+                if(ttxt==""){
+                    this.$toast("内容不能为空");
+                    return;
+                }
                 var obj={ttitle,tsmtitle,ttxt,t_img}
                 var url="news/updatamessagelist"
                 this.axios.post(url,qs.stringify(obj)).then(res=>{
-                console.log(res);  
+                // console.log(res); 
+                this.$toast("发布成功!")
                 if(res.data.code==402){
                     this.$toast("请登录");
                     this.$router.push("/Login")
