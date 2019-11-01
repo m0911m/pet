@@ -88,7 +88,8 @@ export default {
   position:relative;
   width:100%;
   height:100%;
-  filter: blur(5px);
+  filter: blur(3px);
+  opacity:0.8;
 }
 /* logo */
 .logostyle{
