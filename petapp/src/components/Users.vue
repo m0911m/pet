@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 用户发布故事组件 -->
-    <div class="dynstyle" v-for="(item,i) of userlist" :key ="i">
+    <div class="dynstyle" v-for="(item,i) of userlist" :key ="i" @click="detail(item.iid)">
       <!-- 上面的图片和图片上的内容 -->
       <div class="upstyle">
          <img class="bgstyle" :src="'http://127.0.0.1:5050/'+userlist[i].i_img" alt="">
@@ -36,7 +36,13 @@ export default {
   },
   props:{
     userlist:{default:[]}
-  }
+  },
+  methods: {
+    detail(iid){
+      // console.log(iid)
+      this.$router.push(`/DetailIndex/${iid}`)
+    }
+  },
 }
 </script>
 <style scoped>

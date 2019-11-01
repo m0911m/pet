@@ -3,34 +3,31 @@
         <navbar></navbar>
         <!-- 头部 -->
         <van-nav-bar title="添加动态"  right-text="发布" @click-right="onClickRight"/>
-
         <!-- 输入文本 -->
         <van-cell-group>
             <van-field v-model="title" placeholder="标题"/>
             <van-field v-model="subtitle" placeholder="副标题" style="font-size:12px"/>
             <van-field v-model="article" placeholder="讲述我和它们的故事......"/>
         </van-cell-group>
-
         <!-- 上传图片 -->
         <van-uploader :after-read="afterRead" v-model="fileList" multiple :max-count="6"/>
         <!-- :max-count="6"  最多可上传6张图片 -->
-
         <!-- 所在位置 -->
         <div class="localtion" onclick="position">
             <div>
                 <van-icon name="location-o" class="iconStyle"/>
                 <span class="local">所在位置</span>
-                <!-- <map></map> -->
             </div>
             <van-icon name="arrow" />
-        </div>    
+        </div> 
+        <map></map>   
     </div>
 </template>
 <script>
 import qs from "qs"
 // 引入底部导航栏
 import Navbar from "../components/Navbar"
-// import Map from './map'
+import Map from './map'
     export default {  
         data(){
             return {
@@ -43,7 +40,7 @@ import Navbar from "../components/Navbar"
         },
         components:{
             "navbar":Navbar,
-            // "map":Map
+            "map":Map
         },
         methods: {
             afterRead(file) {
@@ -54,7 +51,7 @@ import Navbar from "../components/Navbar"
                 // this.axios.post('图片上传地址',data)
                 // .then((res) => {
                 //     let datas = res.data.datas.path;
-                //     this.msg.hallImg.push(`api地址${datas}`);
+                //     this.msg.fileList.push(`api地址${datas}`);
                 // })
             } ,
             onClickRight(file) {

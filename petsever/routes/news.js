@@ -120,5 +120,35 @@ router.get("/detailstory",(req,res)=>{
 	})
 	});
 
+	// 查看用户个人动态
+	router.get("/ownstory",(req,res)=>{
+		var uid=req.session.uid;
+		if(!uid){
+			res.send({code:402,msg:"请登录"});
+			return;
+		}
+		var sql="SELECT * FROM cw_text WHERE uid=?";
+		pool.query(sql,[uid],(err,result)=>{
+			if(err)throw err;
+				if(result.length>0){
+					res.send({code:200,msg:"查询成功",data:result})
+				}else{
+					res.send({code:401,msg:"查询失败"})
+				}
+		})
+	})
 
+	// 首页故事详情
+	router.get("/detailindex",(req,res)=>{
+		var iid=req.query.iid;
+		var sql="SELECT uid,ititle,iuname,ismtitle,itxt,itime,i_img,i_icon FROM cw_sindex WHERE iid=?";
+		pool.query(sql,[iid],(err,result)=>{
+			if(err)throw err;
+				if(result.length>0){
+					res.send({code:200,msg:"查询成功",data:result})
+				}else{
+					res.send({code:401,msg:"查询失败"})
+				}
+		})
+	})
 module.exports=router;
