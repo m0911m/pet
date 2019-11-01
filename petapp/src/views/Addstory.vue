@@ -20,14 +20,14 @@
             </div>
             <van-icon name="arrow" />
         </div> 
-        <map></map>   
+        <!-- <map></map>    -->
     </div>
 </template>
 <script>
 import qs from "qs"
 // 引入底部导航栏
 import Navbar from "../components/Navbar"
-import Map from './map'
+// import Map from './map'
     export default {  
         data(){
             return {
@@ -40,7 +40,7 @@ import Map from './map'
         },
         components:{
             "navbar":Navbar,
-            "map":Map
+            // "map":Map
         },
         methods: {
             afterRead(file) {
