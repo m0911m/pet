@@ -1,6 +1,12 @@
 <template>
   <div class="amap-page-container">
-    <div :style="{width:'100%',height:'40rem'}">
+    <div class="head">
+      <van-button class="back" @click="back">
+        <van-icon name="arrow-left" />
+      </van-button>
+    </div>
+    <div class="blank"></div>
+    <div :style="{width:'100%',height:'30rem'}">
       <el-amap vid="amap" :plugin="plugin" class="amap-demo" :center="center">
       </el-amap>
     </div>
@@ -10,6 +16,22 @@
 <style>
   .amap-demo {
     height: 300px;
+  }
+  .head{
+    background: #FBC02D;
+    width: 100%;
+    height: 4rem;
+    position: fixed;
+    line-height: 4rem;
+    z-index: 10;
+  }
+  .back{
+    background-color: rgba(0, 0, 0, 0) !important;
+    border: 0 !important;
+    height: 4rem;
+  }
+  .blank{
+    height: 4rem;
   }
 </style>
 <script>
@@ -50,6 +72,11 @@ export default {
               }
             }]
           }
-        }
+        },
+        methods: {
+           back(){
+            this.$router.back();
+            },
+        },
    }
 </script>

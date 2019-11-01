@@ -14,10 +14,10 @@
         <!-- :max-count="6"  最多可上传6张图片 -->
         <!-- 所在位置 -->
         <div class="localtion" onclick="position">
-            <div>
+            <label @click="map">
                 <van-icon name="location-o" class="iconStyle"/>
                 <span class="local">所在位置</span>
-            </div>
+            </label>
             <van-icon name="arrow" />
         </div> 
         <!-- <map></map>    -->
@@ -43,6 +43,9 @@ import Navbar from "../components/Navbar"
             // "map":Map
         },
         methods: {
+            map(){
+                this.$router.push("/Map");
+            }, 
             afterRead(file) {
                 // 此时可以自行将文件上传至服务器
                 // let content = file.file;

@@ -11,7 +11,7 @@ import Petmessage from './views/Petmessage.vue'
 // 引入动态组件
 import Newstory from './views/Newstory.vue'
 //引入地图组件
-import Map from './views/map.vue'
+import Map from './views/Map.vue'
 //引入宠物品种组件
 import Kind from './views/Kind.vue'
 // 引入动态详情组件

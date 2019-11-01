@@ -13,7 +13,8 @@ usex BOOLEAN, #用户性别
 uage INT,     #用户年龄
 uconstellation BIGINT,#星座
 ujob VARCHAR(30),#用户职位
-uadderss VARCHAR(128)#用户地址
+uadderss VARCHAR(128),#用户地址
+u_img VARCHAR(128)#用户头像
 );
 /**宠物信息表**/
 CREATE TABLE cw_animal(
@@ -93,7 +94,7 @@ CREATE TABLE cw_views(
 /**数据导入**/
 /**用户信息**/
 INSERT INTO cw_user VALUES
-(null,'tom','12345678','13370358620','0','18','128800','工程师','西安'),
+(null,'tom','12345678','13312345678','0','18','128800','工程师','西安'),
 (null,'jack','12345678','13301234567','0','18','128800','工程师','北京');
 
 /**宠物寄养信息导入**/

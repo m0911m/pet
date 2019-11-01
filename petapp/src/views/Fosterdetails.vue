@@ -32,7 +32,7 @@
         <van-col class="baozhang">线上支付、退款自由</van-col>
       </van-cell>
     </van-cell-group>
-<van-grid>
+<van-grid class="down">
   <van-grid-item  :icon="require('../../public/imgs/house2.png')" text="别墅" />
   <van-grid-item  :icon="require('../../public/imgs/fangzi.png')" text="140平米" />
   <van-grid-item  :icon="require('../../public/imgs/yangtai.png')" text="3室2厅" />
@@ -43,7 +43,7 @@
   <van-grid-item  :icon="require('../../public/imgs/jiaotongbianli.png')" text="交通便利" />
 </van-grid>
 
-    <van-goods-action>
+    <van-goods-action class="footer">
       <van-goods-action-icon icon="chat-o">
         客服
       </van-goods-action-icon>
@@ -130,6 +130,13 @@ export default {
     line-height: 4rem;
     z-index: 11;
   }
+  .footer{
+    position: fixed;
+    z-index: 12;
+  }
+  .down{
+    margin-bottom:3rem;
+  }
   .back{
     background-color: rgba(0, 0, 0, 0);
     border: 0;
@@ -140,7 +147,7 @@ export default {
   }
 
   .lunbo{
-    height: 20rem;
+    height: 18rem;
     width: 100%;
   }
   .leftimg{
