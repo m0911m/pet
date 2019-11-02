@@ -199,7 +199,7 @@
       <div class="textleft">宠物简介</div>
       <!-- 简介输入框 -->
       <div class="textleft">
-        <textarea cols="36" rows="8" placeholder="这是我的宠物"></textarea>
+        <textarea class="textarea" placeholder="这是我的宠物"></textarea>
       </div>
     </div>
     <div class="msgsave">
@@ -437,5 +437,9 @@ export default {
     border:1px solid transparent;
     border-radius: 50%;
     overflow: hidden;
+  }
+  .textarea{
+    width: 98%;
+    height: 100px;
   }
 </style>

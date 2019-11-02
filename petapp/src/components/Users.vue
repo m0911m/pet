@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bottom">
     <!-- 用户发布故事组件 -->
     <div class="dynstyle" v-for="(item,i) of userlist" :key ="i" @click="detail(item.iid)">
       <!-- 上面的图片和图片上的内容 -->
@@ -46,6 +46,9 @@ export default {
 }
 </script>
 <style scoped>
+.bottom{
+  margin-bottom:3.125rem;
+}
 .dynstyle{
   box-sizing: border-box;
   margin:1rem 0;
@@ -89,6 +92,7 @@ export default {
 /* 用户头像 */
 .imgstyle{
   width:2.3rem;
+  height:2.3rem;
   border-radius: 50%;
   position:absolute;
   right:1rem;
@@ -102,7 +106,7 @@ export default {
 /* 小标题 */
 .subtitle{
   font:bold 0.05rem 楷体;
-  color:#d6d6d6;
+  color:#3B3B3B;
 }
 /* 用户昵称 */
 .userstyle{
@@ -112,7 +116,7 @@ export default {
 }
 /* 段落 */
 .paragstyle{
-  font:0.8rem 楷体;
+  font-size:0.8rem;
     text-overflow: ellipsis;
     overflow: hidden;
     display: -webkit-box;

@@ -149,7 +149,7 @@ import Navbar from '../components/Navbar'
   text-align: center;
   line-height: 50px;
   color:#000;
-  margin-top: 20px;
+  margin-top: 26px;
   overflow: hidden;
   background:#f7bf25;
 }

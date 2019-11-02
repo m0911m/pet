@@ -31,18 +31,24 @@ router.get("/fosterhome",(req,res)=>{
 	})
 })
 //三、搜索家庭
-router.get("/searchhome",(req,res)=>{
-	var faddress=req.query.faddress;
-	console.log(faddress);
-	var sql=`SELECT fid,ftitle,fprice,fscore,fisonbuy,f_length,faddress,f_img,f_uimg,uid FROM cw_foster WHERE faddress LIKE "%${faddress}%"`;
-	pool.query(sql,(err,result)=>{
-		if(err)throw err;
-		if(result.length>0){
-			res.send({code:200,msg:"查询成功",data:result})
-		}else{
-			res.send({code:401,msg:"查询失败"})
-		}
-	})
+router.post("/searchhome",(req,res)=>{
+	var faddress=req.body.faddress;
+	// console.log(faddress);
+	if(faddress===undefined){
+		var sql="SELECT fid,ftitle,fprice,fscore,fisonbuy,f_length,faddress,f_img,f_uimg,uid FROM cw_foster";
+	}else{
+		var sql=`SELECT fid,ftitle,fprice,fscore,fisonbuy,f_length,faddress,f_img,f_uimg,uid FROM cw_foster WHERE faddress LIKE "%${faddress}%"`;
+	}
+		// console.log(faddress);
+		pool.query(sql,(err,result)=>{
+			if(err)throw err;
+			if(result.length>0){
+				res.send({code:200,msg:"查询成功",data:result})
+			}else{
+				res.send({code:401,msg:"查询失败"})
+			}
+		})
+	
 })
 //四、购物车模块
 router.get("/addcart",(req,res)=>{

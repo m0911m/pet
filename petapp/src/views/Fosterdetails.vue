@@ -11,7 +11,6 @@
         <img :src="'http://127.0.0.1:5050/'+item.f_img"  class="lunbo">
       </van-swipe-item>
     </van-swipe>
-
     <van-cell-group>
       <van-cell >
         <div class="group">
@@ -23,7 +22,6 @@
               <span class="score">评分:{{item.fscore}}</span>
               <span class="price">价格:￥{{item.fprice}}</span>
             </div>
-
           </div>
           <div class="message">个人资料</div>
         </div>
@@ -60,8 +58,8 @@
     </van-goods-action>
     </div>
   </div>
+</div>
 </template>
-
 <script>
 
 export default {
@@ -75,6 +73,10 @@ export default {
   props:["fid"],
   created() {
     this.londMore();
+  },
+  beforeRouteLeave (to, from, next) {
+    to.meta.keepAlive=true;
+    next();
   },
   methods: {
     jumpCart(){
@@ -103,8 +105,7 @@ export default {
     var fid=this.fid
     var url="foster/fosterhome";
     var obj={fid};
-    this.axios.get(url,
-     {params:obj}).then(res=>{
+    this.axios.get(url,{params:obj}).then(res=>{
       this.list=res.data.data
      }) 
     },
@@ -112,7 +113,6 @@ export default {
       return '¥' + (this.goods.price / 100).toFixed(2);
     },
     onClickCart() {
-      this.$router.push('cart');
     },
     back(){
       this.$router.back()

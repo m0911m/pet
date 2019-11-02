@@ -22,7 +22,7 @@ import Nav from './views/Nav.vue'
 import Petcircle from './views/Petcircle.vue'
 // 引入寄养家庭组件
 import Foster from './components/Foster.vue'
-//引入注册页
+// 引入注册页
 import Reg from './views/Reg.vue'
 // 引入发现页面
 import Find from './views/Find.vue'
@@ -36,7 +36,7 @@ import Message from './views/Message.vue'
 import Announcement from './views/Announcement.vue'
 // 客服消息页
 import Service from './views/Service.vue'
-// 我的 页面
+// 我的页面
 import Mine from './views/Mine.vue'
 //寄养家庭详情页
 import Fosterdetails from './views/Fosterdetails.vue'
@@ -47,12 +47,15 @@ import Mystory from './views/Mystory.vue'
 // 首页故事详情组件
 import DetailIndex from './views/DetailIndex.vue'
 
+// import Apply from './views/Apply.vue'
+
 
 Vue.use(Router)
 
 
 export default new Router({
   routes: [
+    // {path:"/Apply",component:Apply},
     {path:"/DetailIndex/:iid",component:DetailIndex,props:true},
     {path:"/Cart",component:Cart},
     {path:"/Mystory",component:Mystory},
@@ -63,6 +66,7 @@ export default new Router({
     {path:"/Service",component:Service},
     {path:"/Announcement",component:Announcement},
     {path:"/Message",component:Message},
+    {path:"/Details/:faddress",component:Details,props:true,meta:{keepAlive:true}},
     {path:"/Details",component:Details},
     {path:'/Foster',component:Foster},
     {path:'/Find',component:Find},

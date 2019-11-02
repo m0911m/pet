@@ -2,19 +2,19 @@
   <div class="login">
     <!-- 背景的图片 -->
     <img class="imgstyle" :src="require('../../public/imgs/bg1.jpg')" alt="">
-    <!-- logo图片 -->
-    <van-image class="logostyle" :src="require('../../public/imgs/logo.jpg')"/>
    <!-- 输入框 -->
    <van-cell-group class="inputstyle">
+    <!-- logo图片 -->
+    <van-image class="logostyle" :src="require('../../public/imgs/logo.jpg')"/>
     <van-field class="unamestyle" autofocus="autofocus" v-model="uphone" label="用户名:" clearable placeholder="请输入用户名/手机号"></van-field>
     <van-field class="upwdstyle" v-model="upwd" label="密码:" clearable type="password" placeholder="请输入密码"></van-field>
      <!-- 登录按钮 -->
      <van-button class="loginstyle" @click="login">登录</van-button>
       <van-popup  position="top">{{msg}}</van-popup>
-    </van-cell-group>
     <div class="textstyle">您还没有账号?
       <router-link class="jumpstyle" :to="{path:'/Reg'}">注册</router-link>
     </div>
+    </van-cell-group>
   </div>
 </template>
 <script>
@@ -67,7 +67,7 @@ export default {
       }
       })
       .catch(function (error) {
-      console.log(error);
+      // console.log(error);
       });
     }
   }
@@ -97,7 +97,7 @@ export default {
   top:0;
   left:0;
   width:3.75rem;
-  top:20%;
+  top:-6.25rem;
   left: 50%;
   margin-left:-1.33rem;
 }
@@ -139,7 +139,7 @@ export default {
 .textstyle{
   width:100%;
   position:absolute;
-  bottom:30%;
+  top:14rem;
   color:#101010;
   font-weight:bold;
 }

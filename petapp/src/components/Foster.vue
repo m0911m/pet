@@ -23,7 +23,7 @@
       <mt-badge size="small" color="#353535">家庭</mt-badge>
       <!-- 昵称 -->
       <span class="namestyle">{{homelist[i].ftitle}}</span>
-      <span class="gradestyle">评分<a href="" class="scorestyle">{{homelist[i].fid}}</a></span>
+      <span class="gradestyle">评分<a href="" class="scorestyle">{{homelist[i].fscore}}</a></span>
     </div>
     <div class="addstyle">
       <span class="icon"><img :src="require('../../public/imgs/family_icon.png')" alt=""></span>

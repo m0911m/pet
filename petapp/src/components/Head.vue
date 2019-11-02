@@ -6,7 +6,7 @@
         <van-icon name="arrow-left" class="iconstyle"></van-icon>
         </mt-button>
       </router-link>
-      <mt-button class="btns"  slot="left" @click="county">
+      <mt-button class="btns"  slot="left">
         <div class="coustyle">
           <p> 西 安 </p>
         </div> 
@@ -31,9 +31,6 @@ export default {
     jumpmap(){
       this.$router.push({path:"/Map"})
     },
-    county(){
-      console.log(111);
-    }
   }
 }
 </script>
@@ -66,7 +63,7 @@ export default {
   font-size:1rem;
 }
 .mint-header .mint-button{
-  background-color:#f2f2f2;
+  background-color:#FBC02D;
 }
 </style>
 

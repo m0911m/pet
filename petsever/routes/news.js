@@ -33,7 +33,6 @@ pool.query(sql,(err,result)=>{
 router.get("/messagelist",(req,res)=>{
 var sql="SELECT tid,ttitle,tsmtitle,ttxt,t_img,taddress,tuname,uid FROM cw_text";
 pool.query(sql,(err,result)=>{
-	// console.log("终极验证"+req.session.uid)
 	if(err) throw err;
 	if(result.length>0){
 		res.send({code:200,msg:"查询成功",data:result})
@@ -122,7 +121,7 @@ router.get("/detailstory",(req,res)=>{
 				res.send({code:401,msg:"查询失败"})
 			}
 	})
-	});
+});
 
 	// 查看用户个人动态
 	router.get("/ownstory",(req,res)=>{

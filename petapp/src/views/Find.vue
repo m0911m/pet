@@ -4,7 +4,7 @@
     <div class="box">
       <!-- 推荐阅读 -->
       <h4 class="top">推荐阅读</h4>
-      <div class="read" v-for="(item,i) of list" :key="i" @click="details">
+      <div class="read" v-for="(item,i) of list" :key="i">
         <!-- 左侧图片 -->
         <div class="rpic">
           <img :src="require('../../public/imgs/'+item.pic)" alt="" class="pic">
@@ -36,11 +36,7 @@ export default {
       ]
     }
   },
-  methods:{
-    details(){
-      this.$router.push('/Detailstory')
-    }
-  },
+  
   components:{
     "swipe":Swipe
   }

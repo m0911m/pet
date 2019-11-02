@@ -13,7 +13,7 @@
         <van-uploader :after-read="afterRead" v-model="fileList" multiple :max-count="6"/>
         <!-- :max-count="6"  最多可上传6张图片 -->
         <!-- 所在位置 -->
-        <div class="localtion" onclick="position">
+        <div class="localtion">
             <label @click="map">
                 <van-icon name="location-o" class="iconStyle"/>
                 <span class="local">所在位置</span>
@@ -77,10 +77,7 @@ import Navbar from "../components/Navbar"
                     this.$router.push("/Login")
                 }
             })
-        },
-        position(){
-            console.log("定位");
-        },                   
+        },                 
     },        
 }
 </script>

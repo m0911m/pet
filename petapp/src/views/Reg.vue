@@ -3,41 +3,13 @@
     <!-- 背景图片 -->
     <img :src="require('../../public/imgs/bg1.jpg')" alt="" class="imgstyle">
     <div class="container">
+      <van-cell-group class="inputstyle">
         <!-- logo -->
-      <van-image class="logostyle" :src="require('../../public/imgs/logo.jpg')"/>
-        <van-cell-group class="inputstyle">
-      <van-field
-      class="unamestyle"
-        v-model="uphone" 
-        v-on:blur="onblur"
-        label="用户名"
-        placeholder="请输入用户名"
-      />
-      <van-field
-        class="upwdstyle"
-        v-model="upwd"
-        type="password"
-        v-on:blur="pwdonblur"
-        label="密码"
-        placeholder="请输入密码"
-      />
-      <van-field
-        class="apwdstyle"
-        v-model="apwd"
-        type="password"
-        v-on:blur="apwdonblur"
-        label="确认密码"
-        placeholder="请再次输入密码"
-      />
-       <van-field
-       class="umsgstyle"
-        v-model="umsg"
-        center
-        clearable
-        label="短信验证码"
-        placeholder="请输入验证码"
-        disabled
-        >
+        <van-image class="logostyle" :src="require('../../public/imgs/logo.jpg')"/>
+        <van-field class="unamestyle" v-model="uphone" v-on:blur="onblur" label="用户名" placeholder="请输入用户名"/>
+        <van-field class="upwdstyle" v-model="upwd" type="password" v-on:blur="pwdonblur" label="密码" placeholder="请输入密码"/>
+        <van-field class="apwdstyle" v-model="apwd" type="password" v-on:blur="apwdonblur" label="确认密码" placeholder="请再次输入密码"/>
+        <van-field class="umsgstyle" v-model="umsg" center clearable label="短信验证码" placeholder="请输入验证码" disabled>
          <van-button slot="button" size="small" type="primary">发送验证码</van-button>
         </van-field>
       <van-button class="regstyle" @click="reg">注册</van-button>
@@ -191,7 +163,7 @@ export default {
    top:0;
    left:0;
    width:3.75rem;
-   top:20%;
+   top:-6.25rem;
    left: 50%;
    margin-left:-1.33rem;
 }

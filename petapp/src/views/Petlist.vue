@@ -60,7 +60,7 @@ export default {
         var aid=event.target.dataset.aid;
         var url="user/delpetmessage";
         var obj={aid};
-        console.log(obj)
+        // console.log(obj)
         this.axios.get(url,{params:obj})
         .then(res=>{
           // console.log(res);
@@ -69,7 +69,7 @@ export default {
             this.onload(); 
           }
         }).catch(err=>{
-          console.log(err);
+          // console.log(err);
         })
       })
       .catch(err=>{});

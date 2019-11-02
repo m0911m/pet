@@ -10,7 +10,6 @@
       <el-amap vid="amap" :plugin="plugin" class="amap-demo" :center="center">
       </el-amap>
     </div>
-
   </div>
 </template>
 <style>
@@ -59,7 +58,7 @@ export default {
               events: {
                 init(map) {
                   map.getCurrentPosition((status, result) => {
-                    console.log(result)
+                    // console.log(result)
                     if (result && result.position) {
                       self.lng = result.position.lng;
                       self.lat = result.position.lat;

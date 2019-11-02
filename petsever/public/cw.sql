@@ -13,8 +13,7 @@ usex BOOLEAN, #用户性别
 uage INT,     #用户年龄
 uconstellation BIGINT,#星座
 ujob VARCHAR(30),#用户职位
-uadderss VARCHAR(128),#用户地址
-u_img VARCHAR(128)#用户头像
+uadderss VARCHAR(128)#用户地址
 );
 /**宠物信息表**/
 CREATE TABLE cw_animal(
@@ -89,7 +88,6 @@ CREATE TABLE cw_views(
     vtime BIGINT,#发布时间
     vicon VARCHAR(128)#评论者头像
 );
-
 /**###########################**/
 /**数据导入**/
 /**用户信息**/

@@ -58,7 +58,7 @@ import qs from "qs"
                 var obj={tid:tid};
                 var url="news/detailstory"
                 this.axios.get(url,{params:obj}).then(res=>{
-                    console.log(res.data.data);  
+                    // console.log(res.data.data);  
                     this.list=res.data.data;
                 })
             },
@@ -73,11 +73,12 @@ import qs from "qs"
                 // console.log(obj)
                 var url="news/views"
                 this.axios.post(url,qs.stringify(obj)).then(res=>{
-                    console.log(res);  
+                    // console.log(res);  
                     if(res.data.code==402){
                         this.$toast("请登录");
                         this.$router.push("/Login")
                     }
+                    this.loadMore()
                 })
 
             }
